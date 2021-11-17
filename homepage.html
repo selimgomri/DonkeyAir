@@ -20,7 +20,7 @@
                 <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
                 <li class="contact-menu"> <a href="#">Nous contacter</a></li>
             </ul>
-            <a class="login" href="#">✈️ Se connecter</a></li>
+            <a class="login" href="#">✈️ Se connecter</a>
         </nav>
         <div class="banner">
             <img id="bannerplane" src="/media/aircraft.jpg" alt="aircraftimg"/>
@@ -43,8 +43,8 @@
                 </datalist> 
 
                 <label for="choix-retour"></label>
-                <input list="airport" type="text" id="choix-depart" placeholder="Destination">
-                    <datalist id="airport">
+                <input list="airport2" type="text" id="choix-retour" placeholder="Destination">
+                    <datalist id="airport2">
                     <option value="Paris CDG">
                     <option value="London">
                     <option value="Barcelona">
@@ -52,13 +52,13 @@
                 </datalist> 
             
                 <label for="choix-passagers"></label>
-                <input list="airport" type="text" id="choix-depart" placeholder="Nombre de passagers">
+                <input list="airport" type="text" id="choix-passagers" placeholder="Nombre de passagers">
             
                 <label>Aller</label>
-                <input type="date" id="departure-date" name="departure-date" placeholder="Date aller">
+                <input type="date" id="departure-date" name="departure-date" placeholder="2014-09-09">
 
                 <label>Retour</label>
-                <input type="date" id="return-date" name="return-date" placeholder="Date retour">
+                <input type="date" id="return-date" name="return-date" placeholder="2014-09-09">
 
                 <input class="validatebtn" type="submit" value="Rechercher parmi les vols">
             </form>
