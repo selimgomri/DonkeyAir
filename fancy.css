@@ -18,8 +18,8 @@ body {
 .menu-container {
     background-color: #2e2e2e;
     display: flex;
-    justify-content: center;
-    font-size: 25px;
+    justify-content: space-evenly;
+    font-size: 20px;
 }
 
 .menu {
@@ -40,12 +40,6 @@ ul li {
     margin: 0px 20px;
 }
 
-.login {
-    font-size: 12px;
-    margin-top: 50px;
-    text-decoration: underline;
-}
-
 li:hover {
     opacity: 0.5;
 }
@@ -53,6 +47,7 @@ li:hover {
 .logo-container {
     width: 120px;
     height: 120px;
+    z-index: 2;
 }
 
 /* ------- BANNER IMAGE */

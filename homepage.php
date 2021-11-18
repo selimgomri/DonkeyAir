@@ -23,15 +23,15 @@ $result = mysqli_query($connection, $sql) or die("Error " . mysqli_error($connec
 <body>
     <header>
         <nav class="menu-container"> 
-            <div class="logo-container">
+            <span class="logo-container">
                 <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
-            </div>    
+            </span>    
             <ul class="menu">
                 <li class="gerer-menu"> <a href="#">Gérer mes reservations</a></li>
                 <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
                 <li class="contact-menu"> <a href="#">Nous contacter</a></li>
+                <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
-            <a class="login" href="#">✈️ Se connecter</a>
         </nav>
         <div class="banner">
             <img id="bannerplane" src="/media/aircraft.jpg" alt="aircraftimg"/>
