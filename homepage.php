@@ -67,10 +67,10 @@
     <footer>
         <nav>     
             <ul class="footer">
-                <li class="aboutme">A propos de nous</li>
-                <li class="join">Rejoignez le club Donkey Pegasus</li>
+                <li class="aboutUs">A propos de nous</li>
+                <li class="joinTheClub">Rejoignez le club Donkey Pegasus</li>
                 <li class="faq">FAQ</li>
-                <li class="legalmentions">Mentions légales</li>
+                <li class="legalMentions">Mentions légales</li>
             </ul>
         </nav>
     </footer>

@@ -41,8 +41,8 @@ ul li {
 }
 
 
-li:hover {
-    opacity: 0.5;
+a:hover {
+    color: #2962a3;
 }
 
 .logo-container {
@@ -55,7 +55,6 @@ li:hover {
 #bannerplane {
     width: 100%;
     height: auto;
-    z-index: 0;
 }
 
 /* ------- BOX RESERVATION */
@@ -106,7 +105,7 @@ input {
 
 
 .validatebtn {
-    background-color: rgb(93, 189, 101);
+    background-color: #2962a3;
     color: rgb(255, 255, 255);
     font-weight: bolder;
 }
