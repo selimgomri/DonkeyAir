@@ -10,7 +10,7 @@ $connection = mysqli_connect($servername, $username, $password);
 mysqli_select_db($connection, $db);
 
 //fetch data from database
-$sql = "select departureAirport from flight";
+$sql = "SELECT departureAirport FROM flight";
 $result = mysqli_query($connection, $sql) or die("Error " . mysqli_error($connection));
 
 ?>
@@ -61,11 +61,11 @@ $result = mysqli_query($connection, $sql) or die("Error " . mysqli_error($connec
 
                 <label for="choix-retour"></label>
                 <input list="airport2" type="text" id="choix-retour" placeholder="Destination">
-                    <datalist id="airport2">
-                    <option value="Paris CDG">
-                    <option value="London">
-                    <option value="Barcelona">
-                    <option value="Roma">
+                <datalist id="airport2">
+                    <?php while($row = mysqli_fetch_array($result)) { ?>
+                        <option value="<?php echo $row['arrivalAirport']; ?>"><?php echo $row['arrivalAirport']; ?></option>
+                    <?php } ?>
+                    <?php mysqli_close($connection); ?>
                 </datalist> 
             
                 <label for="choix-passagers"></label>
