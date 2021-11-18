@@ -1,11 +1,7 @@
 <?php
 
 // DB CONNECTION
-
 @require_once "dbconnection.php";
-
-$connection = mysqli_connect($servername, $username, $password);
-mysqli_select_db($connection, $db);
 
 //fetch data from database
 $sql = "SELECT departureAirport FROM flight";
