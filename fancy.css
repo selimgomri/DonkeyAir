@@ -19,7 +19,7 @@ body {
     background-color: #2e2e2e;
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .menu {
@@ -40,11 +40,6 @@ ul li {
     margin: 0px 20px;
 }
 
-.login {
-    font-size: 12px;
-    margin-top: 50px;
-    text-decoration: underline;
-}
 
 li:hover {
     opacity: 0.5;
@@ -72,10 +67,23 @@ li:hover {
     background-color: white;
     width: 900px;
     padding: 3rem;
-    transform: translateY(-30%); 
+    transform: translateY(-45%); 
     margin: auto;
 }
 
+.reservation-container-login {
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    background-color: white;
+    width: 900px;
+    padding: 3rem;
+    transform: translateY(); 
+    margin: auto;
+}
+
+.login-box {
+    margin: 5rem;
+}
 
 input {
     margin: 1rem;
@@ -91,8 +99,16 @@ input {
     margin-bottom: 20px;
 }
 
-input .validatebtn {
-    background-color: rgb(168, 74, 168);
+.display-6 {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+
+.validatebtn {
+    background-color: rgb(93, 189, 101);
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
 }
 
 /* ------- FOOTER */
@@ -102,8 +118,8 @@ input .validatebtn {
     justify-content: center;
     color: ivory;
     background-color: #2e2e2e;
-    height: 200px;
-    margin: 0;
+    height: 300px;
+
 }
 
 .footer > li {
