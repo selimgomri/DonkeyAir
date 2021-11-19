@@ -52,7 +52,6 @@ $airports = $statement->fetchAll();
                         <?php echo $departureAirport['departureAirport']; ?>
                     </option>
                     <?php } ?>
-
                 </datalist>
 
                 <label for="choix-retour"></label>
@@ -64,8 +63,12 @@ $airports = $statement->fetchAll();
                         <?php echo $arrivalAirport['arrivalAirport']; ?>
                     </option>
                     <?php } ?>
-
                 </datalist>
+
+                <div id="radioButtons">
+                    <input type="radio" name="oneWayRadio" value="slide1.html"> Aller simple
+                    <input type="radio" name="returnRadio" value="slide2.html"> Aller-retour
+                </div>
 
                 <label for="choix-passagers"></label>
                 <input type="text" id="choix-passagers" placeholder="Nombre de passagers">
