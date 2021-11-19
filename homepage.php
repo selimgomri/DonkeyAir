@@ -4,6 +4,18 @@ $query="SELECT departureAirport, arrivalAirport FROM flight
 ORDER BY departureAirport ASC";
 $statement = $pdo->query($query);
 $airports = $statement->fetchAll();
+
+// creating departure and arrival array with unique airports
+foreach ($airports as $values) {
+    $departureAirports[]=$values['departureAirport'];
+}
+$departureAirports=array_unique($departureAirports);
+foreach ($airports as $values) {
+    $arrivalAirports[]=$values['arrivalAirport'];
+}
+$arrivalAirports=array_unique($arrivalAirports);
+// end of creating departure and arrival array with unique airports
+
 ?>
 
 <!DOCTYPE html>
@@ -44,24 +56,24 @@ $airports = $statement->fetchAll();
                 <h1 class="display-5">Réservez votre vol</h1>
 
                 <label for="choix-depart"></label>
-                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ">
+                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ" name="departureAirport">
                 <datalist id="airport">
 
-                    <?php foreach ($airports as $departureAirport) { ?>
-                    <option value="<?php echo $departureAirport['departureAirport']; ?>">
-                        <?php echo $departureAirport['departureAirport']; ?>
+                    <?php foreach ($departureAirports as $departureAirport) { ?>
+                    <option value="<?php echo $departureAirport; ?>">
+                        <?php echo $departureAirport; ?>
                     </option>
                     <?php } ?>
 
                 </datalist>
 
                 <label for="choix-retour"></label>
-                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination">
+                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination" name="arrivalAirport">
                 <datalist id="airport2">
 
-                    <?php foreach ($airports as $arrivalAirport) { ?>
-                    <option value="<?php echo $arrivalAirport['arrivalAirport']; ?>">
-                        <?php echo $arrivalAirport['arrivalAirport']; ?>
+                    <?php foreach ($arrivalAirports as $arrivalAirport) { ?>
+                    <option value="<?php echo $arrivalAirport; ?>">
+                        <?php echo $arrivalAirport; ?>
                     </option>
                     <?php } ?>
 
@@ -71,10 +83,10 @@ $airports = $statement->fetchAll();
                 <input type="text" id="choix-passagers" placeholder="Nombre de passagers">
 
                 <label>Aller</label>
-                <input type="date" id="departure-date" name="departure-date">
+                <input type="date" id="departure-date" name="departureTime">
 
                 <label>Retour</label>
-                <input type="date" id="return-date" name="return-date">
+                <input type="date" id="return-date">
 
                 <input class="validatebtn" type="submit" value="Rechercher parmi les vols">
             </form>
