@@ -26,7 +26,7 @@
     
     <div class="login-box"> 
         <form class="reservation-container-login" method="post">    
-            <h1 class="display-6">Connexion à votre espace</h1>
+            <h1 class="display-5">Connexion à votre espace</h1>
             <label for="id-email"></label>
             <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
             <label for="password"></label>
