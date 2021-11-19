@@ -28,30 +28,31 @@
     <section>
         <div class="flexbox">
             
-            <form class="reservation-container" method="post">    
+            <form class="reservation-container" method="POST" action="booking.php">    
 
                 <h1 class="display-5">Réservez votre vol</h1>
 
                 <label for="choix-depart"></label>
                 <input list="airport" type="text" id="choix-depart" placeholder="Départ">
                 <datalist id="airport">
-                    <option value="Paris CDG">
-                    <option value="London">
-                    <option value="Barcelona">
-                    <option value="Roma">
+
+                    <?php while($row = mysqli_fetch_array($result)) { ?>
+                        <option value="<?php echo $row['departureAirport']; ?>"><?php echo $row['departureAirport']; ?></option>
+                    <?php } ?>
+                   
                 </datalist> 
 
                 <label for="choix-retour"></label>
-                <input list="airport2" type="text" id="choix-retour" placeholder="Destination">
-                    <datalist id="airport2">
-                    <option value="Paris CDG">
-                    <option value="London">
-                    <option value="Barcelona">
-                    <option value="Roma">
+                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination">
+                <datalist id="airport2">
+                    <?php while($row = mysqli_fetch_array($result)) { ?>
+                        <option value="<?php echo $row['arrivalAirport']; ?>"><?php echo $row['arrivalAirport']; ?></option>
+                    <?php } ?>
+                   
                 </datalist> 
-            
+           
                 <label for="choix-passagers"></label>
-                <input list="airport" type="text" id="choix-passagers" placeholder="Nombre de passagers">
+                <input  type="text" id="choix-passagers" placeholder="Nombre de passagers">
             
                 <label>Aller</label>
                 <input type="date" id="departure-date" name="departure-date">
@@ -63,6 +64,7 @@
             </form>
         </div>
     </section>
+    
     <footer>
         <nav>     
             <ul class="footer">
