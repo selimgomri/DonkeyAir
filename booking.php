@@ -15,7 +15,7 @@ session_start();
 <body>
     <?php
     if ((in_array('', $_POST))) {
-       header("Location: homepage.html");
+       header("Location: homepage.php");
     }
     else {
         $departureAirport=$_POST['departureAirport'];
