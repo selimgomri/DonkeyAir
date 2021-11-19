@@ -34,7 +34,6 @@ session_start();
         $statement->bindValue(':arrivalAirport', $arrivalAirport, \PDO::PARAM_STR);
         $statement->bindValue(':departureTime', $departureTime, \PDO::PARAM_STR);
         
-        
         $statement->execute();
         //end of preparation
 
