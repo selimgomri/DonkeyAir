@@ -15,7 +15,7 @@ session_start();
 <body>
     <?php
     if ((in_array('', $_POST))) {
-        header("Location: homepage.html");
+       header("Location: homepage.html");
     }
     else {
         $departureAirport=$_POST['departureAirport'];
@@ -39,6 +39,10 @@ session_start();
         //end of preparation
 
         $flights = $statement->fetchAll();
+
+        if (empty($flights)) {
+            echo "Pas de résultat";
+        }
 
         foreach($flights as $flights) {
             echo $flights['flightNumber'] . " | " . 
