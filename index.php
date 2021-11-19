@@ -58,7 +58,7 @@ $arrivalAirports=array_unique($arrivalAirports);
                 <h1 class="display-5">Réservez votre vol</h1>
 
                 <label for="choix-depart"></label>
-                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ" name="departureAirport">
+                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ" name="departureAirport" required>
                 <datalist id="airport">
 
                     <?php foreach ($departureAirports as $departureAirport) { ?>
@@ -69,7 +69,7 @@ $arrivalAirports=array_unique($arrivalAirports);
                 </datalist>
 
                 <label for="choix-retour"></label>
-                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination" name="arrivalAirport">
+                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination" name="arrivalAirport" required>
                 <datalist id="airport2">
 
                     <?php foreach ($arrivalAirports as $arrivalAirport) { ?>
@@ -79,17 +79,17 @@ $arrivalAirports=array_unique($arrivalAirports);
                     <?php } ?>
                 </datalist></br>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Retour </strong>
+                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay" checked> <strong> Aller Retour </strong>
 
                 <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Simple </strong> </br>
 
 
                 <label class="datePicker"><strong>Aller</strong></label>
-                <input type="date" id="departure-date" name="departureTime">
+                <input type="date" id="departure-date" name="departureTime" required>
 
                 <span id="ifChecked" style="visibility:visible">
                     <label><strong>Retour</strong></label>
-                    <input type="date" id="return-date">
+                    <input type="date" id="return-date" name="returnDate">
                 </span>
                 <span class="selectPassengers">
                     <select name="passengers" id="passengers">
