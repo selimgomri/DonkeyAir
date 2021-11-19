@@ -16,8 +16,6 @@ $airports = $statement->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
-    <script src="radiobutton.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Donkey Airlines</title>
 </head>
 
@@ -65,31 +63,18 @@ $airports = $statement->fetchAll();
                         <?php echo $arrivalAirport['arrivalAirport']; ?>
                     </option>
                     <?php } ?>
-                </datalist></br>
+                </datalist>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Retour </strong>
+                <div id="radioButtons">
+                    <input type="radio" name="oneWayRadio" value="oneWay.php" checked> Aller simple
+                    <input type="radio" name="returnRadio" value="homepage.php" checked> Aller-retour
+                </div>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Simple </strong> </br>
+                <label for="choix-passagers"></label>
+                <input type="text" id="choix-passagers" placeholder="Nombre de passagers">
 
-                <label class="datePicker"><strong>Aller</strong></label>
+                <label>Aller</label>
                 <input type="date" id="departure-date" name="departure-date">
-
-                <span id="ifChecked" style="visibility:visible">
-                    <label><strong>Retour</strong></label>
-                    <input type="date" id="return-date" name="return-date">
-                </span>
-                <span class="selectPassengers">
-                    <select name="passengers" id="passengers">
-                        <option value="1">1 passager</option>
-                        <option value="2">2 passagers</option>
-                        <option value="3">3 passagers</option>
-                        <option value="4">4 passagers</option>
-                        <option value="5">5 passagers</option>
-                        <option value="6">6 passagers</option>
-                        <option value="7">7 passagers</option>
-                        <option value="8">8 passagers</option>
-                    </select> 
-                </span>
 
                 <input class="validatebtn" type="submit" value="Rechercher parmi les vols">
             </form>
