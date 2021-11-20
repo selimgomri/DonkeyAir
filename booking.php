@@ -33,7 +33,7 @@ session_start();
             <h1 class="display-7">Effectuez une réservation</h1>
         </div>
         <div class="displayBoxShadow">
-            <div class="reservationContainerLogin">
+            <div class="bookingResultBoxes">
                 <?php
                 if ((''== $_POST['departureAirport'])
                 && (''== $_POST['arrivalAirport'])
@@ -65,22 +65,39 @@ session_start();
                         echo "Aucun vol disponible <br>";
                     }
 
-                    foreach ($flights as $values) {
-                        echo $values['flightNumber'] . " | " .
-                            $values['departureAirport'] . " | " .
-                            $values['arrivalAirport'] . " | " .
-                            $values['departureTime'] . " | " .
-                            $values['arrivalTime'] . " | " .
-                            $values['price'] . " | " .
-                        "<br>";
-                    }
+                    foreach ($flights as $values) { ?>
+                        <span class="resultBox">
+                            <?php
+                                echo $values['flightNumber']
+                            ?>
+                        </span>
+                        <span class="resultBox">
+                            <?php
+                                echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
+                            ?>
+                        </span>
+                        <span class="resultBox">
+                            <?php
+                                echo $values['departureTime']
+                            ?>
+                        </span>
+                        <span class="resultBox">
+                            <?php
+                                echo $values['arrivalTime']
+                            ?>
+                        </span>
+                        <span class="resultBox">
+                            <?php
+                                echo $values['price'] . " € ";
+                    } 
                 }
                 ?>
+                </span>
             </div>
         </div>
 
         <div class="displayBoxShadow">
-            <div class="reservationContainerLogin">
+            <div class="bookingResultBoxes">
                 <?php
 
                 // Display return flights
@@ -107,7 +124,7 @@ session_start();
                     $flights = $statement->fetchAll();
                     echo "VOL RETOUR <br>";
                     if (empty($flights)) {
-                        echo "Pas de résultat <br>";
+                        echo "Aucun vol disponible <br>";
                     }
     
                     foreach ($flights as $values) {

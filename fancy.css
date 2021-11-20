@@ -124,6 +124,24 @@ input {
     margin-left: 30px;
 }
 
+
+/* ------- RESULT BOXES */
+
+.bookingResultBoxes {
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    background-color: white;
+    width: 950px;
+    padding: 3rem;
+    transform: translateY(); 
+    margin: auto;
+}
+
+.resultBox {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 1rem;
+}
+
 /* ------- FOOTER */
 
 .footer {
