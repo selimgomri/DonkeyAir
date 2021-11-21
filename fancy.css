@@ -65,7 +65,7 @@ a:hover {
     background-color: white;
     width: 900px;
     padding: 3rem;
-    transform: translateY(-45%); 
+    transform: translateY(-180%); 
     margin: auto;
 }
 
@@ -75,7 +75,6 @@ a:hover {
     background-color: white;
     width: 900px;
     padding: 3rem;
-    transform: translateY(); 
     margin: auto;
 }
 
@@ -105,8 +104,17 @@ input {
 }
 
 .display-7 {
+    font-weight: bolder;
     text-align: center;
     margin-top: 5rem;
+    color: #2962a3;
+}
+
+.display-8 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: 3rem;
     color: #2962a3;
 }
 
@@ -133,13 +141,33 @@ input {
     background-color: white;
     width: 950px;
     padding: 3rem;
-    transform: translateY(); 
     margin: auto;
+}
+
+.resultBoxIndex {
+    transform: translateY(-300%);
+}
+
+.resultTitles {
+    font-weight: bolder;
+    color: #2962a3;
+    margin-bottom: 1rem;
+}
+
+.flexResults {
+    display: flex;
 }
 
 .resultBox {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 1rem;
+    font-weight: bolder;
+    justify-content: center;
+}
+
+.planeIcon {
+    align-content: center;
+    margin: 2rem;
 }
 
 /* ------- FOOTER */

@@ -28,7 +28,11 @@ session_start();
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
+        <div class="banner">
+            <img id="skyBanner" src="/media/vectorBackground1.svg" alt="backgroundVector" />
+        </div>
     </header>
+    <div class="resultBoxIndex">
         <div class="title">
             <h1 class="display-7">Effectuez une réservation</h1>
         </div>
@@ -59,42 +63,45 @@ session_start();
                     $statement->execute();
                     //end of preparation
 
-                    $flights = $statement->fetchAll();
-                    echo "VOL ALLER <br>";
+                    $flights = $statement->fetchAll(); ?>
+                    <div class="display-8">
+                        <?php
+                    echo "VOLS ALLER";
+                        ?>
+                    </div>
+                    <?php
                     if (empty($flights)) {
                         echo "Aucun vol disponible <br>";
                     }
 
                     foreach ($flights as $values) { ?>
-                        <span class="resultBox">
-                            <?php
-                                echo $values['flightNumber']
-                            ?>
-                        </span>
-                        <span class="resultBox">
-                            <?php
-                                echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
-                            ?>
-                        </span>
-                        <span class="resultBox">
-                            <?php
-                                echo $values['departureTime']
-                            ?>
-                        </span>
-                        <span class="resultBox">
-                            <?php
-                                echo $values['arrivalTime']
-                            ?>
-                        </span>
-                        <span class="resultBox">
-                            <?php
-                                echo $values['price'] . " € ";
-                    } 
-                }
-                ?>
-                </span>
+                        <div class="flexResults">
+                            <div class="resultBox">
+                                <?php
+                                    echo $values['flightNumber']
+                                ?>
+                            </div>
+                            <div class="resultBox"> 
+                                <?php
+                                    echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
+                                ?>
+                            </div>
+                            <div class="resultBox">
+                                <?php
+                                    echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime']
+                                ?>
+                            </div>
+                            <div class="resultBox">
+                                <?php
+                                    echo $values['price'] . " € ";
+                        } 
+                    }
+                    ?>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
@@ -122,7 +129,7 @@ session_start();
                     //end of preparation
 
                     $flights = $statement->fetchAll();
-                    echo "VOL RETOUR <br>";
+                    echo "VOLS RETOUR <br>";
                     if (empty($flights)) {
                         echo "Aucun vol disponible <br>";
                     }

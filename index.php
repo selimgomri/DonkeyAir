@@ -47,7 +47,7 @@ $arrivalAirports=array_unique($arrivalAirports);
             </ul>
         </nav>
         <div class="banner">
-            <img id="bannerplane" src="/media/aircraft.jpg" alt="aircraftimg" />
+            <img id="skyBanner" src="/media/cockpitVector2.svg" alt="backgroundVector" />
         </div>
     </header>
     <main>
