@@ -22,58 +22,90 @@ session_start();
                 <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
             </div>    
             <ul class="menu">
-                <li class="gerer-menu"> <a href="/homepage.php">Réserver un vol</a></li>
+                <li class="gerer-menu"> <a href="/index.php">Réserver un vol</a></li>
                 <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
                 <li class="contact-menu"> <a href="#">Nous contacter</a></li>
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
+        <div class="banner">
+            <img id="skyBanner" src="/media/vectorBackground1.svg" alt="backgroundVector" />
+        </div>
     </header>
+    <div class="resultBoxIndex">
         <div class="title">
             <h1 class="display-7">Effectuez une réservation</h1>
         </div>
         <div class="displayBoxShadow">
-            <div class="reservationContainerLogin">
-            <?php
-            if ((''== $_POST['departureAirport'])
-            && (''== $_POST['arrivalAirport'])
-            && (''== $_POST['departureTime']))  {
-              header("Location: index.php");
-            } else {
-                $departureAirport=$_POST['departureAirport'];
-                $arrivalAirport=$_POST['arrivalAirport'];
-                $departureTime=$_POST['departureTime'];
+            <div class="bookingResultBoxes">
+                <?php
+                if ((''== $_POST['departureAirport'])
+                && (''== $_POST['arrivalAirport'])
+                && (''== $_POST['departureTime']))  {
+                header("Location: index.php");
+                } else {
+                    $departureAirport=$_POST['departureAirport'];
+                    $arrivalAirport=$_POST['arrivalAirport'];
+                    $departureTime=$_POST['departureTime'];
 
-                $query="SELECT flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
-                departureAirport= :departureAirport
-                AND arrivalAirport= :arrivalAirport 
-                AND departureTime>= :departureTime
-                ORDER BY price ASC";
+                    $query="SELECT flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
+                    departureAirport= :departureAirport
+                    AND arrivalAirport= :arrivalAirport 
+                    AND departureTime>= :departureTime
+                    ORDER BY price ASC";
 
-                //preparation PDO
-                $statement = $pdo->prepare($query);
-                $statement->bindValue(':departureAirport', $departureAirport, \PDO::PARAM_STR);
-                $statement->bindValue(':arrivalAirport', $arrivalAirport, \PDO::PARAM_STR);
-                $statement->bindValue(':departureTime', $departureTime, \PDO::PARAM_STR);
+                    //preparation PDO
+                    $statement = $pdo->prepare($query);
+                    $statement->bindValue(':departureAirport', $departureAirport, \PDO::PARAM_STR);
+                    $statement->bindValue(':arrivalAirport', $arrivalAirport, \PDO::PARAM_STR);
+                    $statement->bindValue(':departureTime', $departureTime, \PDO::PARAM_STR);
 
-                $statement->execute();
-                //end of preparation
+                    $statement->execute();
+                    //end of preparation
 
-                $flights = $statement->fetchAll();
-                echo "VOL ALLER <br>";
-                if (empty($flights)) {
-                    echo "Pas de résultat <br>";
-                }
+                    $flights = $statement->fetchAll(); ?>
+                    <div class="display-8">
+                        <?php
+                    echo "VOLS ALLER";
+                        ?>
+                    </div>
+                    <?php
+                    if (empty($flights)) {
+                        echo "Aucun vol disponible <br>";
+                    }
 
-                foreach ($flights as $values) {
-                    echo $values['flightNumber'] . " | " .
-                        $values['departureAirport'] . " | " .
-                        $values['arrivalAirport'] . " | " .
-                        $values['departureTime'] . " | " .
-                        $values['arrivalTime'] . " | " .
-                        $values['price'] . " | " .
-                    "<br>";
-                }
+                    foreach ($flights as $values) { ?>
+                        <div class="flexResults">
+                            <div class="resultBox">
+                                <?php
+                                    echo $values['flightNumber']
+                                ?>
+                            </div>
+                            <div class="resultBox"> 
+                                <?php
+                                    echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
+                                ?>
+                            </div>
+                            <div class="resultBox">
+                                <?php
+                                    echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime']
+                                ?>
+                            </div>
+                            <div class="resultBox">
+                                <?php
+                                    echo $values['price'] . " € ";
+                        } 
+                    }
+                    ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="displayBoxShadow">
+            <div class="bookingResultBoxes">
+                <?php
 
                 // Display return flights
                 if (''!=$_POST['returnDate']) {
@@ -97,9 +129,9 @@ session_start();
                     //end of preparation
 
                     $flights = $statement->fetchAll();
-                    echo "VOL RETOUR <br>";
+                    echo "VOLS RETOUR <br>";
                     if (empty($flights)) {
-                        echo "Pas de résultat <br>";
+                        echo "Aucun vol disponible <br>";
                     }
     
                     foreach ($flights as $values) {
@@ -112,11 +144,10 @@ session_start();
                         "<br>";
                     }
                 }
-            }
-            ?>
-
+                ?>
             </div>
         </div>
+
     <footer>
         <nav>     
             <ul class="footer">

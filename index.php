@@ -47,7 +47,7 @@ $arrivalAirports=array_unique($arrivalAirports);
             </ul>
         </nav>
         <div class="banner">
-            <img id="bannerplane" src="/media/aircraft.jpg" alt="aircraftimg" />
+            <img id="skyBanner" src="/media/aircraft.jpg" alt="backgroundVector" />
         </div>
     </header>
     <main>
@@ -92,6 +92,7 @@ $arrivalAirports=array_unique($arrivalAirports);
                     <input type="date" id="return-date" name="returnDate">
                 </span>
                 <span class="selectPassengers">
+                    <strong> Passagers </strong>
                     <select name="passengers" id="passengers">
                         <option value="1">1 passager</option>
                         <option value="2">2 passagers</option>

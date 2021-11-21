@@ -15,12 +15,15 @@
                 <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
             </div>    
             <ul class="menu">
-                <li class="gerer-menu"> <a href="/homepage.php">Réserver un vol</a></li>
+                <li class="gerer-menu"> <a href="/index.php">Réserver un vol</a></li>
                 <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
                 <li class="contact-menu"> <a href="#">Nous contacter</a></li>
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
+        <div class="banner">
+            <img id="skyBanner" src="/media/vectorBackground2.svg" alt="backgroundVector" />
+        </div>
 
     </header>
     
