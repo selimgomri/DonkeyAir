@@ -21,6 +21,9 @@
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
+        <div class="banner">
+            <img id="skyBanner" src="/media/vectorBackground3.svg" alt="backgroundVector" />
+        </div>
 
     </header>
     
