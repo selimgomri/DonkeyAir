@@ -22,7 +22,7 @@
             </ul>
         </nav>
         <div class="banner">
-            <img id="skyBanner" src="/media/vectorBackground3.svg" alt="backgroundVector" />
+            <img id="skyBanner" src="/media/vectorBackground2.svg" alt="backgroundVector" />
         </div>
 
     </header>
