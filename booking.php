@@ -20,7 +20,7 @@ session_start();
 
 <body>
 
-<?php @require_once 'header.html' ?>
+<?php @require_once 'header.html'?>
 
     <main class="backgroundBooking">
         <h1 class="display-7">Effectuez une réservation</h1>
