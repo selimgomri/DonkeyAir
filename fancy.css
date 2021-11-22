@@ -48,15 +48,17 @@ a:hover {
 .logo-container {
     width: 120px;
     height: 120px;
-    z-index: 2;
+    background-image: url(/media/DA_Logo2-01.svg);
+    background-repeat: no-repeat;
 }
 
 /* ------- BANNER IMAGE */
 
 .backgroundIndex {
-    background-image: url(/media/aircraft.jpg);
+    background-image: url(/media/sunsetSkyline.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: center;
     padding: 6rem;
 }
 

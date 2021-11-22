@@ -34,19 +34,9 @@ $arrivalAirports=array_unique($arrivalAirports);
 </head>
 
 <body>
-    <header>
-        <nav class="menu-container">
-            <div class="logo-container">
-                <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
-            </div>
-            <ul class="menu">
-                <li class="gerer-menu"> <a href="#">Gérer mes reservations</a></li>
-                <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
-                <li class="contact-menu"> <a href="#">Nous contacter</a></li>
-                <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
-            </ul>
-        </nav>
-    </header>
+
+<?php @require_once 'header.html' ?>
+
     <main class="backgroundIndex">
         <div class="flexbox">
 

@@ -9,19 +9,9 @@
     <title>Donkey Airlines</title>
 </head>
 <body>
-    <header>
-        <nav class="menu-container"> 
-            <div class="logo-container">
-                <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
-            </div>    
-            <ul class="menu">
-                <li class="gerer-menu"> <a href="/index.php">Réserver un vol</a></li>
-                <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
-                <li class="contact-menu"> <a href="#">Nous contacter</a></li>
-                <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
-            </ul>
-        </nav>
-    </header>
+
+<?php @require_once 'header.html' ?>
+
     <main class="backgroundLogin">
         <div> 
             <form class="reservationContainerLogin" method="post">    
@@ -34,15 +24,8 @@
             </form>
         </div>
     </main>
-    <footer>
-        <nav>     
-            <ul class="footer">
-                <li class="aboutme">A propos de nous</li>
-                <li class="join">Rejoignez le club Donkey Pegasus</li>
-                <li class="faq">FAQ</li>
-                <li class="legalmentions">Mentions légales</li>
-            </ul>
-        </nav>
-    </footer>
+
+<?php @require_once 'footer.html' ?>
+
 </body>
 </html>
