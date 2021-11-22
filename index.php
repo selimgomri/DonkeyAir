@@ -98,16 +98,8 @@ $arrivalAirports=array_unique($arrivalAirports);
         </div>
     </main>
 
-    <footer>
-        <nav>
-            <ul class="footer">
-                <li class="aboutUs">A propos de nous</li>
-                <li class="joinTheClub">Rejoignez le club Donkey Pegasus</li>
-                <li class="faq">FAQ</li>
-                <li class="legalMentions">Mentions légales</li>
-            </ul>
-        </nav>
-    </footer>
+<?php @require_once 'footer.html' ?>
+
 </body>
 
 </html>

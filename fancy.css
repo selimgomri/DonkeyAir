@@ -181,18 +181,25 @@ input {
 
 .flexResults {
     display: flex;
+    text-align: center;
 }
 
-.resultBox, #togglePackageButton {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+.resultBox {
+    background-color: #f1f1f1;
+    border-radius: 10px;
     padding: 1rem;
+    margin: 3px;
+    font-weight: bolder;
+}
+
+#togglePackageButton {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    background-color: #e1efff;
+    padding: 1rem;
+    margin-left: 5px;
+    border-radius: 5px;
     font-weight: bolder;
     justify-content: center;
-}
-
-.planeIcon {
-    align-content: center;
-    margin: 2rem;
 }
 
 /* ------- FOOTER */
@@ -203,7 +210,7 @@ input {
     color: ivory;
     background-color: #2e2e2e;
     height: 300px;
-
+    margin-bottom: 0px;
 }
 
 .footer > li {
