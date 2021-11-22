@@ -46,11 +46,8 @@ $arrivalAirports=array_unique($arrivalAirports);
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
-        <div class="banner">
-            <img id="skyBanner" src="/media/aircraft.jpg" alt="backgroundVector" />
-        </div>
     </header>
-    <main>
+    <main class="backgroundIndex">
         <div class="flexbox">
 
             <form class="reservation-container" method="POST" action="booking.php">

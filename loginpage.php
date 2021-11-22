@@ -21,24 +21,19 @@
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
-        <div class="banner">
-            <img id="skyBanner" src="/media/vectorBackground2.svg" alt="backgroundVector" />
-        </div>
-
     </header>
-    
-    <div class="displayBoxShadow"> 
-        <form class="reservationContainerLogin" method="post">    
-            <h1 class="display-5">Connexion à votre espace</h1>
-            <label for="id-email"></label>
-            <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
-            <label for="password"></label>
-            <input type="password" id="password" placeholder="Mot de passe">
-            <input class="validatebtn" type="submit" value="Accéder à mon espace">
-        </form>
-    </div>
-
-
+    <main class="backgroundLogin">
+        <div> 
+            <form class="reservationContainerLogin" method="post">    
+                <h1 class="display-5">Connexion à votre espace</h1>
+                <label for="id-email"></label>
+                <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
+                <label for="password"></label>
+                <input type="password" id="password" placeholder="Mot de passe">
+                <input class="validatebtn" type="submit" value="Accéder à mon espace">
+            </form>
+        </div>
+    </main>
     <footer>
         <nav>     
             <ul class="footer">

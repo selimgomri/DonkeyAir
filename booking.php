@@ -12,6 +12,9 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>      
+    <script src="radiobutton.js"></script>
     <title>Flight results</title>
 </head>
 
@@ -28,14 +31,9 @@ session_start();
                 <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
             </ul>
         </nav>
-        <div class="banner">
-            <img id="skyBanner" src="/media/vectorBackground1.svg" alt="backgroundVector" />
-        </div>
     </header>
-    <div class="resultBoxIndex">
-        <div class="title">
-            <h1 class="display-7">Effectuez une réservation</h1>
-        </div>
+    <main class="backgroundBooking">
+        <h1 class="display-7">Effectuez une réservation</h1>
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <?php
@@ -91,17 +89,17 @@ session_start();
                                     echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime']
                                 ?>
                             </div>
-                            <div class="resultBox">
+                            <button id="togglePackageButton">
                                 <?php
                                     echo $values['price'] . " € ";
                         } 
                     }
                     ?>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
