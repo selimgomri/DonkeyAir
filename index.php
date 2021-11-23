@@ -1,21 +1,9 @@
 <?php
 @include 'connectDB.php';
-$query="SELECT departureAirport, arrivalAirport FROM flight
-ORDER BY departureAirport ASC";
+$query="SELECT id, airport_name, airport_city FROM airport ORDER BY airport_city ASC";
 $statement = $pdo->query($query);
 $airports = $statement->fetchAll();
-
-// creating departure and arrival array with unique airports
-foreach ($airports as $values) {
-    $departureAirports[]=$values['departureAirport'];
-}
-$departureAirports=array_unique($departureAirports);
-foreach ($airports as $values) {
-    $arrivalAirports[]=$values['arrivalAirport'];
-}
-$arrivalAirports=array_unique($arrivalAirports);
-// end of creating departure and arrival array with unique airports
-
+var_dump($airports);
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +22,7 @@ $arrivalAirports=array_unique($arrivalAirports);
 </head>
 
 <body>
-
-<?php @require_once 'header.html' ?>
-
+    <?php @require_once 'header.html' ?>
     <main class="backgroundIndex">
         <div class="flexbox">
 
@@ -45,30 +31,39 @@ $arrivalAirports=array_unique($arrivalAirports);
                 <h1 class="display-5">Réservez votre vol</h1>
 
                 <label for="choix-depart"></label>
-                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ" name="departureAirport" required>
+                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ"
+                    name="departureAirport" required>
                 <datalist id="airport">
 
-                    <?php foreach ($departureAirports as $departureAirport) { ?>
-                    <option value="<?php echo $departureAirport; ?>">
-                        <?php echo $departureAirport; ?>
-                    </option>
+                    <?php foreach ($airports as $airport) { ?>
+                        <option value="<?php 
+                        
+                        foreach ($airport as $departureAirport) {
+                            echo $departureAirport . " ";
+                        }
+                        ?>">
+                        </option>
                     <?php } ?>
+
                 </datalist>
 
                 <label for="choix-retour"></label>
-                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination" name="arrivalAirport" required>
+                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination"
+                    name="arrivalAirport" required>
                 <datalist id="airport2">
 
-                    <?php foreach ($arrivalAirports as $arrivalAirport) { ?>
+                    <?php foreach ($airports as $arrivalAirport) { ?>
                     <option value="<?php echo $arrivalAirport; ?>">
                         <?php echo $arrivalAirport; ?>
                     </option>
                     <?php } ?>
                 </datalist></br>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay" checked> <strong> Aller Retour </strong>
+                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton"
+                    id="oneWay" checked> <strong> Aller Retour </strong>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Simple </strong> </br>
+                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton"
+                    id="oneWay"> <strong> Aller Simple </strong> </br>
 
 
                 <label class="datePicker"><strong>Aller</strong></label>
@@ -89,7 +84,7 @@ $arrivalAirports=array_unique($arrivalAirports);
                         <option value="6">6 passagers</option>
                         <option value="7">7 passagers</option>
                         <option value="8">8 passagers</option>
-                    </select> 
+                    </select>
                 </span>
 
 
@@ -98,7 +93,7 @@ $arrivalAirports=array_unique($arrivalAirports);
         </div>
     </main>
 
-<?php @require_once 'footer.html' ?>
+    <?php @require_once 'footer.html' ?>
 
 </body>
 

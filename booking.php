@@ -36,7 +36,7 @@ session_start();
                         $arrivalAirport=$_POST['arrivalAirport'];
                         $departureTime=$_POST['departureTime'];
 
-                        $query="SELECT flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
+                        $query="SELECT flight_number, airport_id, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
                         departureAirport= :departureAirport
                         AND arrivalAirport= :arrivalAirport 
                         AND departureTime>= :departureTime
