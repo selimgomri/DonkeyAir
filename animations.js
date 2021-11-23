@@ -1,5 +1,4 @@
 
-
 const oneWayReturn = () => {
   if (document.getElementById("oneWay").checked) {
     document.getElementById("ifChecked").style.visibility = "visible";
@@ -16,6 +15,14 @@ toggle.addEventListener("click", () => {
   }
 }) */
 
-$( document ).click(function() {
-  $( "#packageResult" ).toggle( "blind" );
+console.log("toto");
+
+$( document ).ready(function() {
+  $( "#togglePackageButton" ).click(function() {
+    $( ".packageResults" ).toggle( "blind" );
+  });
+  console.log( "ready!" );
 });
+
+
+

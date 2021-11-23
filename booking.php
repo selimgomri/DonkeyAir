@@ -12,9 +12,6 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>      
-    <script src="radiobutton.js"></script>
     <title>Flight results</title>
 </head>
 
@@ -84,6 +81,7 @@ session_start();
                                         echo $values['price'] . " € ";
                                     ?>
                                 </button> 
+                                <div class="packageResults">TEST</div>
                             </div> <br/> 
                         <?php
                         } 
@@ -160,6 +158,11 @@ session_start();
     </main>
 
 <?php @require_once 'footer.html' ?>
+
+
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="animations.js"></script>
 
 </body>
 
