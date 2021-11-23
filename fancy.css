@@ -13,6 +13,7 @@ body, html {
 
 body {
     font-family:"Nunito", sans-serif;
+    z-index: -1;
 }
 
 .menu-container {
@@ -47,14 +48,32 @@ a:hover {
 .logo-container {
     width: 120px;
     height: 120px;
-    z-index: 2;
+    background-image: url(/media/DA_Logo2-01.svg);
+    background-repeat: no-repeat;
 }
 
 /* ------- BANNER IMAGE */
 
-#bannerplane {
-    width: 100%;
-    height: auto;
+.backgroundIndex {
+    background-image: url(/media/sunsetSkyline.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    padding: 6rem;
+}
+
+.backgroundLogin {
+    background-image: url(/media/vectorBackground1.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10rem;
+}
+
+.backgroundBooking {
+    background-image: url(/media/vectorBackground2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6rem;
 }
 
 /* ------- BOX RESERVATION */
@@ -65,7 +84,6 @@ a:hover {
     background-color: white;
     width: 900px;
     padding: 3rem;
-    transform: translateY(-60%); 
     margin: auto;
 }
 
@@ -75,7 +93,6 @@ a:hover {
     background-color: white;
     width: 900px;
     padding: 3rem;
-    transform: translateY(-400%); 
     margin: auto;
 }
 
@@ -107,7 +124,6 @@ input {
 .display-7 {
     font-weight: bolder;
     text-align: center;
-    margin-top: 5rem;
     color: #2962a3;
 }
 
@@ -157,10 +173,6 @@ input {
     margin: auto;
 }
 
-.resultBoxIndex {
-    transform: translateY(-300%);
-}
-
 .resultTitles {
     font-weight: bolder;
     color: #2962a3;
@@ -169,18 +181,25 @@ input {
 
 .flexResults {
     display: flex;
+    text-align: center;
 }
 
 .resultBox {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
     padding: 1rem;
+    margin: 3px;
     font-weight: bolder;
-    justify-content: center;
 }
 
-.planeIcon {
-    align-content: center;
-    margin: 2rem;
+#togglePackageButton {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    background-color: #e1efff;
+    padding: 1rem;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-weight: bolder;
+    justify-content: center;
 }
 
 /* ------- FOOTER */
@@ -191,7 +210,7 @@ input {
     color: ivory;
     background-color: #2e2e2e;
     height: 300px;
-
+    margin-bottom: 0px;
 }
 
 .footer > li {

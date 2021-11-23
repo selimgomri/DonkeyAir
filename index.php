@@ -34,23 +34,10 @@ $arrivalAirports=array_unique($arrivalAirports);
 </head>
 
 <body>
-    <header>
-        <nav class="menu-container">
-            <div class="logo-container">
-                <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
-            </div>
-            <ul class="menu">
-                <li class="gerer-menu"> <a href="#">Gérer mes reservations</a></li>
-                <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
-                <li class="contact-menu"> <a href="#">Nous contacter</a></li>
-                <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
-            </ul>
-        </nav>
-        <div class="banner">
-            <img id="skyBanner" src="/media/aircraft.jpg" alt="backgroundVector" />
-        </div>
-    </header>
-    <main>
+
+<?php @require_once 'header.html' ?>
+
+    <main class="backgroundIndex">
         <div class="flexbox">
 
             <form class="reservation-container" method="POST" action="booking.php">
@@ -111,16 +98,8 @@ $arrivalAirports=array_unique($arrivalAirports);
         </div>
     </main>
 
-    <footer>
-        <nav>
-            <ul class="footer">
-                <li class="aboutUs">A propos de nous</li>
-                <li class="joinTheClub">Rejoignez le club Donkey Pegasus</li>
-                <li class="faq">FAQ</li>
-                <li class="legalMentions">Mentions légales</li>
-            </ul>
-        </nav>
-    </footer>
+<?php @require_once 'footer.html' ?>
+
 </body>
 
 </html>

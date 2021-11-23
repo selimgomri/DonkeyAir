@@ -9,45 +9,23 @@
     <title>Donkey Airlines</title>
 </head>
 <body>
-    <header>
-        <nav class="menu-container"> 
-            <div class="logo-container">
-                <a class="logo" href=""><img src="/media/DA_Logo2-01.svg" alt="logo"></a>
-            </div>    
-            <ul class="menu">
-                <li class="gerer-menu"> <a href="/index.php">Réserver un vol</a></li>
-                <li class="donkey-menu"> <a href="#">Donkey Airlines</a></li>
-                <li class="contact-menu"> <a href="#">Nous contacter</a></li>
-                <li class="connection"> <a class="login" href="/loginpage.php">✈️ Votre espace</a></li>
-            </ul>
-        </nav>
-        <div class="banner">
-            <img id="skyBanner" src="/media/vectorBackground2.svg" alt="backgroundVector" />
+
+<?php @require_once 'header.html' ?>
+
+    <main class="backgroundLogin">
+        <div> 
+            <form class="reservationContainerLogin" method="post">    
+                <h1 class="display-5">Connexion à votre espace</h1>
+                <label for="id-email"></label>
+                <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
+                <label for="password"></label>
+                <input type="password" id="password" placeholder="Mot de passe">
+                <input class="validatebtn" type="submit" value="Accéder à mon espace">
+            </form>
         </div>
+    </main>
 
-    </header>
-    
-    <div class="displayBoxShadow"> 
-        <form class="reservationContainerLogin" method="post">    
-            <h1 class="display-5">Connexion à votre espace</h1>
-            <label for="id-email"></label>
-            <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
-            <label for="password"></label>
-            <input type="password" id="password" placeholder="Mot de passe">
-            <input class="validatebtn" type="submit" value="Accéder à mon espace">
-        </form>
-    </div>
+<?php @require_once 'footer.html' ?>
 
-
-    <footer>
-        <nav>     
-            <ul class="footer">
-                <li class="aboutme">A propos de nous</li>
-                <li class="join">Rejoignez le club Donkey Pegasus</li>
-                <li class="faq">FAQ</li>
-                <li class="legalmentions">Mentions légales</li>
-            </ul>
-        </nav>
-    </footer>
 </body>
 </html>
