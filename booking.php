@@ -50,9 +50,7 @@ session_start();
 
                         $flights = $statement->fetchAll(); ?>
                         <div class="display-8">
-                            <?php
-                                echo "VOLS ALLER";
-                            ?>
+                            <?php echo "VOLS ALLER"; ?>
                         </div>
                         <?php
                         if (empty($flights)) {
@@ -62,27 +60,21 @@ session_start();
                         foreach ($flights as $values) { ?>
                             <div class="flexResults">
                                 <div class="resultBox">
-                                    <?php
-                                        echo $values['flightNumber']
-                                    ?>
+                                    <?php echo $values['flightNumber'] ?>
                                 </div>
                                 <div class="resultBox"> 
-                                    <?php
-                                        echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
-                                    ?>
+                                    <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
                                 </div>
                                 <div class="resultBox">
-                                    <?php
-                                        echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime']
-                                    ?>
+                                    <?php echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime'] ?>
                                 </div>
                                 <button id="togglePackageButton">
-                                    <?php
-                                        echo $values['price'] . " € ";
-                                    ?>
-                                </button> 
-                                <div class="packageResults">TEST</div>
-                            </div> <br/> 
+                                    <?php echo $values['price'] . " € "; ?>
+                                </button>
+                                <div class="packageResults">Pack1</div>
+                                <div class="packageResults">Pack2</div>
+                                <div class="packageResults">Pack3</div>
+                            </div> </br>
                         <?php
                         } 
                     }  
@@ -116,9 +108,7 @@ session_start();
                         $flights = $statement->fetchAll(); ?>
                     
                         <div class="display-8">
-                            <?php
-                                echo "VOLS RETOUR <br>";
-                            ?>
+                            <?php echo "VOLS RETOUR <br>"; ?>
                         </div>
 
                         <?php
@@ -129,24 +119,16 @@ session_start();
                         foreach ($flights as $values) { ?>
                             <div class="flexResults">
                                 <div class="resultBox">
-                                    <?php
-                                        echo $values['flightNumber']
-                                    ?>
+                                    <?php echo $values['flightNumber'] ?>
                                 </div>
                                 <div class="resultBox"> 
-                                    <?php
-                                        echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
-                                    ?>
+                                    <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
                                 </div>
                                 <div class="resultBox">
-                                    <?php
-                                        echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime']
-                                    ?>
+                                    <?php echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime'] ?>
                                 </div>
                                 <button id="togglePackageButton">
-                                    <?php
-                                        echo $values['price'] . " € ";
-                                    ?>
+                                    <?php echo $values['price'] . " € "; ?>
                                 </button>
                             </div> </br>
                         <?php

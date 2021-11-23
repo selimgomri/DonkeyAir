@@ -79,7 +79,6 @@ $arrivalAirports=array_unique($arrivalAirports);
                     <input type="date" id="return-date" name="returnDate">
                 </span>
                 <span class="selectPassengers">
-                    <strong> Passagers </strong>
                     <select name="passengers" id="passengers">
                         <option value="1">1 passager</option>
                         <option value="2">2 passagers</option>

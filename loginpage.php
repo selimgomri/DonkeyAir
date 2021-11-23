@@ -10,22 +10,22 @@
 </head>
 <body>
 
-    <?php @require_once 'header.html' ?>
+<?php @require_once 'header.html' ?>
 
-        <main class="backgroundLogin">
-            <div> 
-                <form class="reservationContainerLogin" method="post">    
-                    <h1 class="display-5">Connexion à votre espace</h1>
-                    <label for="id-email"></label>
-                    <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
-                    <label for="password"></label>
-                    <input type="password" id="password" placeholder="Mot de passe">
-                    <input class="validatebtn" type="submit" value="Accéder à mon espace">
-                </form>
-            </div>
-        </main>
+    <main class="backgroundLogin">
+        <div> 
+            <form class="reservationContainerLogin" method="post">    
+                <h1 class="display-5">Connexion à votre espace</h1>
+                <label for="id-email"></label>
+                <input type="email" id="id-email" autocomplete="on" name="id-email" placeholder="Adresse e-mail">
+                <label for="password"></label>
+                <input type="password" id="password" placeholder="Mot de passe">
+                <input class="validatebtn" type="submit" value="Accéder à mon espace">
+            </form>
+        </div>
+    </main>
 
-    <?php @require_once 'footer.html' ?>
+<?php @require_once 'footer.html' ?>
 
 </body>
 </html>

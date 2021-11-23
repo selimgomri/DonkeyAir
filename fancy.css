@@ -136,7 +136,28 @@ input {
 }
 
 .validatebtn {
-    background-color: #2962a3;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background: linear-gradient(-45deg, #87b3e6, #2962a3, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.validatebtn:hover {
+    background-color: #8cb9ec;
     color: rgb(255, 255, 255);
     font-weight: bolder;
 }
@@ -214,7 +235,10 @@ input {
 
 .packageResults {
     display: none;
+    background-color: #def7f7;
+    width: 200px;
 }
+
 
 /* ------- FOOTER */
 
