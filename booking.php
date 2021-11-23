@@ -71,10 +71,13 @@ session_start();
                                 <button id="togglePackageButton">
                                     <?php echo $values['price'] . " € "; ?>
                                 </button>
+                            </div> 
+                            <div class="flexResults">
                                 <div class="packageResults">Pack1</div>
                                 <div class="packageResults">Pack2</div>
                                 <div class="packageResults">Pack3</div>
-                            </div> </br>
+                            </div>
+                        </br>
                         <?php
                         } 
                     }  

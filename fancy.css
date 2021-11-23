@@ -138,7 +138,7 @@ input {
 .validatebtn {
     color: rgb(255, 255, 255);
     font-weight: bolder;
-    background: linear-gradient(-45deg, #87b3e6, #2962a3, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #b8d8fd, #2962a3, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -237,8 +237,9 @@ input {
     display: none;
     background-color: #def7f7;
     width: 200px;
+    height: 200px;
+    margin-left: 20px;
 }
-
 
 /* ------- FOOTER */
 
