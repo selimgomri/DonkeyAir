@@ -1,0 +1,79 @@
+.menu-container {
+  background-color: #2e2e2e;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
+
+
+.menu {
+  width: 900px;
+  display: flex;
+  margin: 40px;   
+}
+
+a:link, a:visited {
+color: #ffffff;
+text-decoration: none;
+font-weight: bold;
+}
+
+ul li {
+list-style-type: none;
+font-weight: bold;
+margin: 0px 20px;
+}
+
+a:hover {
+color: #2962a3;
+}
+
+.logo-container{
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+  }
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 50%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  button[type=submit] {
+    background-color: hsl(212, 90%, 49%);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+   
+  }
+  input[type=button]{
+    margin: 10px;
+    background-color: hsl(357, 81%, 29%);
+    color: white;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  button[type=submit]:hover {
+    background-color: #3440ec;
+  }
+  
+
+ /* Add a background color and some padding around the form */
+ .container{
+  border-radius: 5px;
+  background-color: #dfdfdf;
+  padding: 20px;
+
+}
+
