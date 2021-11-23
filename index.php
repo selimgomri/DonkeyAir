@@ -36,13 +36,15 @@ var_dump($airports);
                 <datalist id="airport">
 
                     <?php foreach ($airports as $airport) { ?>
-                        <option value="<?php 
+                    <option value="<?php
                         
-                        foreach ($airport as $departureAirport) {
-                            echo $departureAirport . " ";
+                        foreach ($airport as $key => $departureAirport) {
+                            if (!is_int($key)) {
+                                echo $departureAirport . " ";
+                            }
                         }
                         ?>">
-                        </option>
+                    </option>
                     <?php } ?>
 
                 </datalist>
@@ -51,10 +53,15 @@ var_dump($airports);
                 <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination"
                     name="arrivalAirport" required>
                 <datalist id="airport2">
-
-                    <?php foreach ($airports as $arrivalAirport) { ?>
-                    <option value="<?php echo $arrivalAirport; ?>">
-                        <?php echo $arrivalAirport; ?>
+                    <?php foreach ($airports as $airport) { ?>
+                    <option value="<?php
+                        
+                        foreach ($airport as $key => $arrivalAirport) {
+                            if (!is_int($key)) {
+                                echo $arrivalAirport . " ";
+                            }
+                        }
+                        ?>">
                     </option>
                     <?php } ?>
                 </datalist></br>
