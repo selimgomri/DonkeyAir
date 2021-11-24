@@ -25,11 +25,8 @@ $arrivalAirports=array_unique($arrivalAirports);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
-    <script src="radiobutton.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Donkey Airlines</title>
 </head>
 
@@ -66,7 +63,7 @@ $arrivalAirports=array_unique($arrivalAirports);
                     <?php } ?>
                 </datalist></br>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay" checked> <strong> Aller Retour </strong>
+                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay" checked> <strong> Aller-Retour </strong>
 
                 <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Simple </strong> </br>
 
@@ -99,6 +96,8 @@ $arrivalAirports=array_unique($arrivalAirports);
 
 <?php @require_once 'footer.html' ?>
 
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="animations.js"></script>
 </body>
 
 </html>

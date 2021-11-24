@@ -70,11 +70,27 @@ a:hover {
 }
 
 .backgroundBooking {
-    background-image: url(/media/vectorBackground2.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    font-weight: bolder;
     padding: 6rem;
+    background: linear-gradient(-45deg, #d8e9fd, #edf5ff, #c1c9cc, #8fffe5);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 /* ------- BOX RESERVATION */
 
@@ -233,12 +249,21 @@ input {
     justify-content: center;
 }
 
+.packageResults-container {
+    display: flex;
+    text-align: center;
+    margin-left: 90px;
+
+}
+
 .packageResults {
     display: none;
     background-color: #def7f7;
-    width: 200px;
-    height: 200px;
-    margin-left: 20px;
+    border-radius: 5px;
+    width: 210px;
+    height: 250px;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 /* ------- FOOTER */
