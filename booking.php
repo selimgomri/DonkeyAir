@@ -50,8 +50,8 @@ session_start();
                         //end of preparation
 
                         $flights = $statement->fetchAll(); ?>
-                        <div class="display-8">
-                            <h2> <?php echo "VOLS ALLER"; ?> </h2>
+                        <div>
+                            <h2 class="display-8"> <?php echo "VOLS ALLER"; ?> </h2>
                         </div>
                         <?php
                         if (empty($flights)) {
@@ -80,8 +80,9 @@ session_start();
                                     </div>
                                     <div class="packageResultContent">
                                         <li>🧳 Aucun bagage inclu</li><br>
-                                        <li>💺 Siège attribué à l'enregistrement</li><br>
+                                        <li>💺 Siège attribué</li><br>
                                         <li>✔️ 5000 Miles</li><br>
+                                        <li>❌  Pas d'assurance</li><br>
                                         <button id="packageButtonChoice">
                                             <?php echo $values['price'] . " € "; ?>
                                         </button>
@@ -95,6 +96,7 @@ session_start();
                                         <li>🧳 1 x 23kg</li><br>
                                         <li>💺 Choix du siège</li><br>
                                         <li>✔️ 20000 Miles</li><br>
+                                        <li>🔰 Assurance FLEX</li><br>
                                         <button id="packageButtonChoice">
                                             <?php echo $values['price'] . " € "; ?>
                                         </button>
@@ -103,6 +105,16 @@ session_start();
                                 <div class="packageResults">
                                     <div class="packageResultTitle3">
                                         <h4>PREMIUM</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 2 x 23kg</li><br>
+                                        <li>💺 Siège PREMIUM</li><br>
+                                        <li>✔️ 50000 Miles</li><br>
+                                        <li>🔰 Assurance PREMIUM</li><br>
+
+                                        <button id="packageButtonChoice">
+                                            <?php echo $values['price'] . " € "; ?>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -139,8 +151,8 @@ session_start();
 
                         $flights = $statement->fetchAll(); ?>
                     
-                        <div class="display-8">
-                            <?php echo "VOLS RETOUR <br>"; ?>
+                        <div>
+                            <h2 class="display-8"> <?php echo "VOLS RETOUR"; ?> </h2>
                         </div>
 
                         <?php
