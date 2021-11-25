@@ -9,13 +9,12 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <script src="radiobutton.js"></script>
-    <title>Flight results</title>
+    <title>Reservez votre vol aller-retour au meilleur prix avec Donkey Airlines</title>
+
 </head>
 
 <body>
@@ -56,45 +55,80 @@ session_start();
                         $statement->execute();
                         //end of preparation
 
-                        $flights = $statement->fetchAll();
-                        ?>
-                <div class="display-8">
-                    <?php
-                                echo "VOLS ALLER"; ?>
-                </div>
-                <?php
+                        $flights = $statement->fetchAll(); ?>
+                        <div>
+                            <h2 class="display-8"> <?php echo "VOLS ALLER"; ?> </h2>
+                        </div>
+                        <?php
                         if (empty($flights)) {
                             echo "Aucun vol disponible <br>";
                         }
 
-                        foreach ($flights as $values) {
+                        foreach ($flights as $values) { 
                             $values['departureAirport'] = $values[1];
                             unset($values[1]);
                             $values['arrivalAirport'] = $values[2];
-                            unset($values[2]);
-                            
-                             ?>
-                <div class="flexResults">
-                    <div class="resultBox">
-                        <?php
-                                        echo $values['flight_number']
-                                    ?>
-                    </div>
-                    <div class="resultBox">
-                        <?php
-                                        echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
-                                    ?>
-                    </div>
-                    <div class="resultBox">
-                        <?php
-                                        echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time']
-                                    ?>
-                    </div>
-                    <button id="togglePackageButton">
-                        <?php
-                                        echo $values['economy1'] . " € "; ?>
-                    </button>
-                </div> <br />
+                            unset($values[2]);?>
+                            <div class="flexResults">
+                                <div class="resultBox">
+                                    <?php echo $values['flight_number'] ?>
+                                </div>
+                                <div class="resultBox"> 
+                                    <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
+                                </div>
+                                <div class="resultBox">
+                                    <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
+                                </div>
+                                <button id="togglePackageButton">
+                                    <?php echo $values['economy1'] . " € "; ?>
+                                </button>
+                            </div> 
+                            <div class="packageResults-container">
+                                <div class="packageResults">
+                                    <div class="packageResultTitle1">
+                                        <h4>SAVER</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 1 x 7kg</li><br>
+                                        <li>💺 Siège attribué</li><br>
+                                        <li>✔️ 5000 Miles</li><br>
+                                        <li id="saverColor">🔰 Assurance SAVER</li><br>
+                                        <button id="packageButtonChoice1" type="submit">
+                                            <?php echo $values['economy1'] . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="packageResults">
+                                    <div class="packageResultTitle2">
+                                        <h4>FLEX</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 1 x 7kg / 1 x 23kg</li><br>
+                                        <li>💺 Choix du siège</li><br>
+                                        <li>✔️ 20000 Miles</li><br>
+                                        <li id="flexColor">🔰 Assurance FLEX</li><br>
+                                        <button id="packageButtonChoice2" type="submit">
+                                            <?php echo $values['economy1'] . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="packageResults">
+                                    <div class="packageResultTitle3">
+                                        <h4>PREMIUM</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 1 x 7kg / 2 x 23kg</li><br>
+                                        <li>💺 Siège PREMIUM</li><br>
+                                        <li>✔️ 50000 Miles</li><br>
+                                        <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
+                                        <button id="packageButtonChoice3"  type="submit">
+                                            <?php echo $values['economy1'] . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </br>
+
                 <?php
                         }
                     }
@@ -126,43 +160,38 @@ session_start();
                         //end of preparation
 
                         $flights = $statement->fetchAll(); ?>
+                    
+                        <div>
+                            <h2 class="display-8"> <?php echo "VOLS RETOUR"; ?> </h2>
+                        </div>
 
-                <div class="display-8">
-                    <?php
-                                echo "VOLS RETOUR <br>"; ?>
-                </div>
 
                 <?php
                         if (empty($flights)) {
                             echo "Aucun vol disponible <br>";
                         }
         
-                        foreach ($flights as $values) {
+
+                        foreach ($flights as $values) { 
                             $values['departureAirport'] = $values[1];
                             unset($values[1]);
                             $values['arrivalAirport'] = $values[2];
-                            unset($values[2]); ?>
-                <div class="flexResults">
-                    <div class="resultBox">
-                        <?php
-                                        echo $values['flight_number']
-                                    ?>
-                    </div>
-                    <div class="resultBox">
-                        <?php
-                                        echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport']
-                                    ?>
-                    </div>
-                    <div class="resultBox">
-                        <?php
-                                        echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time']
-                                    ?>
-                    </div>
-                    <button id="togglePackageButton">
-                        <?php
-                                        echo $values['economy1'] . " € "; ?>
-                    </button>
-                </div> <br />
+                            unset($values[2]); ?>?>
+                            <div class="flexResults">
+                                <div class="resultBox">
+                                    <?php echo $values['flight_number'] ?>
+                                </div>
+                                <div class="resultBox"> 
+                                    <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
+                                </div>
+                                <div class="resultBox">
+                                    <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
+                                </div>
+                                <button id="togglePackageButton">
+                                    <?php echo $values['economy1'] . " € "; ?>
+                                </button>
+                            </div> </br>
+
                 <?php
                         }
                     }
@@ -172,6 +201,11 @@ session_start();
     </main>
 
     <?php @require_once 'footer.html' ?>
+
+
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="animations.js"></script>
 
 </body>
 

@@ -12,12 +12,10 @@ $airports = $statement->fetchAll();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <meta name="description" content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
-    <script src="radiobutton.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <title>Donkey Airlines</title>
+    <title>Reservez votre vol aller-retour au meilleur prix avec Donkey Airlines</title>
 </head>
 
 <body>
@@ -65,8 +63,10 @@ $airports = $statement->fetchAll();
                     <?php } ?>
                 </datalist></br>
 
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton"
-                    id="oneWay" checked> <strong> Aller Retour </strong>
+
+                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay" checked> 
+                 <strong> Aller-Retour </strong>
+
 
                 <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton"
                     id="oneWay"> <strong> Aller Simple </strong> </br>
@@ -80,7 +80,6 @@ $airports = $statement->fetchAll();
                     <input type="date" id="return-date" name="returnDate">
                 </span>
                 <span class="selectPassengers">
-                    <strong> Passagers </strong>
                     <select name="passengers" id="passengers">
                         <option value="1">1 passager</option>
                         <option value="2">2 passagers</option>
@@ -101,6 +100,8 @@ $airports = $statement->fetchAll();
 
     <?php @require_once 'footer.html' ?>
 
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="animations.js"></script>
 </body>
 
 </html>

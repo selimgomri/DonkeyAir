@@ -35,7 +35,7 @@ a:link, a:visited {
     font-weight: bold;
 }
 
-ul li {
+nav ul li {
     list-style-type: none;
     font-weight: bold;
     margin: 0px 20px;
@@ -52,7 +52,7 @@ a:hover {
     background-repeat: no-repeat;
 }
 
-/* ------- BANNER IMAGE */
+/* ------- BG IMAGE */
 
 .backgroundIndex {
     background-image: url(/media/sunsetSkyline.png);
@@ -70,11 +70,27 @@ a:hover {
 }
 
 .backgroundBooking {
-    background-image: url(/media/vectorBackground2.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    font-weight: bolder;
     padding: 6rem;
+    background: linear-gradient(-45deg, #91cdf5, #b6ecff, #ffffff);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 /* ------- BOX RESERVATION */
 
@@ -124,19 +140,40 @@ input {
 .display-7 {
     font-weight: bolder;
     text-align: center;
+    font-size: 50px;
     color: #2962a3;
 }
 
 .display-8 {
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: bolder;
+    font-size: 30px;
     margin-bottom: 3rem;
     color: #2962a3;
 }
 
 .validatebtn {
-    background-color: #2962a3;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background: linear-gradient(-45deg, #b8d8fd, #2962a3, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient2 15s ease infinite;
+}
+
+@keyframes gradient2 {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.validatebtn:hover {
+    background-color: #8cb9ec;
     color: rgb(255, 255, 255);
     font-weight: bolder;
 }
@@ -168,8 +205,8 @@ input {
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
     background-color: white;
-    width: 950px;
-    padding: 3rem;
+    width: 1000px;
+    padding: 50px 50px 20px 50px;
     margin: auto;
 }
 
@@ -185,21 +222,155 @@ input {
 }
 
 .resultBox {
-    background-color: #f1f1f1;
-    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;    
+    background-color: #f4f9ff;
     padding: 1rem;
     margin: 3px;
     font-weight: bolder;
 }
 
 #togglePackageButton {
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-    background-color: #e1efff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
+    background-color: rgb(127, 194, 127);
+    color: #ffffff;
+    border: none;
     padding: 1rem;
     margin-left: 5px;
-    border-radius: 5px;
+    font-size: 20px;
     font-weight: bolder;
-    justify-content: center;
+}
+
+#togglePackageButton:hover {
+    color: black;
+    background-color: #def7f7;
+    padding: 1rem;
+    margin-left: 5px;
+    font-weight: bolder;
+}
+
+.packageResults-container {
+    display: flex;
+    text-align: center;
+    margin-left: 90px;
+}
+
+.packageResults {
+    display: none;
+    background-color: #f4f9ff;
+    width: 210px;
+    height: 380px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.packageResultTitle1 {
+    color: rgb(81, 185, 81);
+    font-weight: bolder;
+    border: rgb(81, 185, 81) 3px solid;
+    margin: 10px 10px 40px 10px;
+    padding: 22px 0 12px 0;
+}
+
+.packageResultTitle2 {
+    color: #89afda;
+    font-weight: bolder;
+    border: #89afda 3px solid;
+    margin: 10px 10px 40px 10px;
+    padding: 22px 0 12px 0;
+}
+
+.packageResultTitle3 {
+    color: #426185;
+    font-weight: bolder;
+    border: #426185 3px solid;
+    margin: 10px 10px 40px 10px;
+    padding: 22px 0 12px 0;
+}
+
+.packageResultTitle1 h4 {
+    font-weight: bolder;
+}
+
+.packageResultTitle2 h4 {
+    font-weight: bolder;
+}
+
+.packageResultTitle3 h4 {
+    font-weight: bolder;
+}
+
+.packageResultContent {
+    list-style: none;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: left;
+    margin: 20px 0 10px 20px;
+}
+
+li #saverColor {
+    color: rgb(127, 194, 127);
+}
+
+li #flexColor {
+    color: #a5bad4;
+}
+
+li #premiumColor {
+    color: #7799c0;
+}
+
+#packageButtonChoice1 {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
+    background-color: rgb(127, 194, 127);
+    border: none;
+    color: #ffffff;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#packageButtonChoice1:hover {
+    background-color: #def7f7;
+    color: black;
+    font-weight: bolder;
+}
+
+#packageButtonChoice2 {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
+    background-color: #a5bad4;
+    border: none;
+    color: #ffffff;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#packageButtonChoice2:hover {
+    background-color: #def7f7;
+    color: black;
+    font-weight: bolder;
+}
+
+#packageButtonChoice3 {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
+    background-color: #7799c0;
+    border: none;
+    color: #ffffff;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#packageButtonChoice3:hover {
+    background-color: #def7f7;
+    color: black;
+    font-weight: bolder;
 }
 
 /* ------- FOOTER */
