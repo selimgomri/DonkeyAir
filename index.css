@@ -1,3 +1,4 @@
+
 .menu-container {
   background-color: #2e2e2e;
   display: flex;
@@ -24,9 +25,7 @@ font-weight: bold;
 margin: 0px 20px;
 }
 
-a:hover {
-color: #2962a3;
-}
+
 
 .logo-container{
   width: 120px;
@@ -36,36 +35,32 @@ color: #2962a3;
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
-    width: 50%; /* Full width */
+    width: 51%; /* Full width */
     padding: 12px; /* Some padding */  
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
+    margin-bottom: 20px; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
   
   /* Style the submit button with a specific background color etc */
   button[type=submit] {
-    background-color: hsl(212, 90%, 49%);
+    background-color: #0658f1;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 10px;
+    margin: 15px;
+    
    
   }
-  input[type=button]{
-    margin: 10px;
-    background-color: hsl(357, 81%, 29%);
-    color: white;
-  }
   
-  /* When moving the mouse over the submit button, add a darker green color */
+    /* When moving the mouse over the submit button, add a darker green color */
   button[type=submit]:hover {
-    background-color: #3440ec;
+    background-color: #46475f;
   }
   
 
@@ -76,4 +71,39 @@ input[type=text], select, textarea {
   padding: 20px;
 
 }
+.form-field {
+  margin-bottom: 0.5em;
+}
 
+.form-field label {
+  display: inline-block;
+  font-weight: bold;
+  width: 6em;
+}
+
+.contact-form {
+  border: 1px solid #DDD;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#form-container {
+  margin-bottom: 1em;
+}
+/* ------- FOOTER */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  color: ivory;
+  background-color: #2e2e2e;
+  height: 150px;
+
+}
+
+.footer > li {
+  margin: 30px;
+  color: #ffffff;
+  list-style-type: none;
+  font-size: 18px;
+}

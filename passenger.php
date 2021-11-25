@@ -1,4 +1,6 @@
-<?php
+
+
+  <?php
   $bdd = new PDO('mysql:host=127.0.0.1:3306;dbname=donkeyAirDB','root',"");
   
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -6,19 +8,19 @@
   
   }
  
-  
-  $titre = $_POST['title'];
+ 
   $prenom = $_POST['firstname'];
   $nom = $_POST['lastname'];
   $email = $_POST['email'];
   $dateDeNaissance = $_POST['birthDate'];
   
-  if(!empty($titre) &&  !empty($prenom) && !empty($nom) && !empty($email) && !empty($dateDeNaissance))
+  if(!empty($prenom) && !empty($nom) &&  !empty($email) &&  !empty($dateDeNaissance))
+  
+
+         
+          $requet = $bdd->prepare('INSERT INTO user(firstname,lastname,email, birthDate)VALUE(:firstname, :lastname, :email, :birthDate)');
   
          
-          $requet = $bdd->prepare('INSERT INTO user(title,firstname,lastname,email,birthDate)VALUE(:title, :firstname, :lastname, :email, :birthDate)');
-  
-          $requet->bindvalue(':title',$titre);
           $requet->bindvalue(':firstname',$prenom);
           $requet->bindvalue(':lastname',$nom);
           $requet->bindvalue(':email',$email);
@@ -32,9 +34,19 @@
              echo " Un probleme ets survenu, L'enregistrement n'a pas été effectué! ";
              
             
-          }
+         }
+          
+         
+         
+         
+
+        
+        
+       
          
      
   
   ?>
 
+
+    
