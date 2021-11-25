@@ -14,31 +14,37 @@ session_start();
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
     <title>Reservez votre vol aller-retour au meilleur prix avec Donkey Airlines</title>
+
 </head>
 
 <body>
 
-<?php @require_once 'header.html'?>
+    <?php @require_once 'header.html'?>
 
     <main class="backgroundBooking">
         <h1 class="display-7">Effectuez une réservation</h1>
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <?php
-                    if ((''== $_POST['departureAirport'])
-                    && (''== $_POST['arrivalAirport'])
-                    && (''== $_POST['departureTime']))  {
-                    header("Location: index.php");
+                    if ((''== $_GET['departureAirport'])
+                    && (''== $_GET['arrivalAirport'])
+                    && (''== $_GET['departureTime'])) {
+                        header("Location: index.php");
                     } else {
-                        $departureAirport=$_POST['departureAirport'];
-                        $arrivalAirport=$_POST['arrivalAirport'];
-                        $departureTime=$_POST['departureTime'];
+                        $departureAirport=substr($_GET['departureAirport'], 0, 3);
+                        $arrivalAirport=substr($_GET['arrivalAirport'], 0, 3);
+                        $departureTime=$_GET['departureTime'];
 
-                        $query="SELECT flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
-                        departureAirport= :departureAirport
-                        AND arrivalAirport= :arrivalAirport 
-                        AND departureTime>= :departureTime
-                        ORDER BY price ASC";
+                        $query="SELECT flight_number, departure_airport.id, arrival_airport.id,  departure_time, arrival_time, economy1 
+                        FROM flight 
+                        JOIN airport AS departure_airport ON departure_airport_id=departure_airport.id 
+                        JOIN airport AS arrival_airport ON arrival_airport_id=arrival_airport.id
+                        JOIN price ON price_id=price.id 
+                            JOIN price_economy ON price_economy_id=price_economy.id
+                        WHERE (departure_airport.id = :departureAirport
+                        AND arrival_airport.id = :arrivalAirport 
+                        AND departure_time >= :departureTime)
+                        ORDER BY economy1 ASC";
 
                         //preparation PDO
                         $statement = $pdo->prepare($query);
@@ -58,19 +64,23 @@ session_start();
                             echo "Aucun vol disponible <br>";
                         }
 
-                        foreach ($flights as $values) { ?>
+                        foreach ($flights as $values) { 
+                            $values['departureAirport'] = $values[1];
+                            unset($values[1]);
+                            $values['arrivalAirport'] = $values[2];
+                            unset($values[2]);?>
                             <div class="flexResults">
                                 <div class="resultBox">
-                                    <?php echo $values['flightNumber'] ?>
+                                    <?php echo $values['flight_number'] ?>
                                 </div>
                                 <div class="resultBox"> 
                                     <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
                                 </div>
                                 <div class="resultBox">
-                                    <?php echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime'] ?>
+                                    <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
                                 </div>
                                 <button id="togglePackageButton">
-                                    <?php echo $values['price'] . " € "; ?>
+                                    <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div> 
                             <div class="packageResults-container">
@@ -84,7 +94,7 @@ session_start();
                                         <li>✔️ 5000 Miles</li><br>
                                         <li id="saverColor">🔰 Assurance SAVER</li><br>
                                         <button id="packageButtonChoice1" type="submit">
-                                            <?php echo $values['price'] . " € "; ?>
+                                            <?php echo $values['economy1'] . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
@@ -98,7 +108,7 @@ session_start();
                                         <li>✔️ 20000 Miles</li><br>
                                         <li id="flexColor">🔰 Assurance FLEX</li><br>
                                         <button id="packageButtonChoice2" type="submit">
-                                            <?php echo $values['price'] . " € "; ?>
+                                            <?php echo $values['economy1'] . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
@@ -112,15 +122,16 @@ session_start();
                                         <li>✔️ 50000 Miles</li><br>
                                         <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
                                         <button id="packageButtonChoice3"  type="submit">
-                                            <?php echo $values['price'] . " € "; ?>
+                                            <?php echo $values['economy1'] . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </br>
-                        <?php
-                        } 
-                    }  
+
+                <?php
+                        }
+                    }
                 ?>
             </div>
         </div>
@@ -128,16 +139,16 @@ session_start();
             <div class="bookingResultBoxes">
                 <?php
                     // Display return flights
-                    if (''!=$_POST['returnDate']) {
-                        $departureAirport=$_POST['arrivalAirport'];
-                        $arrivalAirport=$_POST['departureAirport'];
-                        $departureTime=$_POST['returnDate'];
+                    if (''!=$_GET['returnDate']) {
+                        $arrivalAirport=substr($_GET['departureAirport'], 0, 3);
+                        $departureAirport=substr($_GET['arrivalAirport'], 0, 3);
+                        $departureTime=$_GET['departureTime'];
 
-                        $query="SELECT flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
+                       /*  $query="SELECT flight_number, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
                         departureAirport= :departureAirport
                         AND arrivalAirport= :arrivalAirport 
                         AND departureTime>= :departureTime
-                        ORDER BY price ASC";
+                        ORDER BY price ASC"; */
         
                         //preparation PDO
                         $statement = $pdo->prepare($query);
@@ -154,35 +165,42 @@ session_start();
                             <h2 class="display-8"> <?php echo "VOLS RETOUR"; ?> </h2>
                         </div>
 
-                        <?php
+
+                <?php
                         if (empty($flights)) {
                             echo "Aucun vol disponible <br>";
                         }
         
-                        foreach ($flights as $values) { ?>
+
+                        foreach ($flights as $values) { 
+                            $values['departureAirport'] = $values[1];
+                            unset($values[1]);
+                            $values['arrivalAirport'] = $values[2];
+                            unset($values[2]); ?>?>
                             <div class="flexResults">
                                 <div class="resultBox">
-                                    <?php echo $values['flightNumber'] ?>
+                                    <?php echo $values['flight_number'] ?>
                                 </div>
                                 <div class="resultBox"> 
                                     <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
                                 </div>
                                 <div class="resultBox">
-                                    <?php echo $values['departureTime'] . "  " . "✈" . "  " . $values['arrivalTime'] ?>
+                                    <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
                                 </div>
                                 <button id="togglePackageButton">
-                                    <?php echo $values['price'] . " € "; ?>
+                                    <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div> </br>
-                        <?php
-                        } 
+
+                <?php
+                        }
                     }
                 ?>
             </div>
         </div>
     </main>
 
-<?php @require_once 'footer.html' ?>
+    <?php @require_once 'footer.html' ?>
 
 
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>

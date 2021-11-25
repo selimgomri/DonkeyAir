@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `airport`
+--
+
+DROP TABLE IF EXISTS `airport`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `airport` (
+  `id` char(3) NOT NULL,
+  `airport_name` varchar(45) DEFAULT NULL,
+  `airport_city` varchar(45) DEFAULT NULL,
+  `citty_timezone` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `airport`
+--
+
+LOCK TABLES `airport` WRITE;
+/*!40000 ALTER TABLE `airport` DISABLE KEYS */;
+INSERT INTO `airport` VALUES ('ALG','Houari Boumediene','Alger, Algérie','GMT+1'),('BCN','Josep Tarradellas','Barcelone, Espagne','GMT+1'),('CAI','Aéroport du Caire','Le Caire, Egypte','GMT+2'),('CDG','Charles de Gaulle','Paris, France','GMT+1'),('CMN','Mohammed V','Casablanca, Maroc','GMT+1'),('CRL','Brussels South Charleroi','Charleroi, Bélgique','GMT+1'),('DJE','Aéroport international de Djerba-Zarzis','Mellita,Tunisie','GMT+1'),('DUS','Düsseldorf International','Düsseldorf, Allemagne','GMT+1'),('FRA','Frankfurt Airport','Frankfurt, Allemagne','GMT+1'),('GVA','Genève Aéroport','Genève, Suisse','GMT+1'),('ISL','Istanbul Atatürk','Istanbul, Turquie','GMT+3'),('LED','Pulkovo','Saint Petersburg, Russie','GMT+3'),('MAD','Adolfo Suárez Madrid','Madrid, Espagne','GMT+1'),('MXB','Malpensa','Milan, Italie','GMT+1'),('ORY','Orly','Paris, France','GMT+1'),('SFO','San Francisco International','Californie, États-Unis\n','GMT-5'),('STN','London Stansted','United Kingdom, Angleterre','GMT');
+/*!40000 ALTER TABLE `airport` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `flight`
 --
 
@@ -24,16 +50,22 @@ DROP TABLE IF EXISTS `flight`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `flight` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `flightNumber` varchar(45) NOT NULL,
-  `departureAirport` varchar(45) NOT NULL,
-  `arrivalAirport` varchar(45) NOT NULL,
-  `departureTime` datetime NOT NULL,
-  `arrivalTime` datetime NOT NULL,
-  `capacitySecondClass` int DEFAULT NULL,
-  `capacityFirstClass` int DEFAULT NULL,
-  `price` float NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `flight_number` varchar(45) NOT NULL,
+  `departure_time` datetime NOT NULL,
+  `arrival_time` datetime NOT NULL,
+  `capacity_second_class` int DEFAULT NULL,
+  `capacity_first_class` int DEFAULT NULL,
+  `departure_airport_id` char(3) NOT NULL,
+  `arrival_airport_id` char(3) NOT NULL,
+  `price_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_flight_airport1_idx` (`departure_airport_id`),
+  KEY `fk_flight_price1_idx` (`price_id`),
+  KEY `fk_flight_airport2_idx` (`arrival_airport_id`),
+  CONSTRAINT `fk_flight_airport1` FOREIGN KEY (`departure_airport_id`) REFERENCES `airport` (`id`),
+  CONSTRAINT `fk_flight_airport2` FOREIGN KEY (`arrival_airport_id`) REFERENCES `airport` (`id`),
+  CONSTRAINT `fk_flight_price1` FOREIGN KEY (`price_id`) REFERENCES `price` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,8 +74,61 @@ CREATE TABLE `flight` (
 
 LOCK TABLES `flight` WRITE;
 /*!40000 ALTER TABLE `flight` DISABLE KEYS */;
-INSERT INTO `flight` VALUES (1,'DA023','CDG - France','MAD -  Madrid','2021-11-27 05:33:00','2021-11-27 08:53:00',150,30,190),(2,'DA054','CDG - France','BCN - Barcelona','2021-11-30 07:30:00','2021-11-30 10:50:00',150,30,221),(3,'DA099','CMN - Casablanca ','CDG - France','2021-12-30 09:20:00','2021-12-30 11:40:00',150,30,90),(4,'DA066','LIS - Lisbon ','CDG - France','2021-11-30 14:40:00','2021-11-30 16:40:00',150,30,77),(5,'DA128','CDG - France','NYC - new york ','2021-02-02 13:05:00','2021-02-02 19:45:00',150,30,530),(6,'DA005','RSS - Russia','CDG - France','2022-11-30 10:45:00','2022-11-30 14:15:00',150,30,433),(7,'DA127','CDG - France','SYD - Sydney ','2021-01-14 07:30:00','2021-01-14 12:30:00',150,30,320),(8,'DA009','CAI - Cairo','CDG - France','2021-12-20 12:55:00','2021-12-20 18:05:00',150,30,570),(9,'DA230','CDG - France','ICN - Seoul','2021-11-28 07:30:00','2021-11-28 15:30:00',150,30,604),(10,'DA333','CDG - France','DOH - Doha','2021-12-12 07:30:00','2021-12-12 14:30:00',150,30,669),(11,'DA409','NOW - Norway','CDG - France','2021-12-20 07:30:00','2021-12-20 15:30:00',150,30,240),(12,'DA006','ITA - Italy','CDG - France','2021-11-29 08:15:00','2021-11-29 10:15:00',150,30,110),(13,'DA700','CDG - France','AMM - Amman','2021-11-29 11:05:00','2021-11-29 17:10:00',150,30,350),(14,'DA222','TUR - Turkey','CDG - France','2022-01-02 17:00:00','2022-01-02 22:10:00',150,30,800),(15,'DA020','DBS - Bali','CDG - France','2021-12-30 06:20:00','2021-12-30 23:30:00',150,30,1200);
+INSERT INTO `flight` VALUES (1,'DA000','2021-12-01 18:00:00','2021-12-01 19:00:00',150,30,'CDG','MAD',1),(2,'DA002','2021-12-11 18:00:00','2021-12-11 19:00:00',150,30,'CDG','MAD',1),(21,'DA001','2021-12-01 20:00:00','2021-12-01 21:00:00',150,30,'MAD','CDG',1);
 /*!40000 ALTER TABLE `flight` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `price`
+--
+
+DROP TABLE IF EXISTS `price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `price` (
+  `id` int NOT NULL,
+  `price_business` int DEFAULT NULL,
+  `price_economy_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_price__idx` (`price_economy_id`),
+  CONSTRAINT `fk_price_` FOREIGN KEY (`price_economy_id`) REFERENCES `price_economy` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `price`
+--
+
+LOCK TABLES `price` WRITE;
+/*!40000 ALTER TABLE `price` DISABLE KEYS */;
+INSERT INTO `price` VALUES (1,1000,1);
+/*!40000 ALTER TABLE `price` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `price_economy`
+--
+
+DROP TABLE IF EXISTS `price_economy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `price_economy` (
+  `id` int NOT NULL,
+  `economy1` int DEFAULT NULL,
+  `economy2` int DEFAULT NULL,
+  `economy3` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `price_economy`
+--
+
+LOCK TABLES `price_economy` WRITE;
+/*!40000 ALTER TABLE `price_economy` DISABLE KEYS */;
+INSERT INTO `price_economy` VALUES (1,229,275,330),(2,480,576,691),(3,119,143,171),(4,680,816,979),(5,150,180,216),(6,335,402,482),(7,199,239,287),(8,508,610,732),(9,220,264,317),(10,770,924,1109),(11,188,226,271),(12,290,348,418),(13,456,547,657),(14,320,384,461),(15,328,394,472),(16,157,188,226),(17,699,839,1007),(18,549,659,791),(19,344,413,495);
+/*!40000 ALTER TABLE `price_economy` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -57,9 +142,9 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(80) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `firstName` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lastName` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `birthDate` date DEFAULT NULL,
+  `firstname` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastname` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `birthdate` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -71,7 +156,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'durward.swift@example.org','122cfbe726a184af8ab884f35359616d0e26d233','Cesar','Lakin','2010-12-17'),(2,'keon.feeney@example.net','c1cb96151396b97438c1f39fa07f3631c72639f5','Afton','Upton','0000-00-00'),(3,'zieme.filomena@example.net','481892370fe42a5601810629c6a281a43c578cfa','','Welch','0000-00-00'),(4,'kuhic.raven@example.org','419647e5943e8a4c53666efb08a0eb8953e97168','','McLaughlin','0000-00-00'),(5,'emory07@example.net','ffcba6214708d0d94cc25f4fa132133e8880038f','Conor','Barrows','0000-00-00'),(6,'eula.wisoky@example.com','62877eea8479c1f696ec4369c5b04ae6c57b936c','','Halvorson','0000-00-00'),(7,'shaina.bartell@example.org','d1a51e76f30fec4c88a3ced37541ba872221f434','','Frami','2001-06-05'),(8,'qwaters@example.org','88d0c138bf31473eba84a75da374cfd3f1a65f1a','Gladyce','Ankunding','1977-07-28'),(9,'lowe.hershel@example.com','395f49ef3629f0b70ee94e64f90d75f6aefa1303','Ted','West','0000-00-00'),(10,'kgislason@example.com','afc8cb1c0d35e7b490d60a4079c365a356fe1deb','','Luettgen','0000-00-00'),(11,'flo.glover@example.net','6be3ceea1740ca9d31852cce72727e0692bed677','','Mohr','1997-04-26'),(12,'orn.adeline@example.org','e14d0e8af072e61182e744f43a97de4962b0f55b','','Ziemann','0000-00-00'),(13,'fdeckow@example.net','3c3d4eb69de89650255ba1bca585a970c10261e4','','Mitchell','2015-12-27'),(14,'gutkowski.aurelia@example.net','d15aeab295371b7d00fee846e55014fbf41304b5','','Waters','0000-00-00'),(15,'aryanna69@example.net','c1955ce5bc313fb0626413f25afaf8befe056ed5','Kelly','Corkery','0000-00-00'),(16,'frami.frederik@example.com','7545123ee1b8336067b77f15415ff8e527a6aac5','Marcelino','Boehm','1970-01-16'),(17,'turcotte.willard@example.net','b782fd8122e8beb8659708075e43c97394d88547','','Eichmann','1978-01-10'),(18,'arthur51@example.org','575c561e564be6b8d77f40f27095624a9e91c1c0','','Labadie','0000-00-00'),(19,'hcrist@example.org','706d1d6853b65be5734b258785ec3039a4713762','','Mraz','0000-00-00'),(20,'autumn.hirthe@example.com','d4b46cc3867f6e5e13bbd545cb7441771f62d44f','','Quitzon','2003-08-30'),(21,'gino99@example.net','c3a65abb43a6ba0fb6e352470395339799d3e11d','','Thompson','1982-12-12'),(22,'yschumm@example.net','1b74a2888cd51bdebd6685910e898480a2410618','','Armstrong','2010-11-10'),(23,'kuvalis.wallace@example.net','afe869cf26022a1fe4958b50fc425e92bf4622b0','Kole','Erdman','0000-00-00'),(24,'viola27@example.net','358e435a95f55389c2de19ba99fb86902f4e9a2e','','Nolan','1995-11-26'),(25,'sigrid41@example.net','900798d7e5c6d2a731fb2412bf238364aadd085d','Sonya','Schaden','0000-00-00'),(26,'ygorczany@example.net','7ce233f57fec7f321a79981faf3ca164e1f616f5','Maribel','Langosh','0000-00-00'),(27,'amalia.kutch@example.net','10c0dadd96d018c7814e66b1a7fb233f251feb81','Fae','Ziemann','0000-00-00'),(28,'estefania97@example.com','61f331ff8f4c64b70bfe85bae60600d4e9b859d6','','Trantow','0000-00-00'),(29,'foster.quitzon@example.net','fd06a9d6c17abaf6b131820de34c79854a449758','','Shanahan','0000-00-00'),(30,'josinski@example.com','e54c09dad9404f4662ddfd0fffeec1c1dae03335','','Rempel','0000-00-00'),(31,'kkris@example.com','dddcb9e89e07ab097b8e8fab08d2027fce629881','Arvilla','Leuschke','0000-00-00'),(32,'newton24@example.org','07aeba85b5fa491a07173112828813ca34a2424f','Christine','Goyette','1984-12-08'),(33,'ischumm@example.net','d8d69f7071363952ffaeb542b265ca66372f5e10','','O\'Keefe','1994-09-13'),(34,'alivia46@example.org','2ef412e75f9ffab1ca1f46cb1bdf947bbdaeb8ec','Otha','Flatley','0000-00-00'),(35,'dadams@example.org','52f85c678303fe13c7de606b2b89f9bd7d904624','','Reichert','1996-05-13'),(36,'opal67@example.net','654413270eabcc179fa082fa543c90abbcf38394','Elenor','Jacobson','1983-09-13'),(37,'kari78@example.com','d4083511849b0995f9bc71812dae28cca5ba382d','','Ziemann','1996-02-26'),(38,'vbosco@example.net','5ecffc9f207b09aac9e81ff6d7c90f0481b90d59','','Beatty','1978-05-01'),(39,'xmcdermott@example.net','56952ac195667c5383009fde854355a9c178f3e4','Eldridge','Stiedemann','1988-09-03'),(40,'kirlin.corene@example.org','eb97dca53159deb4c683086aa722b4a6375d692d','Drake','Prosacco','2012-10-01'),(41,'therese.zulauf@example.org','9a25928a1fc13d46a157c87f13699301b45b168e','','Labadie','0000-00-00'),(42,'jbogan@example.com','9a894da4b17e8b79a725d4edef5aa3a97c2840f8','','Witting','2004-08-24'),(43,'nader.einar@example.com','e5f435c98153a945a071a389ce0a59e7f2d1e7c7','Eloise','Spinka','1987-12-31'),(44,'loraine50@example.net','2ac25fc38a31952363154dd28a416c1dbc5d767f','','Friesen','0000-00-00'),(45,'sporer.buster@example.net','039801a9d8e46bd1d31528bede7f4404f3e4368d','','Morissette','1971-11-03'),(46,'marley.kuhlman@example.org','6ca4f3fe39cbacf509dfca7537b5d53a6802b5ef','Korey','Keeling','2010-12-17'),(47,'xshields@example.com','d712fe2bfcaee41197bdc96b4af9c662d526fedc','Coty','Willms','0000-00-00'),(48,'mckenzie.hanna@example.com','637174e1031f4b994b88698696042bedd899d878','Gerhard','Shanahan','0000-00-00'),(49,'jamel.reinger@example.com','7f8695bf2fa17e254abc8ef1139a45ee5490d316','Rickey','Hyatt','0000-00-00'),(50,'bkeeling@example.com','1c34fe8ae34d785571fbd80774814eb71e319513','Jasper','Stamm','0000-00-00'),(51,'conrad.tremblay@example.com','d3b01ccae4dbe3cdfa6e0e1cf346119bd6b14cfb','','Johns','1976-07-13'),(52,'kovacek.albertha@example.net','a1452849545ad619c9ade1006b632b0410a5ad10','Estrella','Mante','0000-00-00'),(53,'umorissette@example.net','1009f144f31c7e16b628ff20cce728c2452703e7','','Mann','2020-05-31'),(54,'lloyd.dach@example.net','823d92246287ecaec555db54302f336b25063b98','','Beer','0000-00-00'),(55,'miller81@example.com','870417accbc1932864e7d5b2a3831301716ed8a8','Arlie','Lemke','0000-00-00'),(56,'dmedhurst@example.org','b393c2ad15f3c2bdb8c4b35fc7a1457219eb14f7','Bethel','Lakin','1979-09-28'),(57,'pacocha.rubie@example.org','30f659372af31911d9cf187ec4cc7d1743621cdc','Treva','Smitham','0000-00-00'),(58,'koepp.austin@example.net','8346728f4ffe129cd6fd031ae947eef7c22d1ea0','Colten','Stark','0000-00-00'),(59,'edyth16@example.com','13b2912e35772b3300fa36f66ba481fd6115c25f','Joelle','Mayer','0000-00-00'),(60,'agustina03@example.com','4776b3e41a0f1ab56f3b3d79ffe3af419fe2eb9d','Christina','Flatley','2004-10-15'),(61,'sdietrich@example.net','c12ac15053725d5eae8bdbe107caf52c9b086cbf','Robert','Hyatt','1980-09-02'),(62,'joesph13@example.com','476a43fb3ff3a7fc88256564ab615fff4bd2419d','','Crona','1988-12-07'),(63,'ron59@example.net','73119632d155be09833053b6c723d22d0a936237','','Hickle','2020-03-25'),(64,'darren51@example.net','a2322f5b2fcb672aaace7ae04c43f58f1ce14237','','Roob','1990-11-19'),(65,'landen03@example.net','a57871ec9f2fe8d253c5142ad85f67c5c49fa467','Hayley','Hamill','0000-00-00'),(66,'alison.pollich@example.com','65d7756e88174361e06fa927a655c6f7259cd60f','Augustine','Hyatt','0000-00-00'),(67,'klocko.kay@example.net','e6a49eb68c55a3f23d76d9fc8e71e5ba6e5f421e','','Grimes','0000-00-00'),(68,'tbauch@example.com','dd905ba52a5e70c86d3ab2f647d7e8b3f1f34f6c','','Effertz','0000-00-00'),(69,'yvette.tremblay@example.com','e3b6e92e4bd04b05b79344fd7fc3b56637cc5ed7','Richmond','King','1982-04-10'),(70,'steuber.lessie@example.net','e52e3b129c6c1f98c19d16416cd92eb464636286','Kathleen','Boehm','2016-12-13'),(71,'schultz.giuseppe@example.com','782289e254dbcd289d4f3ae46a64912c62a72d9f','Bertha','Mraz','1983-11-10'),(72,'summer60@example.com','e8a48dd60b645dee561c927f0f8dc2522bf8821f','Terry','Mitchell','2004-10-10'),(73,'romaine.schmitt@example.com','b7434a186a23b1242538ea2d7020a4aa6089ec5d','','Trantow','0000-00-00'),(74,'ro\'reilly@example.com','b604bbd6225df4488863b1cbb5736f67d3cc2e74','','Powlowski','1980-12-03'),(75,'sabryna42@example.com','b8f699d479de8450d5c97af1726548abb08dadc3','Alessandra','Wunsch','2000-02-17'),(76,'ronny20@example.net','202cbb0b8d8407ac75982e7638422cf3a4c547d1','','Murray','0000-00-00'),(77,'hector.lockman@example.net','a6f461f889ef377253004bba220cb12fb635840d','Molly','Wolf','1971-11-06'),(78,'peyton92@example.org','42b4c8b57f4fc42823955a8096b67c1d12e5bb78','Wanda','Nikolaus','1991-11-24'),(79,'gino48@example.net','ba183dc9cb8339b575a6e05bf269fda20f503ca1','Elmer','Walsh','0000-00-00'),(80,'ubergnaum@example.net','1e14776b02460b56f01bafe72391d31d46a73cef','','Barton','1975-03-24'),(81,'emmie.leannon@example.net','5fd322e46f9a8be5cd0f21e7666decea9c286abe','','Cole','1971-07-25'),(82,'sidney11@example.net','3db323528c82d15e25b81627fa5399db9a0ec389','','Kuvalis','2005-03-29'),(83,'murazik.louisa@example.org','a2aaf555158b29d922d69fffbf4a22471a6c863f','Rey','Braun','1971-11-18'),(84,'rebeka.prosacco@example.com','c10a09eec1f7ecb085865ce18ef51b177ffbc5b1','Michelle','Huel','2021-08-16'),(85,'rparisian@example.net','7da786143744d9fa6b2212f580535f8b03c6c22b','Theodore','Casper','2019-09-16'),(86,'pschultz@example.com','4faf830b9e3fa9c00c1e2a1e29596d3dec13fa99','Kaycee','Corwin','1996-10-20'),(87,'johnathan41@example.org','1f2e2418999e3b719faca8180a6809ebbeba434d','Adan','Tremblay','0000-00-00'),(88,'barrows.josiane@example.org','540a6de2bcd3f6de82f9ec6eed02aa5c276d1d9d','','Pouros','0000-00-00'),(89,'fgerhold@example.net','5ff246a8c15e087646dfb3ed1c2d5d59ad4b34ee','','Schiller','1975-09-25'),(90,'shanon42@example.com','a0bb00682f9dbcbf9ffa4a1864d399d79c2dddcd','','Breitenberg','1984-03-27'),(91,'amacejkovic@example.com','874625f1564b44d607421d9c3eaefebb030ccc42','Ethyl','Leannon','0000-00-00'),(92,'harold.beahan@example.net','e727c554a92933db009c188ba9c6da2f8166e5a5','Payton','Predovic','1978-01-29'),(93,'marlene05@example.org','0bed4bf0c85591117790485495a7470fced4d388','','Cronin','0000-00-00'),(94,'funk.maximillian@example.org','2cc0e3a7860cc8f75b8cebb3add80a4d8a388632','Okey','Stamm','2015-05-27'),(95,'urogahn@example.com','d63617a7e6b71920b73d02aeb60b976277757439','Dejah','Borer','0000-00-00'),(96,'hayden82@example.org','616aad04247bc74d0f5d777f88c52f5aa371a65a','','Rippin','2016-07-23'),(97,'eduardo40@example.net','e7e85f9390d2e119d50ded7c6904fc9c67c39c4f','Matteo','Hahn','0000-00-00'),(98,'anjali47@example.com','e21f758f1a759828e1847e0b58f3e8fa2da1a84a','Glenna','Jones','2006-01-05'),(99,'ssimonis@example.net','7da4ba3bd56cbcd6bb6235a02f88cb896dd8c236','Valerie','Jenkins','0000-00-00'),(100,'madelyn04@example.net','cfa85f9ff63f084c6b8e3d94d3be17ac56898012','','Ziemann','2014-04-04');
+INSERT INTO `user` VALUES (1,'ross00@example.net','58574ab5aedc8428211ce46d2a37c6b10285faa3','Jasmin','Buckridge','2005-05-28'),(2,'lorenzo13@example.org','64cfa0e702b0251e819ead5c5bc63bf9e201c7ec','Kenna','McLaughlin','2015-09-04'),(3,'taylor26@example.org','5685282cc06320b4ff883b0f47dd07141272fa5c','Electa','Hagenes','2010-05-22'),(4,'wisozk.rico@example.net','4d8403f3e7771e3b846d0ad2b8ca4394cfa49a59','Caleb','Wehner','2005-06-14'),(5,'laurie53@example.net','96c137653be09115bf9a384d7b9623aab7153f5b','Sydney','Jaskolski','2017-11-24'),(6,'oran.quitzon@example.net','3b51467d27471731df97256ab3edd88a8be7b387','Shea','Welch','2011-01-17'),(7,'wilford.ferry@example.net','e6dd6b06e8f531387f7118bd7aa8e7850d7f709b','Boris','Mohr','2001-03-25'),(8,'hilpert.hildegard@example.com','fe5504e35717d505de34c57a0b5d5db6485efe29','Georgiana','Considine','1994-10-05'),(9,'zakary.considine@example.com','e8bae836136de2adf840ad99d978964642b31089','Celestine','Okuneva','1974-05-12'),(10,'hcrona@example.com','4196539f80acba6ca19cb87882c189076d9c7976','Gerry','Stark','1989-08-19'),(11,'iharber@example.com','07a9958d298fb058b7e0541597a069bf6da9b99a','Corine','McDermott','1993-07-06'),(12,'gonzalo36@example.net','665addaacfe869cb77b281231c34293674059067','Lucio','Vandervort','1978-07-29'),(13,'dickinson.tillman@example.org','5038effb3531f8daa33c1d1ff8fe13dc55d9143b','Bernadette','Prosacco','1982-08-19'),(14,'antonetta.marvin@example.org','3dff0d13ee3ddd5702c22281f95ffeac8a2245d4','Willow','Mann','2007-05-21'),(15,'bernier.naomi@example.com','7e418779e527f4eb7eef2fab077af5af033915c1','Dusty','Hoppe','1981-07-01'),(16,'dchamplin@example.net','485b39842516785c87060076b9a6b6f1b1fdf1da','Vance','Morar','2016-04-30'),(17,'sydney07@example.org','9812c884a1d6d553c375dd9280ccb4040f398b02','Adaline','Marquardt','1995-04-26'),(18,'o\'hara.dulce@example.com','b31991e54b083be8bdba1de75bc7884a34c42708','Noelia','Ryan','1988-06-14'),(19,'verner46@example.org','610660a4dcceea43df095d297b85fb8842045777','Ellsworth','Kuhn','2004-10-12'),(20,'barton.parisian@example.net','9d50a15fefc96739fa9c51b1144b6b9508cf5c2e','Emily','Moen','2010-07-04'),(21,'cleo.kreiger@example.com','a66fb1178bc07d4a6ce3439d010e55b787376820','Chauncey','Hackett','2015-06-06'),(22,'russell.moore@example.net','08483e08e2960c2a910190592479e0b890d70d24','Olaf','Wilkinson','2016-05-05'),(23,'maurine49@example.org','171cc24641cc5c0f16c1ef3aee95ced6a39823f7','Ashley','Harris','1978-09-30'),(24,'hayes.harrison@example.org','e07683e052f08e49783c86896d82e5f26faa7772','Sydnee','Mertz','1994-11-01'),(25,'carolyne.braun@example.org','5b5f2082b25cbdf1c90cb6e4dc9fd0889d03c151','Kallie','Kuphal','2020-01-08'),(26,'parker.ova@example.com','234f447e2fdf00caf32194412d1f13bcadb1d0c5','Elsa','Hartmann','2009-08-24'),(27,'betty.pfannerstill@example.org','c8678d9a3a2bd8249c2a4f93c5bc89d8d1efbe8a','Jaime','Monahan','1985-11-07'),(28,'evans.blick@example.net','c1bb76650dd0150d8bc456fff31a2bef477dd1fa','Valerie','Kiehn','2015-07-31'),(29,'altenwerth.matt@example.com','ea2ba948bb057a943685a22daeb597d8534bdf38','Queenie','Larson','2014-10-30'),(30,'pharvey@example.com','23f41229fd5f5c6ff3b66528ef2be2edf33b41fb','Earnestine','Kuhlman','2018-02-20'),(31,'vgoodwin@example.com','12012d940d0e55d57f3332edfe5701185d4d9260','Billie','Kautzer','2006-01-16'),(32,'jpacocha@example.net','0285dc491c481f3923849c3e5e6ee0126e288c58','Judah','Hoppe','1978-11-06'),(33,'cassin.maymie@example.org','2fef316588c7b89efde88a035cc6c3f50b8bd5c4','Lauretta','Hartmann','1979-11-15'),(34,'marcelino.mante@example.org','d8b5a27cdc4065a39245c320f0e9b15b6de9b37b','Benjamin','Pfannerstill','1994-04-17'),(35,'shemar92@example.org','af7f0046995d694c0b20a3558e7a6433123a051b','Julianne','Hodkiewicz','2012-06-10'),(36,'alice34@example.org','b6e31a28f90125905139d3fc97186dd204ca13c9','Keeley','McKenzie','1996-03-10'),(37,'nico20@example.org','7fbac762448703f4aac1dfaa0abf518074555026','Lisette','Wiegand','2020-07-25'),(38,'haven.barrows@example.com','07e0b59b42219e5669cfed4bb1d614ced0d5764c','Rupert','Botsford','2004-05-05'),(39,'achristiansen@example.com','647a3e384862e47bd475cfa28efdb4557854d754','Evie','Mohr','2021-09-01'),(40,'vtoy@example.net','10700953e27ecb893d5f024dea4adf79d70d75ae','Whitney','Torphy','1984-02-11'),(41,'marge44@example.org','06939394222e2e66d7b03f194e5d6c8c86e78912','Monte','Block','2014-06-20'),(42,'karen.collins@example.com','ffb576003ab725f0f673be87a41c2f6a84fbe779','Amari','Russel','2010-09-15'),(43,'pasquale12@example.com','b3bf93d0f13b20e329625d4538d1442b4ab2f15e','Ervin','Dooley','1978-01-04'),(44,'ines.olson@example.net','e5b4da8df09948e4ae622e35f5711796946ec6c9','Remington','Klocko','2009-11-16'),(45,'hpaucek@example.net','825897baf347f24dc7c26392343427d9febc3dab','Josiah','Prohaska','1970-12-23'),(46,'alysa.pfeffer@example.org','54832dde99abaa3a04d8404041b34a66902d5f17','Muhammad','Gislason','1977-02-17'),(47,'schamberger.dale@example.com','05ef7f14d56782ca0da4437a5444079e2bbdc7a0','Violet','Ortiz','1990-07-17'),(48,'dora.mitchell@example.net','67bc5807a6e2703dab1d3f3320d328af6269d0d6','Colby','Mraz','2011-05-08'),(49,'willa72@example.net','317ca6c4aa19ea20e0bfa1678a7d3760e35f365b','Althea','Corkery','1972-11-28'),(50,'sylvester.bergstrom@example.com','1c70e7bcf18f4cd2b8be8687614b421b3299237d','Amber','Jacobs','1997-02-21'),(51,'yolanda82@example.net','e453064e78cb11568e9d3329c3d489a9b25e2c5b','Fleta','Fadel','2018-01-20'),(52,'kirsten.spinka@example.net','d1e603ef92a5588a005954efdf8206d5df5773f2','Creola','Koss','1984-05-30'),(53,'tamara86@example.org','cac76ba1c1b98901493e0b85c7dadf3049a39ebf','Jace','Glover','1991-10-23'),(54,'marcia.ondricka@example.org','4b67d6dc26ad8713a2310b49359f3367b5961e94','Erwin','Hansen','2000-07-29'),(55,'alehner@example.com','a40c0e8c300233e6a12dffecbc01b22b9b7bf81e','Beatrice','Runolfsdottir','1984-01-24'),(56,'mcummerata@example.com','ee939b5dbc555cddbefd02bb66e40acd3c92bda8','Rowan','Nolan','1998-08-28'),(57,'xerdman@example.org','866a1b204c573fcf6af7a81d8539a5415cb83f1c','Rey','Runolfsson','1992-07-31'),(58,'eleazar.haag@example.net','813f1c9c6a69dda29f1702035f695611cd25128f','Tess','Schulist','2002-06-03'),(59,'uschmidt@example.com','13fe530cde8965ead3cfde821b8acbbcaf011854','Dorthy','Hills','1994-07-16'),(60,'lindsay64@example.net','0bd37f69d6c2e6fe30bea1c444563a014bd4c47d','Darrick','Gerlach','2018-03-12'),(61,'jayce57@example.com','d034a877eee8bfd695759d717e008cc69544870a','Alize','Nienow','1972-07-01'),(62,'tania.boehm@example.net','ceafe13b785e6347039db1a5fccfb21087b77973','Alexandrea','Littel','1989-08-15'),(63,'kristopher58@example.com','c1c71263583b5a407856f997cd56ce00862b2574','Alejandra','Sipes','1980-02-17'),(64,'jerald.von@example.org','dbd55c6ad8d1f741c46d78a60014bf6493fcf6d3','Amelie','Walker','1988-11-09'),(65,'howard.pollich@example.net','69525809d845b9dfc58bd38d14a5d049e82c72e8','Madelyn','Aufderhar','1970-07-17'),(66,'carroll.maegan@example.org','3d59982a6d965245ef9f6c0dd357b130ba774af6','Geovany','Greenfelder','1996-12-25'),(67,'swill@example.org','ef4774e55ee5ff1c83a3dd47700563a17cd8bc93','Abbie','Jakubowski','1973-05-19'),(68,'durgan.annalise@example.net','96424dba097d3c94d46976729c976d50c32e8f96','Coty','Schuppe','2002-12-21'),(69,'pouros.ottis@example.net','b6d0bec0a4b3b6d5fbe50b8f03f3fa92d2e3fe22','Lempi','Shanahan','1987-08-09'),(70,'gino48@example.com','0ca25664fb08e7fc851298ee248659799b093c71','Deon','Schamberger','2013-03-01'),(71,'pollich.antonietta@example.com','d889e7e161e2723ef96cf20e4e1b9b0037b125c2','Gardner','West','2006-09-18'),(72,'wunsch.sienna@example.net','c825319e0f6f5291beef4e541d49a1849e6942eb','Velma','Lakin','1984-07-09'),(73,'idell.mills@example.com','1d02cdfe191ea0e0647ab1ed7db8f3eec84646e0','Elliott','Boyle','1979-08-30'),(74,'frederic.emard@example.com','dcffdcd1d2c00583f3394c14371d7267e85b8819','Orlando','Yost','1981-05-13'),(75,'amely.grant@example.com','279e72c56a827877084e98c033b9cd24e2cb5db1','Burdette','O\'Kon','2019-11-29'),(76,'austen94@example.org','a69d557fcc2ba1a40f51955460c816fc421939d1','Maximus','Ledner','2016-09-14'),(77,'estrella15@example.org','64eff73a48f98fa94cd2a785879256fae239b141','Justus','Gerhold','1975-07-15'),(78,'caleigh93@example.com','5aabda24ca03dfa5d3d39abe4caf9a8b426adfa6','Magnus','Bruen','1992-01-08'),(79,'wgerhold@example.net','13a77b82d42da260faba98897c5be07fa7939570','Else','Dibbert','1984-09-14'),(80,'camila.roob@example.org','037a7d12ca02990451e7d5977b83ec6cca1d7e11','Jarrett','Murray','1975-02-28'),(81,'jacobson.myles@example.org','921dea7f244ff75d01be9794196c389dc0770fde','Casper','Bartoletti','1986-07-21'),(82,'ondricka.rae@example.org','721856a13b58ee59bf1f8eb269917d615a2615c6','Candelario','Parker','1985-01-02'),(83,'sonya66@example.com','b4aec245598887c60800ee884586fae7a4d6d4ef','Bertha','Cummerata','1997-06-20'),(84,'bertram.schoen@example.net','00dc73ce7ef1642511d474da858c1c0d18794ebf','Reece','Jenkins','2005-02-17'),(85,'skye91@example.com','e103d65bb80e5f3b698181212d1e70acd755d5ea','Maribel','Bartell','2000-10-22'),(86,'schneider.alvina@example.net','b24dba2c06a2d5e975b70e4e86baba6d2cd27497','Torey','Paucek','1987-03-01'),(87,'alberto.crooks@example.net','75f0ad7f34dfa3fd477ca49ee837779d83309ba1','Ezra','Quigley','2018-11-27'),(88,'tanner.turner@example.org','b29cf4425369f9e79590a36f33c44107382eeacf','Tomasa','Steuber','1980-06-19'),(89,'blanca.schaefer@example.com','12b8c47f8aa828354607714ac55c061a4c198696','Lacy','West','1985-05-12'),(90,'cwitting@example.com','a14bd3acd81197a13367cb90ab5ae06f3036c347','Vernon','Toy','1994-02-19'),(91,'xblick@example.org','0672c64cd61cbd24fe5d0970435975d09792e58c','Jayson','Powlowski','2004-11-17'),(92,'qnader@example.net','ee2aeb342115169275146078dd0e596a9af9a318','Emmitt','Witting','2015-06-19'),(93,'barton.dolores@example.org','a9b5753ff9473aca37d7a8b007bf29b8f16402d9','Jermain','Beer','2008-07-11'),(94,'flatley.antone@example.net','9d6b53a7524e50d6dbff334a6e061a529dbc2e51','Christine','Kertzmann','1983-02-07'),(95,'brooklyn62@example.net','80c676eea9f8dbed719b7ee162c7a9e5cf85f612','Valentin','Vandervort','2000-07-19'),(96,'al.parisian@example.net','b32632e771d14248b5b729c0d596e123a77ec45f','Kira','Dickens','2001-09-13'),(97,'nico.harber@example.org','76b0ec0a17258f1b5d017a363f8686755a6be6aa','Orion','Abernathy','2002-01-22'),(98,'asha.mohr@example.com','2fa220251a0777c4b7397c29305c374aa07c2721','Everardo','Schmitt','1996-03-30'),(99,'brisa85@example.net','90d3cf71d05182866acb05179523e05eb672f0a1','Sage','Will','1979-02-24'),(100,'gregg63@example.org','c912ab9f50db37afd8c4a91bd33efbe22e1274c4','Erich','Gleason','2008-01-25');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,10 +168,11 @@ DROP TABLE IF EXISTS `user_flight`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_flight` (
-  `bookingNumber` int NOT NULL,
+  `booking_number` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `flight_id` int DEFAULT NULL,
-  PRIMARY KEY (`bookingNumber`),
+  `price_paid` float DEFAULT NULL,
+  PRIMARY KEY (`booking_number`),
   KEY `fk_user_idx` (`user_id`),
   KEY `fk_flight_idx` (`flight_id`),
   CONSTRAINT `fk_flight` FOREIGN KEY (`flight_id`) REFERENCES `flight` (`id`),
@@ -112,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-18 11:01:08
+-- Dump completed on 2021-11-25 14:06:53
