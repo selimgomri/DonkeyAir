@@ -143,12 +143,6 @@ session_start();
                         $arrivalAirport=substr($_GET['departureAirport'], 0, 3);
                         $departureAirport=substr($_GET['arrivalAirport'], 0, 3);
                         $departureTime=$_GET['departureTime'];
-
-                       /*  $query="SELECT flight_number, departureAirport, arrivalAirport, departureTime, arrivalTime, price FROM flight WHERE 
-                        departureAirport= :departureAirport
-                        AND arrivalAirport= :arrivalAirport 
-                        AND departureTime>= :departureTime
-                        ORDER BY price ASC"; */
         
                         //preparation PDO
                         $statement = $pdo->prepare($query);
@@ -176,7 +170,7 @@ session_start();
                             $values['departureAirport'] = $values[1];
                             unset($values[1]);
                             $values['arrivalAirport'] = $values[2];
-                            unset($values[2]); ?>?>
+                            unset($values[2]); ?>
                             <div class="flexResults">
                                 <div class="resultBox">
                                     <?php echo $values['flight_number'] ?>
