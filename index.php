@@ -1,9 +1,8 @@
 <?php
 @include 'connectDB.php';
-$query="SELECT id, airport_name, airport_city FROM airport ORDER BY airport_city ASC";
+$query="SELECT id, airport_city FROM airport ORDER BY airport_city ASC";
 $statement = $pdo->query($query);
 $airports = $statement->fetchAll();
-var_dump($airports);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +25,7 @@ var_dump($airports);
     <main class="backgroundIndex">
         <div class="flexbox">
 
-            <form class="reservation-container" method="POST" action="booking.php">
+            <form class="reservation-container" method="GET" action="booking.php">
 
                 <h1 class="display-5">Réservez votre vol</h1>
 
