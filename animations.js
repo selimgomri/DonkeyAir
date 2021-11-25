@@ -13,8 +13,9 @@ const oneWayReturn = () => {
 
 $( document ).ready(function() {
   $( "#togglePackageButton").click(function() {
-    $( ".packageResults" ).toggle( "blind" );
+    $( ".packageResults1" ).toggle( "blind" );
   });
 });
+
 
 

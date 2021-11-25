@@ -35,7 +35,7 @@ session_start();
                         $arrivalAirport=substr($_GET['arrivalAirport'], 0, 3);
                         $departureTime=$_GET['departureTime'];
 
-                        $query="SELECT flight_number, departure_airport.id, arrival_airport.id,  departure_time, arrival_time, economy1 
+                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id,  departure_time, arrival_time, economy1 
                         FROM flight 
                         JOIN airport AS departure_airport ON departure_airport_id=departure_airport.id 
                         JOIN airport AS arrival_airport ON arrival_airport_id=arrival_airport.id
@@ -64,7 +64,7 @@ session_start();
                             echo "Aucun vol disponible <br>";
                         }
 
-                        foreach ($flights as $values) { 
+                        foreach ($flights as $values) {
                             $values['departureAirport'] = $values[1];
                             unset($values[1]);
                             $values['arrivalAirport'] = $values[2];
@@ -84,7 +84,7 @@ session_start();
                                 </button>
                             </div> 
                             <div class="packageResults-container">
-                                <div class="packageResults">
+                                <div class="hide packageResults<?php echo $values['id']; ?>">
                                     <div class="packageResultTitle1">
                                         <h4>SAVER</h4>
                                     </div>
@@ -98,7 +98,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <div class="packageResults">
+                                <div class="hide packageResults<?php echo $values['id']; ?>">
                                     <div class="packageResultTitle2">
                                         <h4>FLEX</h4>
                                     </div>
@@ -112,7 +112,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <div class="packageResults">
+                                <div class="hide packageResults<?php echo $values['id']; ?>">
                                     <div class="packageResultTitle3">
                                         <h4>PREMIUM</h4>
                                     </div>

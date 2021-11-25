@@ -218,14 +218,14 @@ input {
 
 .flexResults {
     display: flex;
-    text-align: center;
+    justify-content: center;
 }
 
 .resultBox {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;    
     background-color: #f4f9ff;
-    padding: 1rem;
-    margin: 3px;
+    padding: 20px;
+    margin: 1px;
     font-weight: bolder;
 }
 
@@ -251,16 +251,24 @@ input {
 .packageResults-container {
     display: flex;
     text-align: center;
-    margin-left: 90px;
+    justify-content: center;
+    
 }
 
 .packageResults {
     display: none;
     background-color: #f4f9ff;
-    width: 210px;
+    width: 230px;
     height: 380px;
-    margin-left: 5px;
-    margin-top: 5px;
+    margin: auto;
+}
+
+.hide {
+    display: none;
+    background-color: rgb(250, 250, 250);
+    margin: 10px;
+    width: 230px;
+    height: 380px;
 }
 
 .packageResultTitle1 {
@@ -324,8 +332,8 @@ li #premiumColor {
     background-color: rgb(127, 194, 127);
     border: none;
     color: #ffffff;
-    width: 170px;
-    padding: 5px 20px 5px 20px;
+    width: 190px;
+    padding: 20px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bolder;
@@ -342,8 +350,8 @@ li #premiumColor {
     background-color: #a5bad4;
     border: none;
     color: #ffffff;
-    width: 170px;
-    padding: 5px 20px 5px 20px;
+    width: 190px;
+    padding: 20px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bolder;
@@ -360,8 +368,8 @@ li #premiumColor {
     background-color: #7799c0;
     border: none;
     color: #ffffff;
-    width: 170px;
-    padding: 5px 20px 5px 20px;
+    width: 190px;
+    padding: 20px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bolder;
