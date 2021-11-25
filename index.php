@@ -1,5 +1,5 @@
 <?php
-@include 'connectDB.php';
+@require_once 'connectDB.php';
 $query="SELECT id, airport_city FROM airport ORDER BY airport_city ASC";
 $statement = $pdo->query($query);
 $airports = $statement->fetchAll();
@@ -19,7 +19,9 @@ $airports = $statement->fetchAll();
 </head>
 
 <body>
-    <?php @require_once 'header.html' ?>
+    <?php 
+    @require_once 'header.php'; 
+    ?>
     <main class="backgroundIndex">
         <div class="flexbox">
 
@@ -100,8 +102,7 @@ $airports = $statement->fetchAll();
 
     <?php @require_once 'footer.html' ?>
 
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="animations.js"></script>
+
 </body>
 
 </html>

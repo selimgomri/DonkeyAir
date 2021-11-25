@@ -1,5 +1,4 @@
 <?php
-session_start();
 @require_once "connectDB.php";
 ?>
 <!DOCTYPE html>
@@ -19,7 +18,12 @@ session_start();
 
 <body>
 
-    <?php @require_once 'header.html'?>
+    <?php
+    @require_once 'header.php';
+    if (empty($_SESSION['firstname'])) {
+        @require_once 'login.php';
+    }
+    ?>
 
     <main class="backgroundBooking">
         <h1 class="display-7">Effectuez une réservation</h1>
