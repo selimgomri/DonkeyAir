@@ -74,7 +74,7 @@ a:hover {
     background-size: cover;
     font-weight: bolder;
     padding: 6rem;
-    background: linear-gradient(-45deg, #91cdf5, #9be1fa, #ffffff);
+    background: linear-gradient(-45deg, #91cdf5, #b6ecff, #ffffff);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -231,7 +231,7 @@ input {
 
 #togglePackageButton {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
-    background-color: #7cd8fa;
+    background-color: rgb(127, 194, 127);
     color: #ffffff;
     border: none;
     padding: 1rem;
@@ -252,7 +252,6 @@ input {
     display: flex;
     text-align: center;
     margin-left: 90px;
-
 }
 
 .packageResults {
@@ -265,26 +264,26 @@ input {
 }
 
 .packageResultTitle1 {
-    color: rgb(255, 255, 255);
+    color: rgb(81, 185, 81);
     font-weight: bolder;
-    background-color: rgb(81, 185, 81);
-    margin: 10px;
+    border: rgb(81, 185, 81) 3px solid;
+    margin: 10px 10px 40px 10px;
     padding: 22px 0 12px 0;
 }
 
 .packageResultTitle2 {
-    color: rgb(255, 255, 255);
+    color: #89afda;
     font-weight: bolder;
-    background-color: #89afda;
-    margin: 10px;
+    border: #89afda 3px solid;
+    margin: 10px 10px 40px 10px;
     padding: 22px 0 12px 0;
 }
 
 .packageResultTitle3 {
-    color: rgb(255, 255, 255);
+    color: #426185;
     font-weight: bolder;
-    background-color: #426185;
-    margin: 10px;
+    border: #426185 3px solid;
+    margin: 10px 10px 40px 10px;
     padding: 22px 0 12px 0;
 }
 
@@ -308,17 +307,67 @@ input {
     margin: 20px 0 10px 20px;
 }
 
-#packageButtonChoice {
+li #saverColor {
+    color: rgb(127, 194, 127);
+}
+
+li #flexColor {
+    color: #a5bad4;
+}
+
+li #premiumColor {
+    color: #7799c0;
+}
+
+#packageButtonChoice1 {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
-    background-color: rgb(87, 197, 87);
+    background-color: rgb(127, 194, 127);
     border: none;
     color: #ffffff;
-    width: 100px;
-    padding: 15px;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 20px;
     font-weight: bolder;
 }
 
-#packageButtonChoice:hover {
+#packageButtonChoice1:hover {
+    background-color: #def7f7;
+    color: black;
+    font-weight: bolder;
+}
+
+#packageButtonChoice2 {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
+    background-color: #a5bad4;
+    border: none;
+    color: #ffffff;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#packageButtonChoice2:hover {
+    background-color: #def7f7;
+    color: black;
+    font-weight: bolder;
+}
+
+#packageButtonChoice3 {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
+    background-color: #7799c0;
+    border: none;
+    color: #ffffff;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#packageButtonChoice3:hover {
     background-color: #def7f7;
     color: black;
     font-weight: bolder;

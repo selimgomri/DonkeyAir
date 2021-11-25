@@ -79,11 +79,11 @@ session_start();
                                         <h4>SAVER</h4>
                                     </div>
                                     <div class="packageResultContent">
-                                        <li>🧳 Aucun bagage inclu</li><br>
+                                        <li>🧳 1 x 7kg</li><br>
                                         <li>💺 Siège attribué</li><br>
                                         <li>✔️ 5000 Miles</li><br>
-                                        <li>❌  Pas d'assurance</li><br>
-                                        <button id="packageButtonChoice">
+                                        <li id="saverColor">🔰 Assurance SAVER</li><br>
+                                        <button id="packageButtonChoice1" type="submit">
                                             <?php echo $values['price'] . " € "; ?>
                                         </button>
                                     </div>
@@ -93,11 +93,11 @@ session_start();
                                         <h4>FLEX</h4>
                                     </div>
                                     <div class="packageResultContent">
-                                        <li>🧳 1 x 23kg</li><br>
+                                        <li>🧳 1 x 7kg / 1 x 23kg</li><br>
                                         <li>💺 Choix du siège</li><br>
                                         <li>✔️ 20000 Miles</li><br>
-                                        <li>🔰 Assurance FLEX</li><br>
-                                        <button id="packageButtonChoice">
+                                        <li id="flexColor">🔰 Assurance FLEX</li><br>
+                                        <button id="packageButtonChoice2" type="submit">
                                             <?php echo $values['price'] . " € "; ?>
                                         </button>
                                     </div>
@@ -107,12 +107,11 @@ session_start();
                                         <h4>PREMIUM</h4>
                                     </div>
                                     <div class="packageResultContent">
-                                        <li>🧳 2 x 23kg</li><br>
+                                        <li>🧳 1 x 7kg / 2 x 23kg</li><br>
                                         <li>💺 Siège PREMIUM</li><br>
                                         <li>✔️ 50000 Miles</li><br>
-                                        <li>🔰 Assurance PREMIUM</li><br>
-
-                                        <button id="packageButtonChoice">
+                                        <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
+                                        <button id="packageButtonChoice3"  type="submit">
                                             <?php echo $values['price'] . " € "; ?>
                                         </button>
                                     </div>
