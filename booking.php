@@ -108,7 +108,7 @@ session_start();
                                         <li>✔️ 20000 Miles</li><br>
                                         <li id="flexColor">🔰 Assurance FLEX</li><br>
                                         <button id="packageButtonChoice2" type="submit">
-                                            <?php echo $values['economy1'] . " € "; ?>
+                                            <?php echo ($values['economy1']*1.5) . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ session_start();
                                         <li>✔️ 50000 Miles</li><br>
                                         <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
                                         <button id="packageButtonChoice3"  type="submit">
-                                            <?php echo $values['economy1'] . " € "; ?>
+                                            <?php echo ($values['economy1']*2.5) . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
