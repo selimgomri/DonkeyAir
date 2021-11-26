@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Connectez-vous a votre espace pour gérer vos reservations, ajouter une assurance, des options bagagages, une prise en charge à l'aéroport, un surclassement, ou consulter votre historique de vols vers vos destinations préférées">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
     <title>Connectez-vous a votre espace pour gérer vos reservations et consulter votre historique de vols vers vos
         destinations préférées</title>
@@ -22,7 +20,7 @@
         <div>
             <form class="reservationContainerLogin" method="post" action="login.php">
 
-                <h1 class="display-5">Connexion à votre espace</h1>
+                <h1 class="display-6">Connexion à votre espace</h1>
                 <label for="id-email"></label>
                 <input type="email" id="id-email" autocomplete="on" name="email" placeholder="Adresse e-mail" value=<?php
                 if (!empty($_SESSION)) {
