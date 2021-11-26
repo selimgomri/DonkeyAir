@@ -391,3 +391,17 @@ li #premiumColor {
     list-style-type: none;
     font-size: 15px;
 }
+.display-5{
+    display: flex;
+    justify-content: center;
+}
+.formatFacultatif {
+    display: flex;
+}
+.columnFormatFacultatif {
+    display: flex;
+    flex-direction: column;
+}
+.text-muted {
+    padding: 0em 12rem 0rem  1.5rem
+}

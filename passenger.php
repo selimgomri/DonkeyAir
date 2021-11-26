@@ -1,52 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="fancy.css">
+    <title>Informations passagers</title>
+</head>
 
-  <?php
-  $bdd = new PDO('mysql:host=127.0.0.1:3306;dbname=donkeyAirDB','root',"");
-  
-  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  if(isset($_POST['confirmer'])){
-  
-  }
- 
- 
-  $prenom = $_POST['firstname'];
-  $nom = $_POST['lastname'];
-  $email = $_POST['email'];
-  $dateDeNaissance = $_POST['birthDate'];
-  
-  if(!empty($prenom) && !empty($nom) &&  !empty($email) &&  !empty($dateDeNaissance))
-  
+<body>
+    <?php @require_once "header.php"; ?>
+    <h1 class="display-5">Informations
+        <?php
+        if (1==$_SESSION['passengers']['nbPassengers']) {
+            echo 'passager';
+        } else {
+            echo 'passagers';
+        }
+        ?>
+        </h1>
+    <form class="reservationContainerLogin">
+        <?php
+        for ($i=1; $i<=$_SESSION['passengers']['nbPassengers']; $i++) { ?>
+        <form class="reservationContainerLogin">
 
-         
-          $requet = $bdd->prepare('INSERT INTO user(firstname,lastname,email, birthDate)VALUE(:firstname, :lastname, :email, :birthDate)');
-  
-         
-          $requet->bindvalue(':firstname',$prenom);
-          $requet->bindvalue(':lastname',$nom);
-          $requet->bindvalue(':email',$email);
-          $requet->bindvalue(':birthDate',$dateDeNaissance);
-  
-          $result=$requet->execute();
-          var_dump($result);
-          
-          if (!$result) {
-             
-             echo " Un probleme ets survenu, L'enregistrement n'a pas été effectué! ";
-             
-            
-         }
-          
-         
-         
-         
+            <h2>Passager <?php echo $i ?></h2>
+            <label for="firstname"></label>
+            <input type="text" autocomplete="on" name="firstname" placeholder="Prénom" required <?php 
+            if (1==$i) {
+                echo 'value=' . $_SESSION['firstname'];
+            }
+            ?>>
 
-        
-        
-       
-         
-     
-  
-  ?>
+            <label for="lastname"></label>
+            <input type="text" autocomplete="on" name="lastname" placeholder="Nom" required <?php 
+            if (1==$i) {
+                echo 'value=' . $_SESSION['lastname'];
+            }
+            ?>>
 
+            <label for="birthdate"></label>
+            <input type="date" autocomplete="on" name="birthdate" placeholder="birthdate" required <?php 
+            if (1==$i) {
+                echo 'value=' . $_SESSION['birthdate'];
+            }
+            ?>>
 
-    
+            <div class="formatFacultatif">
+                <div class="columnFormatFacultatif">
+                    <label for="email"></label>
+                    <input type="email" autocomplete="on" name="email" placeholder="Adresse email" <?php
+            if (1==$i) {
+                echo " required value= " . $_SESSION['email'];
+            }
+            ?>>
+                    <?php
+            if ($i>1) { ?>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        facultatif
+                    </small>
+                    <?php
+            }
+            ?>
+                </div>
+
+                <div>
+                    <label for="phone"></label>
+                    <input type="tel" autocomplete="on" name="phone" placeholder="Téléphone" <?php
+            if (1==$i) {
+                echo " required value= " . $_SESSION['phone'];
+            }
+            ?>>
+                    <?php
+            if ($i>1) { ?>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        facultatif
+                    </small>
+                    <?php
+            }
+            ?>
+                </div>
+            </div>
+
+        </form>
+        <?php
+        }
+        ?>
+        <input class="validatebtn" type="submit" value="Suivant">
+    </form>
+
+    <?php @require_once "footer.html" ?>
+</body>
+
+</html>
