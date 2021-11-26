@@ -12,7 +12,6 @@ const oneWayReturn = () => {
 // JS TRY nextSibling FUNCTION
 
 function togglePackageResults(event) {
-  console.log(event);
   const clickedButtonElement = event.target;
   const flexResultsElement = clickedButtonElement.parentElement;
   const packageResultsContainerElement = flexResultsElement.nextElementSibling;
@@ -23,15 +22,6 @@ function togglePackageResults(event) {
     }
 }
 
-
- // FIRST JQUERY FUNCTION
-
-
-/*$( document ).ready(function() {
-  $( "#togglePackageButton").click(function() {
-    $( ".packageResults1" ).toggle( "blind" );
-  });
-});*/
 
 
 
