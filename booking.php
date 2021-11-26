@@ -22,6 +22,7 @@
     @require_once 'header.php';
     if (empty($_SESSION['firstname'])) {
         @require_once 'login.php';
+        exit();
     }
     ?>
 

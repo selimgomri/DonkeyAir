@@ -21,8 +21,6 @@ $airports = $statement->fetchAll();
 <body>
     <?php 
     @require_once 'header.php'; 
-    var_dump($_SESSION);
-
     ?>
     <main class="backgroundIndex">
         <div class="flexbox">

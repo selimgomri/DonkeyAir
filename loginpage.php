@@ -16,7 +16,7 @@
 
 <body>
 
-    <?php @require_once 'headerLogin.php'?>
+    <?php @require_once 'headerLogin.php' ?>
 
     <main class="backgroundLogin">
         <div>
