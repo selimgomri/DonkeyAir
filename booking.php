@@ -40,7 +40,7 @@
                         $arrivalAirport=substr($_GET['arrivalAirport'], 0, 3);
                         $departureTime=$_GET['departureTime'];
 
-                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id,  departure_time, arrival_time, economy1 
+                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id,  departure_time, arrival_time, economy1, economy2, economy3 
                         FROM flight 
                         JOIN airport AS departure_airport ON departure_airport_id=departure_airport.id 
                         JOIN airport AS arrival_airport ON arrival_airport_id=arrival_airport.id
@@ -113,7 +113,7 @@
                                         <li>✔️ 20000 Miles</li><br>
                                         <li id="flexColor">🔰 Assurance FLEX</li><br>
                                         <button id="packageButtonChoice2" type="submit">
-                                            <?php echo ($values['economy1']*1.5) . " € "; ?>
+                                            <?php echo ($values['economy2']) . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                                         <li>✔️ 50000 Miles</li><br>
                                         <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
                                         <button id="packageButtonChoice3"  type="submit">
-                                            <?php echo ($values['economy1']*2.5) . " € "; ?>
+                                            <?php echo ($values['economy3']) . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                         <li>✔️ 20000 Miles</li><br>
                                         <li id="flexColor">🔰 Assurance FLEX</li><br>
                                         <button id="packageButtonChoice2" type="submit">
-                                            <?php echo ($values['economy1']*1.5) . " € "; ?>
+                                            <?php echo ($values['economy2']) . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
@@ -227,7 +227,7 @@
                                         <li>✔️ 50000 Miles</li><br>
                                         <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
                                         <button id="packageButtonChoice3"  type="submit">
-                                            <?php echo ($values['economy1']*2.5) . " € "; ?>
+                                            <?php echo ($values['economy3']) . " € "; ?>
                                         </button>
                                     </div>
                                 </div>
