@@ -16,16 +16,16 @@
 </head>
 
 <body>
-
     <?php
     @require_once 'header.php';
     if (empty($_SESSION['firstname'])) {
         @require_once 'login.php';
         exit();
     } else {
-    $_SESSION['passengersInformation']=$_POST;
-    var_dump($_SESSION);
-    } ?>
+        $_SESSION['passengersInformation']=$_POST;
+        var_dump($_SESSION);
+    }
+    ?>
 
     <main class="backgroundSummary">
         <h1 class="display-7">Récapitulatif de votre réservation</h1>
@@ -33,36 +33,44 @@
             <div class="bookingResultBoxes">
                 <div class="flexResults">
                     <?php
-                $oneWayFlight=$_SESSION['oneWayFlight'];
-                $returnWayFlight=$_SESSION['']
-                foreach($oneWayFlight as $value) { ?>
+                    $oneWayFlight=$_SESSION['oneWayFlight'];
+                    $returnWayFlight=$_SESSION['returnFlight'];
+                    $passengersInformation=$_SESSION['passengersInformation'];
+                    foreach ($oneWayFlight as $value) { ?>
                     <div class="resultBox">
                         <?php echo $value ?>
                     </div>
-                    <?php 
-                }
-                ?>
-                    <div class="packageResults-container hidden">
-                        <div class="packageResults">
-                            <div class="packageResultTitle1">
-                            </div>
-                            <div class="packageResultContent">
-                            </div>
-                        </div>
-                        <div class="packageResults">
-                            <div class="packageResultTitle2">
-                            </div>
-                            <div class="packageResultContent">
+                    <?php
+                    }
+                    ?>
+                </div>
+                
+                <div class="flexResults">
+                    <?php
+                    foreach ($returnWayFlight as $value) { ?>
+                    <div class="resultBox">
+                        <?php echo $value ?>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
 
-                            </div>
-                        </div>
-                        <div class="packageResults">
-                            <div class="packageResultContent">
-                            </div>
-                        </div>
+                <div class="flexResults">
+
+                    <div class="resultBox">
+                        <?php                     
+                        echo $passengersInformation['email1'];
+                        echo $passengersInformation['email1'];
+                        echo $passengersInformation['email1'];
+                        echo $passengersInformation['email1'];
+                        echo $passengersInformation['email1'];
+                        ?>
                     </div>
                 </div>
+
             </div>
+        </div>
     </main>
 
     <?php @require_once 'footer.html' ?>
