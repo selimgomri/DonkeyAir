@@ -21,8 +21,9 @@
     if (empty($_SESSION['firstname'])) {
         @require_once 'login.php';
         exit();
-    }
-    ?>
+    } else {
+    $_SESSION['passengersInformation']=$_POST;
+    } ?>
 
     <main class="backgroundSummary">
         <h1 class="display-7">Récapitulatif de votre réservation</h1>
@@ -58,10 +59,6 @@
                 </div>
             </div>
         </div>
-
-    <?php
-    $_SESSION['passengers']=$_GET;
-    ?>
     </main>
 
     <?php @require_once 'footer.html' ?>
