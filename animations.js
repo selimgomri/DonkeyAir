@@ -9,13 +9,25 @@ const oneWayReturn = () => {
   };
 
 
-// JQUERY FUNCTION FOR PACKAGE RESULTS
+// JS TRY nextSibling FUNCTION
 
-$( document ).ready(function() {
+function togglePackageResults(event) {
+  console.log(event);
+  const clickedButtonElement = event.target;
+  const flexResultsElement = clickedButtonElement.parentElement;
+  const packageResultContainerElement = 
+}
+
+
+ // FIRST JQUERY FUNCTION
+
+
+/*$( document ).ready(function() {
   $( "#togglePackageButton").click(function() {
     $( ".packageResults1" ).toggle( "blind" );
   });
-});
+});*/
+
 
 
 

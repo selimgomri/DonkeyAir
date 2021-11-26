@@ -79,12 +79,12 @@ session_start();
                                 <div class="resultBox">
                                     <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
                                 </div>
-                                <button id="togglePackageButton">
+                                <button id="togglePackageButton" onlick="togglePriceButton()">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div> 
                             <div class="packageResults-container">
-                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                <div class="packageResults">
                                     <div class="packageResultTitle1">
                                         <h4>SAVER</h4>
                                     </div>
@@ -98,7 +98,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                <div class="packageResults">
                                     <div class="packageResultTitle2">
                                         <h4>FLEX</h4>
                                     </div>
@@ -112,7 +112,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                <div class="packageResults">
                                     <div class="packageResultTitle3">
                                         <h4>PREMIUM</h4>
                                     </div>
@@ -159,13 +159,11 @@ session_start();
                             <h2 class="display-8"> <?php echo "VOLS RETOUR"; ?> </h2>
                         </div>
 
-
-                <?php
+                        <?php
                         if (empty($flights)) {
                             echo "Aucun vol disponible <br>";
                         }
-        
-
+    
                         foreach ($flights as $values) { 
                             $values['departureAirport'] = $values[1];
                             unset($values[1]);
@@ -184,9 +182,53 @@ session_start();
                                 <button id="togglePackageButton">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
-                            </div> </br>
-
-                <?php
+                            </div>
+                            <div class="packageResults-container">
+                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                    <div class="packageResultTitle1">
+                                        <h4>SAVER</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 1 x 7kg</li><br>
+                                        <li>💺 Siège attribué</li><br>
+                                        <li>✔️ 5000 Miles</li><br>
+                                        <li id="saverColor">🔰 Assurance SAVER</li><br>
+                                        <button id="packageButtonChoice1" type="submit">
+                                            <?php echo $values['economy1'] . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                    <div class="packageResultTitle2">
+                                        <h4>FLEX</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 1 x 7kg / 1 x 23kg</li><br>
+                                        <li>💺 Choix du siège</li><br>
+                                        <li>✔️ 20000 Miles</li><br>
+                                        <li id="flexColor">🔰 Assurance FLEX</li><br>
+                                        <button id="packageButtonChoice2" type="submit">
+                                            <?php echo ($values['economy1']*1.5) . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                    <div class="packageResultTitle3">
+                                        <h4>PREMIUM</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 1 x 7kg / 2 x 23kg</li><br>
+                                        <li>💺 Siège PREMIUM</li><br>
+                                        <li>✔️ 50000 Miles</li><br>
+                                        <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
+                                        <button id="packageButtonChoice3"  type="submit">
+                                            <?php echo ($values['economy1']*2.5) . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </br>
+                        <?php
                         }
                     }
                 ?>
