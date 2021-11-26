@@ -1,5 +1,3 @@
-
-
 // JS FUNCTION TO HIDE RETURN DATE WHEN ONE WAY SELECTED
 
 const oneWayReturn = () => {
@@ -7,7 +5,6 @@ const oneWayReturn = () => {
     document.getElementById("ifChecked").style.visibility = "visible";
   } else document.getElementById("ifChecked").style.visibility = "hidden";
   };
-
 
 // JS TRY nextSibling FUNCTION
 
