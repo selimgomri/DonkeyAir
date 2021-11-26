@@ -79,11 +79,11 @@ session_start();
                                 <div class="resultBox">
                                     <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
                                 </div>
-                                <button id="togglePackageButton" onlick="togglePriceButton()">
+                                <button class="togglePackageButton" onclick="togglePackageResults(event)">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div> 
-                            <div class="packageResults-container">
+                            <div class="packageResults-container hidden">
                                 <div class="packageResults">
                                     <div class="packageResultTitle1">
                                         <h4>SAVER</h4>
@@ -179,12 +179,12 @@ session_start();
                                 <div class="resultBox">
                                     <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
                                 </div>
-                                <button id="togglePackageButton">
+                                <button class="togglePackageButton" onclick="togglePackageResults(event)">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div>
-                            <div class="packageResults-container">
-                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                            <div class="packageResults-container hidden">
+                                <div class="packageResults">
                                     <div class="packageResultTitle1">
                                         <h4>SAVER</h4>
                                     </div>
@@ -198,7 +198,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                <div class="packageResults">
                                     <div class="packageResultTitle2">
                                         <h4>FLEX</h4>
                                     </div>
@@ -212,7 +212,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <div class="hide packageResults<?php echo $values['id']; ?>">
+                                <div class="packageResults">
                                     <div class="packageResultTitle3">
                                         <h4>PREMIUM</h4>
                                     </div>

@@ -15,7 +15,12 @@ function togglePackageResults(event) {
   console.log(event);
   const clickedButtonElement = event.target;
   const flexResultsElement = clickedButtonElement.parentElement;
-  const packageResultContainerElement = 
+  const packageResultsContainerElement = flexResultsElement.nextElementSibling;
+    if (packageResultsContainerElement.classList.contains("hidden")) {
+      packageResultsContainerElement.classList.remove("hidden");
+    } else {
+      packageResultsContainerElement.classList.add("hidden");
+    }
 }
 
 
