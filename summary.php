@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
+    <meta name="description"
+        content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
     <link rel="stylesheet" href="fancy.css">
     <title>Récapitulatif de votre vol</title>
 
@@ -23,6 +24,7 @@
         exit();
     } else {
     $_SESSION['passengersInformation']=$_POST;
+    var_dump($_SESSION);
     } ?>
 
     <main class="backgroundSummary">
@@ -30,35 +32,37 @@
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
+                    <?php
+                $oneWayFlight=$_SESSION['oneWayFlight'];
+                $returnWayFlight=$_SESSION['']
+                foreach($oneWayFlight as $value) { ?>
                     <div class="resultBox">
+                        <?php echo $value ?>
                     </div>
-                    <div class="resultBox"> 
-                    </div>
-                    <div class="resultBox">
-                    </div>
+                    <?php 
+                }
+                ?>
+                    <div class="packageResults-container hidden">
+                        <div class="packageResults">
+                            <div class="packageResultTitle1">
+                            </div>
+                            <div class="packageResultContent">
+                            </div>
+                        </div>
+                        <div class="packageResults">
+                            <div class="packageResultTitle2">
+                            </div>
+                            <div class="packageResultContent">
 
-                </div> 
-                <div class="packageResults-container hidden">
-                    <div class="packageResults">
-                        <div class="packageResultTitle1">
+                            </div>
                         </div>
-                        <div class="packageResultContent">
-                        </div>
-                    </div>
-                    <div class="packageResults">
-                        <div class="packageResultTitle2">
-                        </div>
-                        <div class="packageResultContent">
-
-                        </div>
-                    </div>
-                    <div class="packageResults">
-                        <div class="packageResultContent">
+                        <div class="packageResults">
+                            <div class="packageResultContent">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 
     <?php @require_once 'footer.html' ?>
