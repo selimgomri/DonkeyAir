@@ -75,7 +75,7 @@ a:hover {
     background-size: cover;
     font-weight: bolder;
     padding: 6rem;
-    background: linear-gradient(-45deg, #91cdf5, #b6ecff, #ffffff);
+    background: linear-gradient(-45deg, #6dc3fc, #cbf1ff);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -219,18 +219,18 @@ input {
 
 .flexResults {
     display: flex;
-    text-align: center;
+    justify-content: center;
 }
 
 .resultBox {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;    
     background-color: #f4f9ff;
-    padding: 1rem;
-    margin: 3px;
+    padding: 20px;
+    margin: 1px;
     font-weight: bolder;
 }
 
-#togglePackageButton {
+.togglePackageButton {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
     background-color: rgb(127, 194, 127);
     color: #ffffff;
@@ -241,7 +241,7 @@ input {
     font-weight: bolder;
 }
 
-#togglePackageButton:hover {
+.togglePackageButton:hover {
     color: black;
     background-color: #def7f7;
     padding: 1rem;
@@ -252,23 +252,29 @@ input {
 .packageResults-container {
     display: flex;
     text-align: center;
-    margin-left: 90px;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
 
 .packageResults {
-    display: none;
-    background-color: #f4f9ff;
-    width: 210px;
+    background-color: rgb(250, 250, 250);
+    width: 230px;
     height: 380px;
-    margin-left: 5px;
-    margin-top: 5px;
+    margin: 20px 10px 10px 10px;
+}
+
+.packageResults:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .packageResultTitle1 {
     color: rgb(81, 185, 81);
     font-weight: bolder;
     border: rgb(81, 185, 81) 3px solid;
-    margin: 10px 10px 40px 10px;
+    margin-bottom: 40px;
     padding: 22px 0 12px 0;
 }
 
@@ -276,7 +282,7 @@ input {
     color: #89afda;
     font-weight: bolder;
     border: #89afda 3px solid;
-    margin: 10px 10px 40px 10px;
+    margin-bottom: 40px;
     padding: 22px 0 12px 0;
 }
 
@@ -284,7 +290,7 @@ input {
     color: #426185;
     font-weight: bolder;
     border: #426185 3px solid;
-    margin: 10px 10px 40px 10px;
+    margin-bottom: 40px;
     padding: 22px 0 12px 0;
 }
 
@@ -325,8 +331,8 @@ li #premiumColor {
     background-color: rgb(127, 194, 127);
     border: none;
     color: #ffffff;
-    width: 170px;
-    padding: 5px 20px 5px 20px;
+    width: 180px;
+    padding: 15px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bolder;
@@ -343,8 +349,8 @@ li #premiumColor {
     background-color: #a5bad4;
     border: none;
     color: #ffffff;
-    width: 170px;
-    padding: 5px 20px 5px 20px;
+    width: 180px;
+    padding: 15px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bolder;
@@ -361,8 +367,8 @@ li #premiumColor {
     background-color: #7799c0;
     border: none;
     color: #ffffff;
-    width: 170px;
-    padding: 5px 20px 5px 20px;
+    width: 180px;
+    padding: 15px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bolder;

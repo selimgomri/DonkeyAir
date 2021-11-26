@@ -9,12 +9,30 @@ const oneWayReturn = () => {
   };
 
 
-// JQUERY FUNCTION FOR PACKAGE RESULTS
+// JS TRY nextSibling FUNCTION
 
-$( document ).ready(function() {
+function togglePackageResults(event) {
+  console.log(event);
+  const clickedButtonElement = event.target;
+  const flexResultsElement = clickedButtonElement.parentElement;
+  const packageResultsContainerElement = flexResultsElement.nextElementSibling;
+    if (packageResultsContainerElement.classList.contains("hidden")) {
+      packageResultsContainerElement.classList.remove("hidden");
+    } else {
+      packageResultsContainerElement.classList.add("hidden");
+    }
+}
+
+
+ // FIRST JQUERY FUNCTION
+
+
+/*$( document ).ready(function() {
   $( "#togglePackageButton").click(function() {
-    $( ".packageResults" ).toggle( "blind" );
+    $( ".packageResults1" ).toggle( "blind" );
   });
-});
+});*/
+
+
 
 
