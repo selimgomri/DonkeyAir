@@ -37,6 +37,8 @@
                     && (''== $_GET['departureTime'])) {
                         header("Location: index.php");
                     } else {
+                        $_SESSION['passengers']=$_GET;
+
                         $departureAirport=substr($_GET['departureAirport'], 0, 3);
                         $arrivalAirport=substr($_GET['arrivalAirport'], 0, 3);
                         $departureTime=$_GET['departureTime'];
@@ -78,15 +80,25 @@
                 <form method="post" action="#returnFlights">
                     <div class="flexResults">
                         <div class="resultBox">
+                            <input type="hidden" name="flightNumber" value=<?php echo $values['flight_number'] ?>>
                             <?php echo $values['flight_number'] ?>
                         </div>
+
                         <div class="resultBox">
-                            <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
+                            <input type="hidden" name="departureAirport"
+                                value=<?php echo $values['departureAirport'] ?>><?php echo $values['departureAirport'] . "  " . "✈" . "  "  ?>
+                            <input type="hidden" name="arrivalAirport" value=<?php echo $values['arrivalAirport'] ?>>
+                            <?php echo $values['arrivalAirport'] ?>
                         </div>
+
                         <div class="resultBox">
-                            <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
+                            <input type="hidden" name="departure_time"
+                                value=<?php echo $values['departure_time'] ?>><?php echo $values['departure_time'] . "  " . "✈" . "  "  ?>
+                            <input type="hidden" name="arrival_time"
+                                value=<?php echo $values['arrival_time'] ?>><?php echo $values['arrivalAirport'] ?>
                         </div>
-                        <button class="togglePackageButton" onclick="togglePackageResults(event)">
+
+                        <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
                         </button>
                     </div>
@@ -100,7 +112,8 @@
                                 <li>💺 Siège attribué</li><br>
                                 <li>✔️ 5000 Miles</li><br>
                                 <li id="saverColor">🔰 Assurance SAVER</li><br>
-                                <button id="packageButtonChoice1" type="submit">
+                                <button id="packageButtonChoice1" type="submit" name='economy1'
+                                    value=<?php echo $values['economy1'] ?>>
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div>
@@ -114,8 +127,9 @@
                                 <li>💺 Choix du siège</li><br>
                                 <li>✔️ 20000 Miles</li><br>
                                 <li id="flexColor">🔰 Assurance FLEX</li><br>
-                                <button id="packageButtonChoice2" type="submit">
-                                    <?php echo($values['economy2']) . " € "; ?>
+                                <button id="packageButtonChoice2" type="submit" name='economy2'
+                                    value=<?php echo $values['economy2'] ?>>
+                                    <?php echo $values['economy2'] . " € "; ?>
                                 </button>
                             </div>
                         </div>
@@ -128,8 +142,9 @@
                                 <li>💺 Siège PREMIUM</li><br>
                                 <li>✔️ 50000 Miles</li><br>
                                 <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
-                                <button id="packageButtonChoice3" type="submit">
-                                    <?php echo($values['economy3']) . " € "; ?>
+                                <button id="packageButtonChoice3"type="submit" name='economy3'
+                                    value=<?php echo $values['economy3'] ?>>
+                                    <?php echo $values['economy3'] . " € "; ?>
                                 </button>
                             </div>
                         </div>
@@ -176,10 +191,11 @@
                             unset($values[1]);
                             $values['arrivalAirport'] = $values[2];
                             unset($values[2]); ?>
-                <form method="post" action="">
+                <form method="post">
                     <div class="flexResults">
                         <div class="resultBox">
-                            <?php echo $values['flight_number'] ?>
+                            <input type="hidden" name="flightNumber"
+                                value=<?php echo $values['flight_number'] ?>><?php echo $values['flight_number'] ?>
                         </div>
                         <div class="resultBox">
                             <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
@@ -187,7 +203,7 @@
                         <div class="resultBox">
                             <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
                         </div>
-                        <button class="togglePackageButton" onclick="togglePackageResults(event)">
+                        <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
                         </button>
                     </div>
@@ -237,6 +253,7 @@
                     </div>
                     </br>
                 </form>
+
                 <?php
                         }
                     }
@@ -244,7 +261,8 @@
             </div>
         </div>
         <?php
-    $_SESSION['passengers']=$_GET;
+    var_dump($_POST);
+    var_dump($_SESSION);
     ?>
     </main>
 
