@@ -93,18 +93,17 @@ a:hover {
 }
 
 .backgroundSummary {
-    background-image: url(/media/cockpitVector2.svg);
+    background-image: url(/media/vectorBackground3.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: center;
-    padding: 10rem;
+    padding: 4.5rem;
 }
 
 /* ------- BOX RESERVATION */
 
 .reservation-container {
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 900px;
     padding: 3rem;
@@ -113,7 +112,7 @@ a:hover {
 
 .reservationContainerLogin {
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 900px;
     padding: 3rem;
@@ -205,7 +204,7 @@ input {
 
 .bookingResultBoxes {
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 1000px;
     padding: 50px 50px 20px 50px;
