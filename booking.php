@@ -40,7 +40,7 @@
                         $arrivalAirport=substr($_GET['arrivalAirport'], 0, 3);
                         $departureTime=$_GET['departureTime'];
 
-                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id, departure_time, arrival_time, economy1, economy2, economy3 
+                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id, departure_time, arrival_time, economy1, economy2, economy3, price_business
                         FROM flight 
                         JOIN airport AS departure_airport ON departure_airport_id=departure_airport.id 
                         JOIN airport AS arrival_airport ON arrival_airport_id=arrival_airport.id
@@ -93,6 +93,11 @@
 
                         <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
+                            <p class="economyButton">Economy</p>
+                        </button>
+                        <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)" type='button'>
+                        <?php echo $values['price_business'] . " € "; ?>
+                            <p class="businessButton">Business</p>
                         </button>
                     </div>
                     <div class="packageResults-container hidden">
@@ -108,11 +113,6 @@
                                 <button id="packageButtonChoice1" type="submit" name='economy1'
                                     value="<?php echo $values['economy1'] ?>">
                                     <?php echo $values['economy1'] . " € "; ?>
-                                    <p class="economyButton">Economy</p>
-                                </button>
-                                <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)">
-                                    <p> 1000 € </p>
-                                    <p class="businessButton">Business</p>
                                 </button>
                             </div>
                         </div>
@@ -143,6 +143,21 @@
                                 <button id="packageButtonChoice3" type="submit" name='economy3'
                                     value="<?php echo $values['economy3'] ?>">
                                     <?php echo $values['economy3'] . " € "; ?>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="packageResults">
+                            <div class="packageResultTitle4">
+                                <h4>BUSINESS</h4>
+                            </div>
+                            <div class="packageResultContent">
+                                <li>🧳 2 x 7kg / 2 x 23kg</li><br>
+                                <li>💺 Siège BUSINESS</li><br>
+                                <li>✔️ 80000 Miles</li><br>
+                                <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                <button id="packageButtonChoice4"  type="submit" name='price_business'
+                                    value="<?php echo $values['price_business'] ?>">
+                                    <?php echo $values['price_business'] . " € "; ?>
                                 </button>
                             </div>
                         </div>
@@ -213,6 +228,11 @@
 
                         <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
+                            <p class="economyButton">Economy</p>
+                        </button>
+                        <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)" type='button'>
+                        <?php echo $values['price_business'] . " € "; ?>
+                            <p class="businessButton">Business</p>
                         </button>
                     </div>
                     <div class="packageResults-container hidden">
@@ -228,11 +248,6 @@
                                 <button id="packageButtonChoice1" type="submit" name='economy1_2'
                                     value="<?php echo $values['economy1'] ?>">
                                     <?php echo $values['economy1'] . " € "; ?>
-                                    <p class="economyButton">Economy</p>
-                                </button>
-                                <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)">
-                                    <p> 1000 € </p>
-                                    <p class="businessButton">Business</p>
                                 </button>
                             </div>
                         </div>
@@ -266,10 +281,24 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="packageResults">
+                            <div class="packageResultTitle4">
+                                <h4>BUSINESS</h4>
+                            </div>
+                            <div class="packageResultContent">
+                                <li>🧳 2 x 7kg / 2 x 23kg</li><br>
+                                <li>💺 Siège BUSINESS</li><br>
+                                <li>✔️ 80000 Miles</li><br>
+                                <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                <button id="packageButtonChoice4"  type="submit" name='price_business'
+                                    value="<?php echo $values['price_business'] ?>">
+                                    <?php echo $values['price_business'] . " € "; ?>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     </br>
                 </form>
-
                 <?php
                         }
                     }
