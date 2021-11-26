@@ -96,7 +96,7 @@
                             <p class="economyButton">Economy</p>
                         </button>
                         <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)" type='button'>
-                            <p> 1000 € </p>
+                        <?php echo $values['price_business'] . " € "; ?>
                             <p class="businessButton">Business</p>
                         </button>
                     </div>
@@ -228,6 +228,11 @@
 
                         <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
+                            <p class="economyButton">Economy</p>
+                        </button>
+                        <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)" type='button'>
+                        <?php echo $values['price_business'] . " € "; ?>
+                            <p class="businessButton">Business</p>
                         </button>
                     </div>
                     <div class="packageResults-container hidden">
@@ -243,11 +248,6 @@
                                 <button id="packageButtonChoice1" type="submit" name='economy1_2'
                                     value="<?php echo $values['economy1'] ?>">
                                     <?php echo $values['economy1'] . " € "; ?>
-                                    <p class="economyButton">Economy</p>
-                                </button>
-                                <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)">
-                                    <p> 1000 € </p>
-                                    <p class="businessButton">Business</p>
                                 </button>
                             </div>
                         </div>
@@ -281,10 +281,24 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="packageResults">
+                            <div class="packageResultTitle4">
+                                <h4>BUSINESS</h4>
+                            </div>
+                            <div class="packageResultContent">
+                                <li>🧳 2 x 7kg / 2 x 23kg</li><br>
+                                <li>💺 Siège BUSINESS</li><br>
+                                <li>✔️ 80000 Miles</li><br>
+                                <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                <button id="packageButtonChoice4"  type="submit" name='price_business'
+                                    value="<?php echo $values['price_business'] ?>">
+                                    <?php echo $values['price_business'] . " € "; ?>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     </br>
                 </form>
-
                 <?php
                         }
                     }
