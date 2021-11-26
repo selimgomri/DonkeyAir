@@ -9,8 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
     <title>Reservez votre vol aller-retour au meilleur prix avec Donkey Airlines</title>
 
@@ -86,6 +84,11 @@
                                 </div>
                                 <button class="togglePackageButton" onclick="togglePackageResults(event)">
                                     <?php echo $values['economy1'] . " € "; ?>
+                                    <p class="economyButton">Economy</p>
+                                </button>
+                                <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)">
+                                    <p> 1000 € </p>
+                                    <p class="businessButton">Business</p>
                                 </button>
                             </div> 
                             <div class="packageResults-container hidden">
@@ -131,10 +134,23 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        </br>
-
-                <?php
+                                <div class="packageResults">
+                                    <div class="packageResultTitle4">
+                                        <h4>BUSINESS</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 2 x 7kg / 2 x 23kg</li><br>
+                                        <li>💺 Siège BUSINESS</li><br>
+                                        <li>✔️ 80000 Miles</li><br>
+                                        <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                        <button id="packageButtonChoice4"  type="submit">
+                                            <?php echo ($values['economy1']*2.5) . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div> 
+                            </br> 
+                            <?php
                         }
                     }
                 ?>
@@ -186,6 +202,11 @@
                                 </div>
                                 <button class="togglePackageButton" onclick="togglePackageResults(event)">
                                     <?php echo $values['economy1'] . " € "; ?>
+                                    <p class="economyButton">Economy</p>
+                                </button>
+                                <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)">
+                                    <p> 1000 € </p>
+                                    <p class="businessButton">Business</p>
                                 </button>
                             </div>
                             <div class="packageResults-container hidden">
@@ -231,9 +252,23 @@
                                         </button>
                                     </div>
                                 </div>
+                                <div class="packageResults">
+                                    <div class="packageResultTitle4">
+                                        <h4>BUSINESS</h4>
+                                    </div>
+                                    <div class="packageResultContent">
+                                        <li>🧳 2 x 7kg / 2 x 23kg</li><br>
+                                        <li>💺 Siège BUSINESS</li><br>
+                                        <li>✔️ 80000 Miles</li><br>
+                                        <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                        <button id="packageButtonChoice4"  type="submit">
+                                            <?php echo ($values['economy1']*2.5) . " € "; ?>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             </br>
-                        <?php
+                            <?php
                         }
                     }
                 ?>
