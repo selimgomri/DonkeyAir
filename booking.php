@@ -37,13 +37,13 @@
                     && (''== $_GET['departureTime'])) {
                         header("Location: index.php");
                     } else {
-                        $_SESSION['passengers']=$_GET;
+                        $_SESSION['nbPassengers']=$_GET['nbPassengers'];
 
                         $departureAirport=substr($_GET['departureAirport'], 0, 3);
                         $arrivalAirport=substr($_GET['arrivalAirport'], 0, 3);
                         $departureTime=$_GET['departureTime'];
 
-                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id,  departure_time, arrival_time, economy1, economy2, economy3 
+                        $query="SELECT flight.id, flight_number, departure_airport.id departure_airport_id, arrival_airport.id arrival_airport_id, departure_time, arrival_time, economy1, economy2, economy3 
                         FROM flight 
                         JOIN airport AS departure_airport ON departure_airport_id=departure_airport.id 
                         JOIN airport AS arrival_airport ON arrival_airport_id=arrival_airport.id
@@ -72,30 +72,26 @@
                             echo "Aucun vol disponible <br>";
                         }
 
-                        foreach ($flights as $values) {
-                            $values['departureAirport'] = $values[1];
-                            unset($values[1]);
-                            $values['arrivalAirport'] = $values[2];
-                            unset($values[2]); ?>
+                        foreach ($flights as $values) { ?>
                 <form method="post" action="#returnFlights">
                     <div class="flexResults">
                         <div class="resultBox">
-                            <input type="hidden" name="flightNumber" value=<?php echo $values['flight_number'] ?>>
+                            <input type="hidden" name="flightNumber" value="<?php echo $values['flight_number'] ?>">
                             <?php echo $values['flight_number'] ?>
                         </div>
 
                         <div class="resultBox">
-                            <input type="hidden" name="departureAirport"
-                                value=<?php echo $values['departureAirport'] ?>><?php echo $values['departureAirport'] . "  " . "✈" . "  "  ?>
-                            <input type="hidden" name="arrivalAirport" value=<?php echo $values['arrivalAirport'] ?>>
-                            <?php echo $values['arrivalAirport'] ?>
+                            <input type="hidden" name="departure_airport_id"
+                                value=<?php echo $values['departure_airport_id'] ?>><?php echo $values['departure_airport_id'] . "  " . "✈" . "  "  ?>
+                            <input type="hidden" name="arrival_airport_id" value="<?php echo $values['arrival_airport_id'] ?>">
+                            <?php echo $values['arrival_airport_id'] ?>
                         </div>
 
                         <div class="resultBox">
                             <input type="hidden" name="departure_time"
-                                value=<?php echo $values['departure_time'] ?>><?php echo $values['departure_time'] . "  " . "✈" . "  "  ?>
+                                value="<?php echo $values['departure_time'] ?>"><?php echo $values['departure_time'] . "  " . "✈" . "  "  ?>
                             <input type="hidden" name="arrival_time"
-                                value=<?php echo $values['arrival_time'] ?>><?php echo $values['arrivalAirport'] ?>
+                                value="<?php echo $values['arrival_time'] ?>"><?php echo $values['arrival_time'] ?>
                         </div>
 
                         <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
@@ -113,7 +109,7 @@
                                 <li>✔️ 5000 Miles</li><br>
                                 <li id="saverColor">🔰 Assurance SAVER</li><br>
                                 <button id="packageButtonChoice1" type="submit" name='economy1'
-                                    value=<?php echo $values['economy1'] ?>>
+                                    value="<?php echo $values['economy1'] ?>">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div>
@@ -128,7 +124,7 @@
                                 <li>✔️ 20000 Miles</li><br>
                                 <li id="flexColor">🔰 Assurance FLEX</li><br>
                                 <button id="packageButtonChoice2" type="submit" name='economy2'
-                                    value=<?php echo $values['economy2'] ?>>
+                                    value="<?php echo $values['economy2'] ?>">
                                     <?php echo $values['economy2'] . " € "; ?>
                                 </button>
                             </div>
@@ -142,8 +138,8 @@
                                 <li>💺 Siège PREMIUM</li><br>
                                 <li>✔️ 50000 Miles</li><br>
                                 <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
-                                <button id="packageButtonChoice3"type="submit" name='economy3'
-                                    value=<?php echo $values['economy3'] ?>>
+                                <button id="packageButtonChoice3" type="submit" name='economy3'
+                                    value="<?php echo $values['economy3'] ?>">
                                     <?php echo $values['economy3'] . " € "; ?>
                                 </button>
                             </div>
@@ -157,10 +153,14 @@
                 ?>
             </div>
         </div>
+        <?php
+        $_SESSION['oneWayFlight']=$_POST
+        ?>
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
+
                 <?php
-                    // Display return flights
+//-------------------Display return flights ------------------------------------------
                     if (''!=$_GET['returnDate']) {
                         $arrivalAirport=substr($_GET['departureAirport'], 0, 3);
                         $departureAirport=substr($_GET['arrivalAirport'], 0, 3);
@@ -186,23 +186,28 @@
                             echo "Aucun vol disponible <br>";
                         }
     
-                        foreach ($flights as $values) {
-                            $values['departureAirport'] = $values[1];
-                            unset($values[1]);
-                            $values['arrivalAirport'] = $values[2];
-                            unset($values[2]); ?>
-                <form method="post">
+                        foreach ($flights as $values) { ?>
+                <form method="post" action="passenger.php">
                     <div class="flexResults">
                         <div class="resultBox">
-                            <input type="hidden" name="flightNumber"
-                                value=<?php echo $values['flight_number'] ?>><?php echo $values['flight_number'] ?>
+                            <input type="hidden" name="flightNumber2" value="<?php echo $values['flight_number'] ?>">
+                            <?php echo $values['flight_number'] ?>
                         </div>
+
                         <div class="resultBox">
-                            <?php echo $values['departureAirport'] . "  " . "✈" . "  " . $values['arrivalAirport'] ?>
+                            <input type="hidden" name="departure_airport_id2"
+                                value="<?php echo $values['departure_airport_id'] ?>"><?php echo $values['departure_airport_id'] . "  " . "✈" . "  "  ?>
+                            <input type="hidden" name="arrival_airport_id2" value="<?php echo $values['arrival_airport_id'] ?>">
+                            <?php echo $values['arrival_airport_id'] ?>
                         </div>
+
                         <div class="resultBox">
-                            <?php echo $values['departure_time'] . "  " . "✈" . "  " . $values['arrival_time'] ?>
+                            <input type="hidden" name="departure_time2"
+                                value="<?php echo $values['departure_time'] ?>"><?php echo $values['departure_time'] . "  " . "✈" . "  "  ?>
+                            <input type="hidden" name="arrival_time2"
+                                value="<?php echo $values['arrival_time'] ?>"><?php echo $values['arrival_time'] ?>
                         </div>
+
                         <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
                         </button>
@@ -217,7 +222,8 @@
                                 <li>💺 Siège attribué</li><br>
                                 <li>✔️ 5000 Miles</li><br>
                                 <li id="saverColor">🔰 Assurance SAVER</li><br>
-                                <button id="packageButtonChoice1" type="submit">
+                                <button id="packageButtonChoice1" type="submit" name='economy1_2'
+                                    value="<?php echo $values['economy1'] ?>">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div>
@@ -231,8 +237,9 @@
                                 <li>💺 Choix du siège</li><br>
                                 <li>✔️ 20000 Miles</li><br>
                                 <li id="flexColor">🔰 Assurance FLEX</li><br>
-                                <button id="packageButtonChoice2" type="submit">
-                                    <?php echo($values['economy2']) . " € "; ?>
+                                <button id="packageButtonChoice2" type="submit" name='economy2_2'
+                                    value="<?php echo $values['economy2'] ?>">
+                                    <?php echo $values['economy2'] . " € "; ?>
                                 </button>
                             </div>
                         </div>
@@ -245,8 +252,9 @@
                                 <li>💺 Siège PREMIUM</li><br>
                                 <li>✔️ 50000 Miles</li><br>
                                 <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
-                                <button id="packageButtonChoice3" type="submit">
-                                    <?php echo($values['economy3']) . " € "; ?>
+                                <button id="packageButtonChoice3" type="submit" name='economy3_2'
+                                    value="<?php echo $values['economy3'] ?>">
+                                    <?php echo $values['economy3'] . " € "; ?>
                                 </button>
                             </div>
                         </div>
@@ -260,10 +268,6 @@
                 ?>
             </div>
         </div>
-        <?php
-    var_dump($_POST);
-    var_dump($_SESSION);
-    ?>
     </main>
 
     <?php @require_once 'footer.html' ?>

@@ -18,35 +18,36 @@
     <?php @require_once "header.php"; ?>
     <h1 class="display-5">Informations
         <?php
-        if (1==$_SESSION['passengers']['nbPassengers']) {
+        $_SESSION['returnFlight']=$_POST;
+        if (1==$_SESSION['nbPassengers']) {
             echo 'passager';
         } else {
             echo 'passagers';
         }
         ?>
-        </h1>
-    <form class="reservationContainerLogin">
+    </h1>
+    <form class="reservationContainerLogin" method="post" action="summary.php">
         <?php
-        for ($i=1; $i<=$_SESSION['passengers']['nbPassengers']; $i++) { ?>
-        <form class="reservationContainerLogin">
+        for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { ?>
+        <div class="reservationContainerLogin">
 
             <h2>Passager <?php echo $i ?></h2>
             <label for="firstname"></label>
-            <input type="text" autocomplete="on" name="firstname" placeholder="Prénom" required <?php 
+            <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required <?php
             if (1==$i) {
                 echo 'value=' . $_SESSION['firstname'];
             }
             ?>>
 
             <label for="lastname"></label>
-            <input type="text" autocomplete="on" name="lastname" placeholder="Nom" required <?php 
+            <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required <?php
             if (1==$i) {
                 echo 'value=' . $_SESSION['lastname'];
             }
             ?>>
 
             <label for="birthdate"></label>
-            <input type="date" autocomplete="on" name="birthdate" placeholder="birthdate" required <?php 
+            <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required <?php
             if (1==$i) {
                 echo 'value=' . $_SESSION['birthdate'];
             }
@@ -55,7 +56,7 @@
             <div class="formatFacultatif">
                 <div class="columnFormatFacultatif">
                     <label for="email"></label>
-                    <input type="email" autocomplete="on" name="email" placeholder="Adresse email" <?php
+                    <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="Adresse email" <?php
             if (1==$i) {
                 echo " required value= " . $_SESSION['email'];
             }
@@ -72,7 +73,7 @@
 
                 <div>
                     <label for="phone"></label>
-                    <input type="tel" autocomplete="on" name="phone" placeholder="Téléphone" <?php
+                    <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone" <?php
             if (1==$i) {
                 echo " required value= " . $_SESSION['phone'];
             }
@@ -87,12 +88,13 @@
             ?>
                 </div>
             </div>
+        </div>
 
-        </form>
         <?php
         }
         ?>
         <input class="validatebtn" type="submit" value="Suivant">
+
     </form>
 
     <?php @require_once "footer.html" ?>
