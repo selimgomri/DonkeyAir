@@ -10,7 +10,7 @@ if (''==($_POST['email'])) {
     $password=$_POST['password'];
     $_SESSION=$_POST;
 
-    $query="SELECT email, password, firstname FROM user WHERE 
+    $query="SELECT email, password, firstname, lastname, birthdate, phone FROM user WHERE 
     email = :email AND password = :password";
     //preparation PDO
     $statement = $pdo->prepare($query);

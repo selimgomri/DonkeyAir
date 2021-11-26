@@ -21,6 +21,8 @@ $airports = $statement->fetchAll();
 <body>
     <?php 
     @require_once 'header.php'; 
+    var_dump($_SESSION);
+
     ?>
     <main class="backgroundIndex">
         <div class="flexbox">
@@ -82,7 +84,7 @@ $airports = $statement->fetchAll();
                     <input type="date" id="return-date" name="returnDate">
                 </span>
                 <span class="selectPassengers">
-                    <select name="passengers" id="passengers">
+                    <select name="nbPassengers" id="nbPassengers">
                         <option value="1">1 passager</option>
                         <option value="2">2 passagers</option>
                         <option value="3">3 passagers</option>

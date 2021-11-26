@@ -19,29 +19,54 @@
     <h1 class="display-5">Informations passagers</h1>
     <form class="reservationContainerLogin">
         <?php
-    for ($i=1; $i<6; $i++) { ?>
+        for ($i=1; $i<$_SESSION['passengers']['nbPassengers']; $i++) { ?>
         <form class="reservationContainerLogin">
 
             <h2>Passager <?php echo $i ?></h2>
             <label for="firstname"></label>
-            <input type="text" id="firstname" autocomplete="on" name="firstname" placeholder="Prénom">
-
+            <input type="text" autocomplete="on" name="firstname" placeholder="Prénom" required
+            <?php 
+            if (1==$i) {
+                echo 'value=' . $_SESSION['firstname'];
+            }
+            ?>>
+          
             <label for="lastname"></label>
-            <input type="text" id="lastname" autocomplete="on" name="lastname" placeholder="Nom">
+            <input type="text" autocomplete="on" name="lastname" placeholder="Nom" required 
+            <?php 
+            if (1==$i) {
+                echo 'value=' . $_SESSION['lastname'];
+            }
+            ?>>
 
             <label for="birthdate"></label>
-            <input type="date" id="birthdate" autocomplete="on" name="birthdate" placeholder="birthdate">
+            <input type="date" autocomplete="on" name="birthdate" placeholder="birthdate" required
+            <?php 
+            if (1==$i) {
+                echo 'value=' . $_SESSION['birthdate'];
+            }
+            ?>>
 
             <label for="email"></label>
-            <input type="email" id="email" autocomplete="on" name="email" placeholder="Adresse email">
+            <input type="email" autocomplete="on" name="email" placeholder="Adresse email" 
+            <?php
+            if (1==$i) {
+                echo " required value= " . $_SESSION['email'];
+            }
+            ?>> 
 
             <label for="phone"></label>
-            <input type="tel" id="phone" autocomplete="on" name="phone" placeholder="Téléphone">
+            <input type="tel" autocomplete="on" name="phone" placeholder="Téléphone" 
+            <?php
+            if (1==$i) {
+                echo " required value= " . $_SESSION['phone'];
+            }
+            ?>>
 
         </form>
         <?php
-    }
-    ?>
+        }
+        ?>
         <input class="validatebtn" type="submit" value="Suivant">
     </form>
 
