@@ -196,10 +196,15 @@
                 <h2 class="h2FlightSummary">
                     Prix total de la réservation :
                     <?php
-                    echo(end($returnWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
+                    echo(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
                     ?>
                 </h2>
-                <a href="#"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
+<<<<<<< HEAD
+                <a href="confirmation.php"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
+=======
+                <a href="confirmation.php"><button>Confirmer</button></a>
+
+>>>>>>> 6e69c58a591690f8c0f4c78077b88f27faf45e39
             </div>
         </div>
     </main>
