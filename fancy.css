@@ -582,3 +582,7 @@ input {
 .text-muted {
     padding: 0em 12rem 0rem  1.5rem
 }
+
+a i {
+   color: #142a44; 
+}
