@@ -22,14 +22,13 @@
         exit();
     } else {
         $_SESSION['passengersInformation']=$_POST;
-        var_dump($_SESSION);
     }
     ?>
 
     <main class="backgroundSummary">
         <h1 class="display-7">Récapitulatif de votre réservation</h1>
         <div class="displayBoxShadow">
-            <div class="bookingResultBoxes">
+            <div class="">
                 <?php
                 //storing $_SESSION arrays about the flights for better use of it
                 $oneWayFlight=$_SESSION['oneWayFlight'];
@@ -39,55 +38,61 @@
                 ?>
 
                 <!-- OneWay Flight--------------------------- -->
-                <h2 class="display-8">VOL ALLER</h2>
-                <div class="flexResults">
-
-                    <div class="resultBox">
+                
+                <div class="summaryInformations">
+                <h2 class="h2FlightSummary">✈️ Votre vol aller</h2>
+                    <div class="summaryResults">
                         <?php
-                        echo $oneWayFlight['flightNumber'];
+                        echo "Numéro de vol : " . $oneWayFlight['flightNumber'];
                         ?>
                     </div>
 
-                    <div class="resultBox">
+                    <div class="summaryResults">
                         <?php
-                        echo $oneWayFlight['departure_airport_id'] . "  " . "✈" . "  " . $oneWayFlight['arrival_airport_id'];
+                        echo "📍 Au départ de : " . $oneWayFlight['departure_airport_id'] . " et à destination de : " . $oneWayFlight['arrival_airport_id'];
                         ?>
                     </div>
 
-                    <div class="resultBox">
+                    <div class="summaryResults">
                         <?php
-                        echo $oneWayFlight['departure_time'] . "  " . "✈" . "  " . $oneWayFlight['arrival_time'];
+                        echo "🛫 Heure du décollage : " . $oneWayFlight['departure_time'];
                         ?>
                     </div>
 
-                    <div class="resultBox">
+                    <div class="summaryResults">
+                        <?php
+                        echo "🛬 Heure de l'atterissage : " . $oneWayFlight['arrival_time'];
+                        ?>
+                    </div>
+
+                    <div class="summaryResults">
                         <?php
                         switch (array_key_last($oneWayFlight)) {
                             case 'economy1':
-                                echo 'SAVER';
+                                echo 'Catégorie : SAVER';
                                 break;
                             case 'economy2':
-                                echo 'FLEX';
+                                echo 'Catégorie : FLEX';
                                 break;
                             case 'economy3':
-                                echo 'PREMIUM';
+                                echo 'Catégorie : PREMIUM';
                                 break;
                             case 'price_business':
-                                echo 'BUSINESS';
+                                echo 'Catégorie : BUSINESS';
                                 break;
                             };
                         ?>
                     </div>
 
-                    <div class="resultBox">
+                    <div class="summaryResults">
                         <?php
-                        echo $_SESSION['nbPassengers'];
+                        echo "Nombre de passagers : " . $_SESSION['nbPassengers'] . " " . "passagers";
                         ?>
                     </div>
 
-                    <div class="resultBox">
+                    <div class="summaryResults">
                         <?php
-                        echo $_SESSION['nbPassengers']*end($oneWayFlight) . " €";
+                        echo "Prix du vol aller : " . $_SESSION['nbPassengers']*end($oneWayFlight) . " €";
                         ?>
                     </div>
 
