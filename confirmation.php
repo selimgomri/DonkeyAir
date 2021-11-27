@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fancy.css">
-    <title>Confirmation de votre réservatio</title>
+    <title>Confirmation de votre réservation</title>
 </head>
 
 <body>
@@ -52,8 +52,28 @@
         $query="INSERT INTO user_flight (user_id, flight_id, returnflight_id, price_paid) VALUES ($userId, $flightId, $returnFlightId, $pricePaid)";
         $statement = $pdo->exec($query);
     }
+    // send mail
+    /* $to      = $_SESSION['email'];
+    $subject = 'Réservation confirmée';
+    $message = 'Votre réservation a bien été confirmée';
+    $headers = 'From: noreply@donkeyair.com'       . "\r\n" .
+                'Reply-To: noreply@donkeyair.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+    $mail=mail($to, $subject, $message, $headers);
+    var_dump($mail);
+ */
     ?>
-    
+    <main class="backgroundSummary">
+        <div class="displayBoxShadow">
+            <div class="bookingResultBoxes">
+                <h1 class="display-5">
+                    Un email de confirmation vous a été envoyé
+                </h1>
+            </div>
+        </div>
+    </main>
+
     <?php @require_once 'footer.html' ?>
 </body>
 

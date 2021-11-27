@@ -199,7 +199,7 @@
                     echo(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
                     ?>
                 </h2>
-                <a href="#"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
+                <a href="confirmation.php"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
             </div>
         </div>
     </main>
