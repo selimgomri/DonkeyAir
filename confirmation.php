@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fancy.css">
+<<<<<<< HEAD
     <title>Confirmation de votre réservation</title>
+=======
+    <title>Confirmation de votre réservatio</title>
+>>>>>>> 6e69c58a591690f8c0f4c78077b88f27faf45e39
 </head>
 
 <body>
@@ -73,7 +77,6 @@
             </div>
         </div>
     </main>
-
     <?php @require_once 'footer.html' ?>
 </body>
 
