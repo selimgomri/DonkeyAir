@@ -190,14 +190,12 @@ input {
     font-size: 30px;
     margin: 0 0 30px 0;
     color: #2962a3;
-    text-align: center;
 }
 
 .summaryResults {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 7px;
-    text-align: center;
 }
 
 .summaryResults:hover {
