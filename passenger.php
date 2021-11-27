@@ -8,94 +8,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="fancy.css">
     <title>Informations passagers</title>
 </head>
 
 <body>
     <?php @require_once "header.php"; ?>
-    <h1 class="display-5">Informations
-        <?php
-        $_SESSION['returnFlight']=$_POST;
-        if (1==$_SESSION['nbPassengers']) {
-            echo 'passager';
-        } else {
-            echo 'passagers';
-        }
-        ?>
-    </h1>
-    <form class="reservationContainerLogin" method="post" action="summary.php">
-        <?php
-        for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { ?>
+        
+    <main class="backgroundPassengers">
         <div class="reservationContainerLogin">
+            <h1 class="display-6">Informations
+                <?php
+                $_SESSION['returnFlight']=$_POST;
+                if (1==$_SESSION['nbPassengers']) {
+                    echo 'passager';
+                } else {
+                    echo 'passagers';
+                }
+                ?>
+            </h1>
+            <form class="" method="post" action="summary.php">
+                <?php
+                for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { ?>
+                <div class="passengerInformations">
 
-            <h2>Passager <?php echo $i ?></h2>
-            <label for="firstname"></label>
-            <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required <?php
-            if (1==$i) {
-                echo 'value=' . $_SESSION['firstname'];
-            }
-            ?>>
+                    <h2 class="h2Passengers">Passager <?php echo $i ?></h2>
+                    <label for="firstname"></label>
+                    <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required <?php
+                        if (1==$i) {
+                            echo 'value=' . $_SESSION['firstname'];
+                    }
+                    ?>>
 
-            <label for="lastname"></label>
-            <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required <?php
-            if (1==$i) {
-                echo 'value=' . $_SESSION['lastname'];
-            }
-            ?>>
+                    <label for="lastname"></label>
+                    <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required <?php
+                        if (1==$i) {
+                            echo 'value=' . $_SESSION['lastname'];
+                    }
+                    ?>>
 
-            <label for="birthdate"></label>
-            <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required <?php
-            if (1==$i) {
-                echo 'value=' . $_SESSION['birthdate'];
-            }
-            ?>>
+                    <label for="birthdate"></label>
+                    <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required <?php
+                        if (1==$i) {
+                            echo 'value=' . $_SESSION['birthdate'];
+                    }
+                    ?>>
 
-            <div class="formatFacultatif">
-                <div class="columnFormatFacultatif">
-                    <label for="email"></label>
-                    <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="Adresse email" <?php
-            if (1==$i) {
-                echo " required value= " . $_SESSION['email'];
-            }
-            ?>>
-                    <?php
-            if ($i>1) { ?>
-                    <small id="passwordHelpBlock" class="form-text text-muted">
-                        facultatif
-                    </small>
-                    <?php
-            }
-            ?>
+                    <div class="formatFacultatif">
+                        <div class="columnFormatFacultatif">
+                            <label for="email"></label>
+                            <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" <?php
+                                if (1==$i) {
+                                echo " required value= " . $_SESSION['email'];
+                            }
+                            ?>>
+
+                        </div>
+
+                        <div class="columnFormatFacultatif">
+                            <label for="phone"></label>
+                            <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" <?php
+                    if (1==$i) {
+                        echo " required value= " . $_SESSION['phone'];
+                    }
+                    ?>>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="phone"></label>
-                    <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone" <?php
-            if (1==$i) {
-                echo " required value= " . $_SESSION['phone'];
-            }
-            ?>>
-                    <?php
-            if ($i>1) { ?>
-                    <small id="passwordHelpBlock" class="form-text text-muted">
-                        facultatif
-                    </small>
-                    <?php
-            }
-            ?>
-                </div>
-            </div>
+                <?php
+                }
+                ?>
+                <input class="validatebtn" type="submit" value="Confirmer les passagers">
+
+            </form>
         </div>
-
-        <?php
-        }
-        ?>
-        <input class="validatebtn" type="submit" value="Suivant">
-
-    </form>
+    </main>
 
     <?php @require_once "footer.html" ?>
 </body>
