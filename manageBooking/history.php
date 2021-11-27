@@ -79,7 +79,7 @@
                                 echo ' ';
                             }
                             ?>
-                            <a href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                            <a class ="cancelButton" href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
