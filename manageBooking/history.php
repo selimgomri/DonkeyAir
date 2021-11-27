@@ -1,5 +1,5 @@
 <?php
-@require_once "connectDB.php";
+@require_once "../connectDB.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Vous connecter pour accéder à votre historique de réservation ou bien reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
-    <link rel="stylesheet" href="fancy.css">
+    <link rel="stylesheet" href="../fancy.css">
     <title>Historique de vos réservations</title>
 
 </head>
@@ -18,10 +18,9 @@
 <body>
 
     <?php
-
-    @require_once 'header.php';
+    @require_once '../header.php';
     if (empty($_SESSION['firstname'])) {
-        @require_once 'login.php';
+        @require_once '../login.php';
         exit();
     } else {
         $today=date("Y-m-d H:i:s");
@@ -65,19 +64,26 @@
                     $statement->execute();
                     //end of preparation
                     $ongoingBooking=$statement->fetchAll();
-                    //var_dump($ongoingBooking);
-                    foreach ($ongoingBooking as $booking) {
-                        echo '<br> <br> Réservation numéro: ' . $booking['booking_number'];
-                        echo '<br> VOL ALLER <br>';
-                        for ($i=2; $i<7; $i++) {
-                            echo $booking[$i];
-                            echo ' ';
-                        }
-                        echo '<br> VOL Retour <br>';
-                        for ($i=7; $i<12; $i++) {
-                            echo $booking[$i];
-                            echo ' ';
-                        }
+                    foreach ($ongoingBooking as $booking) { ?>
+                        <div>
+                            <?php
+                            echo '<br> <br> Réservation numéro: ' . $booking['booking_number'];
+                            echo '<br> VOL ALLER <br>';
+                            for ($i=2; $i<7; $i++) {
+                                echo $booking[$i];
+                                echo ' ';
+                            }
+                            echo '<br> VOL Retour <br>';
+                            for ($i=7; $i<12; $i++) {
+                                echo $booking[$i];
+                                echo ' ';
+                            }
+                            ?>
+                            <a class ="cancelButton" href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                    <?php
                     }
                     ?>
                 </div>
@@ -100,7 +106,7 @@
                     $statement->execute();
                     //end of preparation
                     $queryPastBooking=$statement->fetchAll();
-                    foreach ($queryPastBooking as $booking) {
+                    foreach ($queryPastBooking as $booking) { 
                         echo '<br> <br> Réservation numéro: ' . $booking['booking_number'];
                         echo '<br> VOL ALLER <br>';
                         for ($i=2; $i<7; $i++) {
@@ -120,7 +126,7 @@
 
     </main>
 
-    <?php @require_once 'footer.html' ?>
+    <?php @require_once '../footer.html' ?>
 </body>
 
 </html>
