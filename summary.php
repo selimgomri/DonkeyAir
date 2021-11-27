@@ -22,7 +22,6 @@
         exit();
     } else {
         $_SESSION['passengersInformation']=$_POST;
-        var_dump($_SESSION);
     }
     ?>
 
@@ -190,10 +189,10 @@
                 <h2 class="display-8">
                     Prix total:
                     <?php
-                    echo(end($returnWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
+                    echo(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
                     ?>
                 </h2>
-                <a href="#"><button>Confirmer</button></a>
+                <a href="confirmation.php"><button>Confirmer</button></a>
 
             </div>
         </div>
