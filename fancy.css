@@ -111,7 +111,7 @@ a:hover {
 }
 
 .reservationContainerLogin {
-    border-radius: 1rem;
+    border-radius: 1rem;      
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 900px;
@@ -127,6 +127,23 @@ a:hover {
     width: 800px;
     padding: 3rem;
     margin: 50px 0 30px 0;
+}
+
+.summaryInformations-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.summaryInformations {
+    border-radius: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;    
+    border: #2962a3 1px;
+    background-color: white;
+    width: 700px;
+    padding: 3rem;
+    margin: 60px 0 20px 0;
+
 }
 
 .displayBoxShadow {
@@ -167,6 +184,24 @@ input {
     font-size: 30px;
     margin: 0 0 20px 30px;
     color: #2962a3;
+}
+
+.h2FlightSummary {
+    font-size: 30px;
+    margin: 0 0 30px 0;
+    color: #2962a3;
+}
+
+.summaryResults {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.summaryResults:hover {
+    color: #2962a3;
+    font-size: 18px;
+    margin-bottom: 7px;
 }
 
 .display-8 {
