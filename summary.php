@@ -102,19 +102,25 @@
 
                 <div class="summaryResults">
                     <?php
-                    echo $returnWayFlight['flightNumber2'];
+                    echo "Numéro de vol : " . $returnWayFlight['flightNumber2'];
                     ?>
                 </div>
 
                 <div class="summaryResults">
                     <?php
-                    echo $returnWayFlight['departure_airport_id2'] . "  " . "✈" . "  " . $returnWayFlight['arrival_airport_id2'];
+                    echo "📍 Au départ de : " . $returnWayFlight['departure_airport_id2'] . " et à destination de : " . $returnWayFlight['arrival_airport_id2'];
                     ?>
                 </div>
 
                 <div class="summaryResults">
                     <?php
-                    echo $returnWayFlight['departure_time2'] . "  " . "✈" . "  " . $returnWayFlight['arrival_time2'];
+                    echo "🛫 Heure du décollage : " . $returnWayFlight['departure_time2'];
+                    ?>
+                </div>
+
+                <div class="summaryResults">
+                    <?php
+                    echo "🛫 Heure de l'atterissage : " . $returnWayFlight['arrival_time2'];
                     ?>
                 </div>
 
@@ -122,16 +128,16 @@
                     <?php
                     switch (array_key_last($returnWayFlight)) {
                         case 'economy1_2':
-                            echo 'SAVER';
+                            echo 'Catégorie : SAVER';
                             break;
                         case 'economy2_2':
-                            echo 'FLEX';
+                            echo 'Catégorie : FLEX';
                             break;
                         case 'economy3_2':
-                            echo 'PREMIUM';
+                            echo 'Catégorie : PREMIUM';
                             break;
                         case 'price_business2':
-                            echo 'BUSINESS';
+                            echo 'Catégorie : BUSINESS';
                             break;
                         };
                     ?>
@@ -139,13 +145,13 @@
 
                 <div class="summaryResults">
                     <?php
-                    echo $_SESSION['nbPassengers'];
+                    echo "Nombre de passagers : " . $_SESSION['nbPassengers'];
                     ?>
                 </div>
 
                 <div class="summaryResults">
                     <?php
-                    echo $_SESSION['nbPassengers']*end($returnWayFlight) . " €";
+                    echo "Prix du vol retour : " . $_SESSION['nbPassengers']*end($returnWayFlight) . " €";
                     ?>
                 </div>
             </div>
@@ -157,43 +163,43 @@
 
                     <div class="summaryResults">
                         <?php
-                        echo $_SESSION['firstname'];
+                        echo "Prénom : " . $_SESSION['firstname'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo $_SESSION['lastname'];
+                        echo "Nom : " . $_SESSION['lastname'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo $_SESSION['birthdate'];
+                        echo "Date de naissance : " . $_SESSION['birthdate'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo $_SESSION['email'];
+                        echo "📧 Adresse e-mail : " . $_SESSION['email'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo $_SESSION['phone'];
+                        echo "📞 Numéro de téléphone : " . $_SESSION['phone'];
                         ?>
                     </div>
             </div>
             <!-- End of Passenger owner--------- -->
             <div class="summaryInformations">            
                 <h2 class="h2FlightSummary">
-                    Prix total:
+                    Prix total de la réservation :
                     <?php
                     echo(end($returnWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
                     ?>
                 </h2>
-                <a href="#"><button>Confirmer</button></a>
+                <a href="#"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
             </div>
         </div>
     </main>
