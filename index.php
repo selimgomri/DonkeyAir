@@ -73,7 +73,7 @@ $airports = $statement->fetchAll();
                     id="oneWay"> <strong> Aller Simple </strong> </br>
 
 
-                <label class="datePicker"><strong>Aller</strong></label>
+                <label class="datePicker">Aller</label>
                 <input type="date" id="departure-date" name="departureTime" required>
 
                 <span id="ifChecked" style="visibility:visible">

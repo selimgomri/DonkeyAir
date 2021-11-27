@@ -13,7 +13,6 @@ body, html {
 
 body {
     font-family:"Nunito", sans-serif;
-    z-index: -1;
 }
 
 .menu-container {
@@ -26,7 +25,9 @@ body {
 .menu {
     width: 900px;
     display: flex;
-    margin: 40px;   
+    margin: 40px;
+    justify-content: center;
+    align-items: center;   
 }
 
 a:link, a:visited {
@@ -53,7 +54,7 @@ a:hover {
     background-repeat: no-repeat;
 }
 
-/* ------- BG IMAGE */
+/* ------- BG IMAGES ------- */
 
 .backgroundIndex {
     background-image: url(/media/sunsetSkyline.png);
@@ -99,7 +100,7 @@ a:hover {
     padding: 4.5rem;
 }
 
-/* ------- BOX RESERVATION */
+/* ------- BOX RESERVATION ------- */
 
 .reservation-container {
     border-radius: 1rem;
@@ -258,6 +259,7 @@ input {
 
 .datePicker {
     margin-left: 30px;
+    font-weight: bold;
 }
 
 .selectPassengers select {
@@ -581,4 +583,75 @@ input {
 }
 .text-muted {
     padding: 0em 12rem 0rem  1.5rem
+}
+
+
+/* ------ RESPONSIVE MEDIA QUERIES -------- */
+
+@media (max-width: 1100px) {
+    
+    .logo-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .reservation-container {
+        width: 700px;
+    }
+
+    .menu {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-container {
+        flex-wrap: wrap;
+    }
+  
+}
+
+@media (max-width: 915px) {
+    
+    nav ul li {
+        list-style-type: none;
+        font-weight: bold;
+        margin: 0px 20px;
+        color: #ffffff;
+        font-size: 15px;
+    }
+  
+}
+
+@media (max-width: 850px) {
+    
+    .reservation-container {
+        width: 600px;
+    }
+}
+
+@media (max-width: 770px) {
+    
+    .reservation-container {
+        width: 500px;
+        padding-right: 50px;
+    }
+
+    .display-6 {
+        font-size: 40px;
+        margin-left: 30px;
+        margin-bottom: 20px;
+        color: #2962a3;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        list-style-type: none;
+        font-weight: bold;
+        margin: 5px;
+        color: #ffffff;
+        font-size: 20px;
+    }
 }
