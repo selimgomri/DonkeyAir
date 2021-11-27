@@ -290,7 +290,7 @@
                                 <li>💺 Siège BUSINESS</li><br>
                                 <li>✔️ 80000 Miles</li><br>
                                 <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
-                                <button id="packageButtonChoice4"  type="submit" name='price_business'
+                                <button id="packageButtonChoice4"  type="submit" name='price_business2'
                                     value="<?php echo $values['price_business'] ?>">
                                     <?php echo $values['price_business'] . " € "; ?>
                                 </button>
