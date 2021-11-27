@@ -4,7 +4,7 @@
             <a class="logo" href="/index.php" > <img src="/media/DA_Logo2-01.svg " alt="logo"></a>
         </div>
         <ul class="menu">
-            <li> <a href="#">Gérer mes reservations</a></li>
+            <li> <a href="manageBooking/history.php">Gérer mes reservations</a></li>
             <li> <a href="#">Donkey Airlines</a></li>
             <li> <a href="#">Nous contacter</a></li>
             <?php
