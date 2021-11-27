@@ -632,8 +632,7 @@ input {
 @media (max-width: 770px) {
     
     .reservation-container {
-        width: 500px;
-        padding-right: 50px;
+        width: 425px;
     }
 
     .display-6 {
@@ -654,4 +653,42 @@ input {
         color: #ffffff;
         font-size: 20px;
     }
+}
+
+@media (max-width: 600px) {
+
+    .reservation-container {
+        width: 400px;
+        padding: 35px
+    }
+
+    .backgroundIndex {
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width: 460px) {
+
+    .reservation-container {
+        width: 300px;
+        padding: 25px
+    }
+
+    .backgroundIndex {
+        padding: 1rem;
+    }
+
+    #departure-date {
+        margin: 0.5rem;
+    }
+
+    #return-date {
+        margin: 0.5rem 0 2rem 0;
+    }
+
+    #oneWay {
+        margin-left: 50px;
+    }
+
 }
