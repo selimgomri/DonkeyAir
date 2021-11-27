@@ -589,14 +589,12 @@ input {
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
 
 @media (max-width: 1100px) {
-    
+
+/* HEADER QUERIES */
+
     .logo-container {
         width: 120px;
         height: 120px;
-    }
-
-    .reservation-container {
-        width: 700px;
     }
 
     .menu {
@@ -607,11 +605,28 @@ input {
     .menu-container {
         flex-wrap: wrap;
     }
-  
+    
+/* MAIN QUERIES */
+
+    .reservation-container {
+        width: 700px;
+    }
+
+    .reservationContainerLogin {
+        width: 600px;
+    }
+
+    .backgroundLogin {
+        padding: 4rem;
+    }
+
+
 }
 
 @media (max-width: 915px) {
-    
+
+/* HEADER QUERIES */
+
     nav ul li {
         list-style-type: none;
         font-weight: bold;
@@ -623,11 +638,27 @@ input {
 }
 
 @media (max-width: 850px) {
-    
+
+/* MAIN QUERIES */
+
     .reservation-container {
         width: 613px;
     }
+
+    .reservationContainerLogin {
+        width: 400px;
+    }
+
+    .display-6 {
+        font-size: 40px;
+        margin-left: 30px;
+        margin-bottom: 20px;
+        color: #2962a3;
+    }
   
+    .backgroundLogin {
+        padding: 3rem;
+    }
 }
 
 @media (max-width: 770px) {
@@ -654,9 +685,7 @@ input {
 
     .display-6 {
         font-size: 40px;
-        margin-left: 30px;
-        margin-bottom: 20px;
-        color: #2962a3;
+        margin: 0 30px 30px 30px;
     }
 
 /* FOOTER QUERIES */  
@@ -682,6 +711,8 @@ input {
 
 @media (max-width: 600px) {
 
+/* MAIN QUERIES */
+
     .reservation-container {
         width: 400px;
         padding: 35px
@@ -691,13 +722,29 @@ input {
         padding: 2rem;
     }
 
+    .backgroundLogin {
+        padding: 2rem;
+    }
+
 }
 
 @media (max-width: 460px) {
 
+/* MAIN QUERIES */
+
     .reservation-container {
         width: 300px;
         padding: 25px
+    }
+
+    .reservationContainerLogin {
+        width: 300px;
+        padding: 2rem;
+    }
+
+    .display-6 {
+        font-size: 30px;
+        margin: 15px 30px 30px 30px;
     }
 
     .backgroundIndex {
