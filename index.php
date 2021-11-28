@@ -6,7 +6,7 @@ $airports = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,8 @@ $airports = $statement->fetchAll();
 
 <body>
     <?php 
-    @require_once 'header.php'; 
+    @require_once 'header.php';
+    array_splice($_SESSION,1, count($_SESSION));
     ?>
     <main class="backgroundIndex">
         <div class="flexbox">

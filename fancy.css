@@ -582,7 +582,12 @@ input {
 }
 
 
-
+.flexResults div a {
+    color:#142a44;
+}
+.errorMessage {
+    color:crimson ;
+}
 
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
 
@@ -898,4 +903,3 @@ input {
     .validatebtn, .validatebtn:hover {
         margin: 0;
     }
-}
