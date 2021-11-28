@@ -109,7 +109,7 @@
 
                                 <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                                     <?php echo $values['economy1'] . " € "; ?>
-                                    <p class="economyButton">Economy</p>
+                                    <p class="economyButton">Meilleur prix</p>
                                 </button>
                             </div>
                             <div class="packageResults-container hidden">
@@ -163,7 +163,7 @@
                                         <li>🧳 2 x 7kg / 2 x 23kg</li><br>
                                         <li>💺 Siège BUSINESS</li><br>
                                         <li>✔️ 80000 Miles</li><br>
-                                        <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                        <li id="businessColor">🔰 Assurance BUSINESS</li><br>
                                         <button id="packageButtonChoice4"  type="submit" name='price_business' value="<?php echo $values['price_business']; ?>">
                                             <?php echo $values['price_business'] . " € "; ?>
                                         </button>
@@ -236,7 +236,7 @@
 
                         <button class="togglePackageButton" onclick="togglePackageResults(event)" type="button">
                             <?php echo $values['economy1'] . " € "; ?>
-                            <p class="economyButton">Economy</p>
+                            <p class="economyButton">Meilleur prix</p>
                         </button>
                     </div>
                     <div class="packageResults-container hidden">
@@ -293,7 +293,7 @@
                                 <li>🧳 2 x 7kg / 2 x 23kg</li><br>
                                 <li>💺 Siège BUSINESS</li><br>
                                 <li>✔️ 80000 Miles</li><br>
-                                <li id="premiumColor">🔰 Assurance BUSINESS</li><br>
+                                <li id="businessColor">🔰 Assurance BUSINESS</li><br>
                                 <button id="packageButtonChoice4"  type="submit" name='price_business2'
                                     value="<?php echo $values['price_business']; ?>">
                                     <?php echo $values['price_business'] . " € "; ?>
