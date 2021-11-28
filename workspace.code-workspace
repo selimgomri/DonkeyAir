@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"path": "../../../EXERCICES/POO"
+		},
+		{
+			"path": "../../../EXERCICES/PHPOO"
+		},
+		{
+			"path": "../../../EXERCICES/PHP_AVANCE"
+		},
+		{
+			"path": "../../LibraryProject"
+		},
+		{
+			"path": "../../../EXERCICES/Algo"
+		},
+		{
+			"path": "../../../EXERCICES/JS/COURS MICHEL/starter"
+		},
+		{
+			"path": "../../../EXERCICES/JS"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../DonkeySchool/Integration"
+		},
+		{
+			"path": "../../PHP CEDRIC LIBRAIRY"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Integration"
+	}
+}

@@ -581,13 +581,7 @@ input {
     font-size: 15px;
 }
 
-.formatFacultatif {
-    display: flex;
-}
-.columnFormatFacultatif {
-    display: flex;
-    flex-direction: column;
-}
+
 .text-muted {
     padding: 0em 12rem 0rem  1.5rem
 }
@@ -635,6 +629,10 @@ input {
     }
 
     .reservationContainerLogin {
+        width: 700px;
+    }
+
+    .passengerInformations {
         width: 600px;
     }
 
@@ -678,6 +676,10 @@ input {
     }
 
     .reservationContainerLogin {
+        width: 500px;
+    }
+
+    .passengerInformations {
         width: 400px;
     }
 
@@ -692,12 +694,15 @@ input {
         padding: 3rem;
     }
 
+    .backgroundPassengers {
+        padding: 3rem;
+    }
+
     .bookingResultBoxes {
         width: 600px;
     }
 
     .togglePackageButton, .togglePackageButton:hover, .togglePackageButtonBusiness, .togglePackageButtonBusiness:hover {
-        font-size: 15px;
         margin-top: 10px;
     }
 
@@ -771,6 +776,22 @@ input {
         padding: 35px
     }
 
+    .reservationContainerLogin {
+        width: 400px;
+    }
+
+    .passengerInformations {
+        width: 300px;
+    }
+
+    .passengerInformations {
+        padding: 2rem 1rem 2rem 1rem;
+    }
+
+    .backgroundPassengers {
+        padding: 2rem;
+    }
+
     .backgroundIndex {
         padding: 2rem;
     }
@@ -808,8 +829,8 @@ input {
     }
 
     .reservationContainerLogin {
-        width: 300px;
-        padding: 2rem;
+        width: 280px;
+        padding: 1.5rem;
     }
 
     .display-6 {
@@ -817,7 +838,23 @@ input {
         margin: 15px 30px 30px 30px;
     }
 
+    .h2Passengers {
+        font-size: 20px;
+    }
+    
+    .passengerInformations {
+        width: 235px;
+    }
+
+    .passengerInformations input {
+        width: 150px;
+    }
+
     .backgroundIndex {
+        padding: 1rem;
+    }
+
+    .backgroundPassengers {
         padding: 1rem;
     }
 

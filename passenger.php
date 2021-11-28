@@ -54,26 +54,20 @@
                     }
                     ?>>
 
-                    <div class="formatFacultatif">
-                        <div class="columnFormatFacultatif">
-                            <label for="email"></label>
-                            <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" <?php
-                                if (1==$i) {
-                                echo " required value= " . $_SESSION['email'];
-                            }
-                            ?>>
+                    <label for="email"></label>
+                    <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" <?php
+                        if (1==$i) {
+                        echo " required value= " . $_SESSION['email'];
+                    }
+                    ?>>
 
-                        </div>
-
-                        <div class="columnFormatFacultatif">
-                            <label for="phone"></label>
-                            <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" <?php
+                    <label for="phone"></label>
+                    <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" <?php
                     if (1==$i) {
                         echo " required value= " . $_SESSION['phone'];
                     }
                     ?>>
-                        </div>
-                    </div>
+
                 </div>
 
                 <?php
