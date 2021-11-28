@@ -94,7 +94,7 @@ a:hover {
 }
 
 .backgroundSummary {
-    background-image: url(/media/vectorBackground3.svg);
+    background-image: url(/media/vectorBackground2.svg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 4.5rem;
@@ -582,9 +582,6 @@ input {
 }
 
 
-.text-muted {
-    padding: 0em 12rem 0rem  1.5rem
-}
 
 
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
@@ -746,6 +743,10 @@ input {
         font-size: 12px;
     }
 
+    .summaryInformations {
+        width: 500px;
+    }
+
 /* FOOTER QUERIES */  
 
     .footer {
@@ -788,7 +789,7 @@ input {
         padding: 2rem 1rem 2rem 1rem;
     }
 
-    .backgroundPassengers {
+    .backgroundPassengers, .backgroundBooking, .backgroundSummary {
         padding: 2rem;
     }
 
@@ -808,13 +809,22 @@ input {
         font-size: 12px;
     }
 
-    .backgroundBooking {
-        padding: 2rem;
-    }
-
     .display-7 {
         font-size: 35px;
         margin-top: 30px;
+    }
+
+    .summaryInformations {
+        width: 400px;
+        margin: 40px 0 20px 0;
+    }
+
+    .h2FlightSummary {
+        font-size: 25px;
+    } 
+
+    .summaryResults, .summaryResults:hover {
+        font-size: 13px;
     }
 
 }
@@ -838,7 +848,18 @@ input {
         margin: 15px 30px 30px 30px;
     }
 
-    .h2Passengers {
+    .display-7 {
+        font-size: 30px;
+        margin: 25px 0 25px 0;
+    }
+
+    .summaryInformations {
+        width: 280px;
+        padding: 2rem;
+        margin: 25px 0 10px 0;
+    }
+
+    .h2Passengers, .h2FlightSummary {
         font-size: 20px;
     }
     
@@ -850,11 +871,7 @@ input {
         width: 150px;
     }
 
-    .backgroundIndex {
-        padding: 1rem;
-    }
-
-    .backgroundPassengers {
+    .backgroundIndex, .backgroundPassengers, .backgroundSummary {
         padding: 1rem;
     }
 
@@ -876,5 +893,9 @@ input {
 
     .resultBox {
         font-size: 12px;
+    }
+
+    .validatebtn, .validatebtn:hover {
+        margin: 0;
     }
 }
