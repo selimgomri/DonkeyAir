@@ -109,10 +109,6 @@
                                     <?php echo $values['economy1'] . " € "; ?>
                                     <p class="economyButton">Economy</p>
                                 </button>
-                                <button class="togglePackageButtonBusiness" onclick="togglePackageResults(event)" type='button'>
-                                    <?php echo $values['price_business'] . " € "; ?>
-                                    <p class="businessButton">Business</p>
-                                </button>
                             </div>
                             <div class="packageResults-container hidden">
                                 <div class="packageResults">

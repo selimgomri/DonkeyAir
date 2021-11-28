@@ -31,7 +31,9 @@
             <?php
             //storing $_SESSION arrays about the flights for better use of it
             $oneWayFlight=$_SESSION['oneWayFlight'];
-            $returnWayFlight=$_SESSION['returnFlight'];
+            if (!empty($_SESSION['returnFlight'])) {
+                $returnWayFlight=$_SESSION['returnFlight'];
+            }
             $passengersInformation=$_SESSION['passengersInformation'];
             // end of storage
             ?>
@@ -195,7 +197,11 @@
                 <h2 class="h2FlightSummary">
                     Prix total de la réservation :
                     <?php
-                    echo(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
+                    if (!empty($returnWayFlight)) {
+                        echo(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'] . " €";
+                    } else {
+                        echo end($oneWayFlight)*$_SESSION['nbPassengers'] . " €";
+                    }
                     ?>
                 </h2>
                 <a href="confirmation.php"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
