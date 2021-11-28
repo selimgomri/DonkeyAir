@@ -19,7 +19,8 @@
 
     <?php
     @require_once '../headerLogin.php';
-    if (empty($_SESSION['firstname'])) {
+    array_splice($_SESSION,1, count($_SESSION));
+    if (empty($_SESSION['user']['firstname'])) {
         @require_once '../login.php';
         exit();
     } else {
@@ -59,7 +60,7 @@
                     $queryOngoingBooking=$query . "AND oneway_flight.departure_time>:today ORDER BY oneway_flight.departure_time ASC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryOngoingBooking);
-                    $statement->bindValue(':email', $_SESSION['email'], \PDO::PARAM_STR);
+                    $statement->bindValue(':email', $_SESSION['user']['email'], \PDO::PARAM_STR);
                     $statement->bindValue(':today', $today, \PDO::PARAM_STR);
                     $statement->execute();
                     //end of preparation
@@ -103,7 +104,7 @@
                     $queryPastBooking=$query . "AND oneway_flight.departure_time<=:today ORDER BY oneway_flight.departure_time DESC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryPastBooking);
-                    $statement->bindValue(':email', $_SESSION['email'], \PDO::PARAM_STR);
+                    $statement->bindValue(':email', $_SESSION['user']['email'], \PDO::PARAM_STR);
                     $statement->bindValue(':today', $today, \PDO::PARAM_STR);
                     $statement->execute();
                     //end of preparation

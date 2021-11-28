@@ -9,8 +9,8 @@
             <li> <a href="#">Nous contacter</a></li>
             <?php
             session_start();
-            if (!empty($_SESSION['firstname'])) { ?>
-                <li> <?php echo "Welcome " . $_SESSION['firstname'] . " "; ?> </li>
+            if (!empty($_SESSION['user']['firstname'])) { ?>
+                <li> <?php echo "Welcome " . $_SESSION['user']['firstname'] . " "; ?> </li>
                 <a href="../logout.php"><i class="fas fa-sign-out-alt"></i></a>
             <?php
             } else { ?>

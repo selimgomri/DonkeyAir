@@ -17,7 +17,7 @@
 <body>
     <?php
     @require_once 'header.php';
-    if (empty($_SESSION['firstname'])) {
+    if (empty($_SESSION['user']['firstname'])) {
         @require_once 'login.php';
         exit();
     } else {

@@ -18,7 +18,8 @@
 
     <?php
     @require_once 'header.php';
-    if (empty($_SESSION['firstname'])) {
+    array_splice($_SESSION,1, count($_SESSION));
+    if (empty($_SESSION['user']['firstname'])) {
         @require_once 'login.php';
         exit();
     }

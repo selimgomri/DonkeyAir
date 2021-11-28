@@ -5,10 +5,9 @@ session_start();
 if (''==($_POST['email'])) {
     header("Location: ../loginpage.php");
 } else {
-
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $_SESSION=$_POST;
+    $_SESSION['user']=$_POST;
 
     $query="SELECT email, password, firstname, lastname, birthdate, phone FROM user WHERE 
     email = :email AND password = :password";
@@ -20,7 +19,7 @@ if (''==($_POST['email'])) {
     //end of preparation
     $user = $statement->fetchAll();
     if (!empty($user)) {
-        $_SESSION=$user[0];
+        $_SESSION['user']=$user[0];
         header("Location: ../index.php");
     } else {
         header("Location: ../loginpage.php");

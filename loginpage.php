@@ -19,20 +19,24 @@
     <main class="backgroundLogin">
         <div>
             <form class="reservationContainerLogin" method="post" action="login.php">
-
                 <h1 class="display-6">Connexion à votre espace</h1>
                 <label for="id-email"></label>
-                <input type="email" id="id-email" autocomplete="on" name="email" placeholder="Adresse e-mail" value=<?php
-                if (!empty($_SESSION)) {
-                    echo $_SESSION['email'];
-                } ?>>
+                <input type="email" id="id-email" autocomplete="on" name="email" placeholder="Adresse e-mail" 
+                value="
+                    <?php
+                    if (!empty($_SESSION['user'])) {
+                        echo $_SESSION['user']['email'];
+                    } 
+                    ?>
+                ">
                 <label for="password"></label>
                 <input type="password" id="password" name="password" placeholder="Mot de passe">
                 <input class="validatebtn" type="submit" value="Accéder à mon espace">
                 <?php
-                if (!empty($_SESSION)) { ?>
-                <p class="errorMessage" role="error"> <?php echo "Email ou Mot de passe incorrect"; ?> </p>
-                <?php session_destroy();
+                if (!empty($_SESSION['user'])) { 
+                ?>
+                    <p class="errorMessage" role="error">Email ou Mot de passe incorrect</p>
+                    <?php session_destroy();
                 }
                 ?>
             </form>
