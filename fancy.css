@@ -75,7 +75,7 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     font-weight: bolder;
-    padding: 4.5rem;
+    padding: 5rem;
     background: linear-gradient(-45deg, #4fb1f1, #f0fbff);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -148,7 +148,7 @@ a:hover {
 }
 
 .displayBoxShadow {
-    margin: 5rem;
+    margin: 5rem 0 5rem 0;
 }
 
 input {
@@ -282,8 +282,11 @@ input {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 1000px;
-    padding: 50px 50px 20px 50px;
+    padding: 50px 30px 20px 30px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .resultTitles {
@@ -295,6 +298,8 @@ input {
 .flexResults {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .resultBox {
@@ -303,6 +308,7 @@ input {
     padding: 20px;
     margin: 1px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .economyButton {
@@ -369,6 +375,7 @@ input {
     display: flex;
     text-align: center;
     justify-content: center;
+    flex-wrap: wrap;
     animation: fadein 1s;
     -moz-animation: fadein 1s; /* Firefox */
     -webkit-animation: fadein 1s; /* Safari et Chrome */
@@ -588,6 +595,21 @@ input {
 
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
 
+@media (max-width: 1300px) {
+
+    .bookingResultBoxes {
+        width: 850px;
+    }
+
+    .resultBox {
+        font-size: 15px;
+    }
+
+    .togglePackageButton, .togglePackageButton:hover, .togglePackageButtonBusiness, .togglePackageButtonBusiness:hover {
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 1100px) {
 
 /* HEADER QUERIES */
@@ -620,7 +642,17 @@ input {
         padding: 4rem;
     }
 
+    .bookingResultBoxes {
+        width: 700px;
+    }
 
+    .resultBox {
+        font-size: 10px;
+    }
+
+    .display-8 {
+        font-size: 25px;
+    }
 }
 
 @media (max-width: 915px) {
@@ -659,6 +691,19 @@ input {
     .backgroundLogin {
         padding: 3rem;
     }
+
+    .bookingResultBoxes {
+        width: 600px;
+    }
+
+    .togglePackageButton, .togglePackageButton:hover, .togglePackageButtonBusiness, .togglePackageButtonBusiness:hover {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 770px) {
@@ -686,6 +731,14 @@ input {
     .display-6 {
         font-size: 40px;
         margin: 0 30px 30px 30px;
+    }
+
+    .bookingResultBoxes {
+        width: 450px;
+    }
+
+    .resultBox {
+        font-size: 12px;
     }
 
 /* FOOTER QUERIES */  
@@ -726,6 +779,23 @@ input {
         padding: 2rem;
     }
 
+    .bookingResultBoxes {
+        width: 400px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
+
+    .backgroundBooking {
+        padding: 2rem;
+    }
+
+    .display-7 {
+        font-size: 35px;
+        margin-top: 30px;
+    }
+
 }
 
 @media (max-width: 460px) {
@@ -763,4 +833,11 @@ input {
         margin-left: 50px;
     }
 
+    .bookingResultBoxes {
+        width: 250px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
 }
