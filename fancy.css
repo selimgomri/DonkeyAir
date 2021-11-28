@@ -173,6 +173,21 @@ input {
     color: #2962a3;
 }
 
+.displayConfirmationH1 {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 35px;
+    color: #2962a3;
+    margin-bottom: 30px;
+}
+
+.displayConfirmationH2 {
+    text-align: center;
+    font-size: 25px;
+    color: #2962a3;
+    margin-bottom: 30px;
+}
+
 .informationPassengers {
     font-weight: bolder;
     text-align: center;
@@ -181,7 +196,7 @@ input {
     margin-bottom: 50px;
 }
 
-.h2Passengers {
+.h2Passengers{
     font-size: 30px;
     margin: 0 0 20px 30px;
     color: #2962a3;
@@ -587,6 +602,7 @@ input {
 }
 .errorMessage {
     color:crimson ;
+    margin: 1rem;
 }
 
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
@@ -856,6 +872,21 @@ input {
     .display-7 {
         font-size: 30px;
         margin: 25px 0 25px 0;
+    }
+
+    .displayConfirmationH1 {
+        font-weight: bolder;
+        text-align: center;
+        font-size: 25px;
+        color: #2962a3;
+        margin-bottom: 30px;
+    }
+    
+    .displayConfirmationH2 {
+        text-align: center;
+        font-size: 15px;
+        color: #2962a3;
+        margin-bottom: 30px;
     }
 
     .summaryInformations {
