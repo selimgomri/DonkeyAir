@@ -75,11 +75,11 @@ $airports = $statement->fetchAll();
 
 
                 <label class="datePicker"><strong>Aller</strong></label>
-                <input type="date" id="departure-date" name="departureTime" required>
+                <input type="date" id="departure-date" min='today' name="departureTime" value="" required>
 
                 <span id="ifChecked" style="visibility:visible">
                     <label class="datePicker"><strong>Retour</strong></label>
-                    <input type="date" id="return-date" name="returnDate">
+                    <input type="date" id="return-date" min='' name="returnDate">
                 </span>
                 <span class="selectPassengers">
                     <select name="nbPassengers" id="nbPassengers">

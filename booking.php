@@ -30,9 +30,11 @@
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <?php
-                if ((''== $_GET['departureAirport'])
+                $today=date(("Y-m-d H:i:s"));
+                if (((''== $_GET['departureAirport'])
                 && (''== $_GET['arrivalAirport'])
-                && (''== $_GET['departureTime'])) {
+                && (''== $_GET['departureTime']))
+                || (($_GET['departureTime'])<=$today)) {
                     header("Location: index.php");
                 } else {
                     $_SESSION['nbPassengers']=$_GET['nbPassengers'];
