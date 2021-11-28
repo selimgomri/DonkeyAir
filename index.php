@@ -78,7 +78,7 @@ $airports = $statement->fetchAll();
                 <input type="date" id="departure-date" name="departureTime" required>
 
                 <span id="ifChecked" style="visibility:visible">
-                    <label><strong>Retour</strong></label>
+                    <label class="datePicker"><strong>Retour</strong></label>
                     <input type="date" id="return-date" name="returnDate">
                 </span>
                 <span class="selectPassengers">

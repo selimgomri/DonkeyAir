@@ -65,8 +65,7 @@
                             ?>
                         >
     
-                        <div class="formatFacultatif">
-                            <div class="columnFormatFacultatif">
+                        
                                 <label for="email"></label>
                                 <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" 
                                     <?php
@@ -75,9 +74,9 @@
                                     }
                                     ?>
                                 >
-                            </div>
                             
-                            <div class="columnFormatFacultatif">
+                            
+                            
                                 <label for="phone"></label>
                                 <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" 
                                     <?php
@@ -86,10 +85,7 @@
                                     }
                                     ?>
                                 >
-                            </div>
-                        </div>
                     </div>
-
                 <?php
                 }
                 ?>

@@ -13,7 +13,6 @@ body, html {
 
 body {
     font-family:"Nunito", sans-serif;
-    z-index: -1;
 }
 
 .menu-container {
@@ -26,7 +25,9 @@ body {
 .menu {
     width: 900px;
     display: flex;
-    margin: 40px;   
+    margin: 40px;
+    justify-content: center;
+    align-items: center;   
 }
 
 a:link, a:visited {
@@ -53,7 +54,7 @@ a:hover {
     background-repeat: no-repeat;
 }
 
-/* ------- BG IMAGE */
+/* ------- BG IMAGES ------- */
 
 .backgroundIndex {
     background-image: url(/media/sunsetSkyline.png);
@@ -74,7 +75,7 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     font-weight: bolder;
-    padding: 4.5rem;
+    padding: 5rem;
     background: linear-gradient(-45deg, #4fb1f1, #f0fbff);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -93,13 +94,13 @@ a:hover {
 }
 
 .backgroundSummary {
-    background-image: url(/media/vectorBackground3.svg);
+    background-image: url(/media/vectorBackground2.svg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 4.5rem;
 }
 
-/* ------- BOX RESERVATION */
+/* ------- BOX RESERVATION ------- */
 
 .reservation-container {
     border-radius: 1rem;
@@ -147,7 +148,7 @@ a:hover {
 }
 
 .displayBoxShadow {
-    margin: 5rem;
+    margin: 5rem 0 5rem 0;
 }
 
 input {
@@ -258,6 +259,7 @@ input {
 
 .datePicker {
     margin-left: 30px;
+    font-weight: bold;
 }
 
 .selectPassengers select {
@@ -280,8 +282,11 @@ input {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 1000px;
-    padding: 50px 50px 20px 50px;
+    padding: 50px 30px 20px 30px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .resultTitles {
@@ -293,6 +298,8 @@ input {
 .flexResults {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .resultBox {
@@ -301,6 +308,7 @@ input {
     padding: 20px;
     margin: 1px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .economyButton {
@@ -367,6 +375,7 @@ input {
     display: flex;
     text-align: center;
     justify-content: center;
+    flex-wrap: wrap;
     animation: fadein 1s;
     -moz-animation: fadein 1s; /* Firefox */
     -webkit-animation: fadein 1s; /* Safari et Chrome */
@@ -572,16 +581,6 @@ input {
     font-size: 15px;
 }
 
-.formatFacultatif {
-    display: flex;
-}
-.columnFormatFacultatif {
-    display: flex;
-    flex-direction: column;
-}
-.text-muted {
-    padding: 0em 12rem 0rem  1.5rem
-}
 
 .flexResults div a {
     color:#142a44;
@@ -589,3 +588,318 @@ input {
 .errorMessage {
     color:crimson ;
 }
+
+/* ------ RESPONSIVE MEDIA QUERIES -------- */
+
+@media (max-width: 1300px) {
+
+    .bookingResultBoxes {
+        width: 850px;
+    }
+
+    .resultBox {
+        font-size: 15px;
+    }
+
+    .togglePackageButton, .togglePackageButton:hover, .togglePackageButtonBusiness, .togglePackageButtonBusiness:hover {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+/* HEADER QUERIES */
+
+    .logo-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .menu {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-container {
+        flex-wrap: wrap;
+    }
+    
+/* MAIN QUERIES */
+
+    .reservation-container {
+        width: 700px;
+    }
+
+    .reservationContainerLogin {
+        width: 700px;
+    }
+
+    .passengerInformations {
+        width: 600px;
+    }
+
+    .backgroundLogin {
+        padding: 4rem;
+    }
+
+    .bookingResultBoxes {
+        width: 700px;
+    }
+
+    .resultBox {
+        font-size: 10px;
+    }
+
+    .display-8 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 915px) {
+
+/* HEADER QUERIES */
+
+    nav ul li {
+        list-style-type: none;
+        font-weight: bold;
+        margin: 0px 20px;
+        color: #ffffff;
+        font-size: 15px;
+    }
+  
+}
+
+@media (max-width: 850px) {
+
+/* MAIN QUERIES */
+
+    .reservation-container {
+        width: 613px;
+    }
+
+    .reservationContainerLogin {
+        width: 500px;
+    }
+
+    .passengerInformations {
+        width: 400px;
+    }
+
+    .display-6 {
+        font-size: 40px;
+        margin-left: 30px;
+        margin-bottom: 20px;
+        color: #2962a3;
+    }
+  
+    .backgroundLogin {
+        padding: 3rem;
+    }
+
+    .backgroundPassengers {
+        padding: 3rem;
+    }
+
+    .bookingResultBoxes {
+        width: 600px;
+    }
+
+    .togglePackageButton, .togglePackageButton:hover, .togglePackageButtonBusiness, .togglePackageButtonBusiness:hover {
+        margin-top: 10px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 770px) {
+    
+/* HEADER QUERIES */
+
+    .menu {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        list-style-type: none;
+        font-weight: bold;
+        margin: 5px;
+        color: #ffffff;
+        font-size: 20px;
+    }
+
+/* MAIN QUERIES */
+
+    .reservation-container {
+        width: 425px;
+    }
+
+    .display-6 {
+        font-size: 40px;
+        margin: 0 30px 30px 30px;
+    }
+
+    .bookingResultBoxes {
+        width: 450px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
+
+    .summaryInformations {
+        width: 500px;
+    }
+
+/* FOOTER QUERIES */  
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        color: ivory;
+        background-color: #2e2e2e;
+        height: 200px;
+        padding: 30px;
+    }
+    
+    .footer > li {
+        color: #ffffff;
+        list-style-type: none;
+        font-size: 15px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+/* MAIN QUERIES */
+
+    .reservation-container {
+        width: 400px;
+        padding: 35px
+    }
+
+    .reservationContainerLogin {
+        width: 400px;
+    }
+
+    .passengerInformations {
+        width: 300px;
+    }
+
+    .passengerInformations {
+        padding: 2rem 1rem 2rem 1rem;
+    }
+
+    .backgroundPassengers, .backgroundBooking, .backgroundSummary {
+        padding: 2rem;
+    }
+
+    .backgroundIndex {
+        padding: 2rem;
+    }
+
+    .backgroundLogin {
+        padding: 2rem;
+    }
+
+    .bookingResultBoxes {
+        width: 400px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
+
+    .display-7 {
+        font-size: 35px;
+        margin-top: 30px;
+    }
+
+    .summaryInformations {
+        width: 400px;
+        margin: 40px 0 20px 0;
+    }
+
+    .h2FlightSummary {
+        font-size: 25px;
+    } 
+
+    .summaryResults, .summaryResults:hover {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 460px) {
+
+/* MAIN QUERIES */
+
+    .reservation-container {
+        width: 300px;
+        padding: 25px
+    }
+
+    .reservationContainerLogin {
+        width: 280px;
+        padding: 1.5rem;
+    }
+
+    .display-6 {
+        font-size: 30px;
+        margin: 15px 30px 30px 30px;
+    }
+
+    .display-7 {
+        font-size: 30px;
+        margin: 25px 0 25px 0;
+    }
+
+    .summaryInformations {
+        width: 280px;
+        padding: 2rem;
+        margin: 25px 0 10px 0;
+    }
+
+    .h2Passengers, .h2FlightSummary {
+        font-size: 20px;
+    }
+    
+    .passengerInformations {
+        width: 235px;
+    }
+
+    .passengerInformations input {
+        width: 150px;
+    }
+
+    .backgroundIndex, .backgroundPassengers, .backgroundSummary {
+        padding: 1rem;
+    }
+
+    #departure-date {
+        margin: 0.5rem;
+    }
+
+    #return-date {
+        margin: 0.5rem 0 2rem 0;
+    }
+
+    #oneWay {
+        margin-left: 50px;
+    }
+
+    .bookingResultBoxes {
+        width: 250px;
+    }
+
+    .resultBox {
+        font-size: 12px;
+    }
+
+    .validatebtn, .validatebtn:hover {
+        margin: 0;
+    }

@@ -122,7 +122,8 @@
 
                     <div class="summaryResults">
                         <?php
-                        echo "🛫 Heure de l'atterissage : " . $returnWayFlight['arrival_time2']; ?>
+                        echo "🛬 Heure de l'atterissage : " . $returnWayFlight['arrival_time2'];
+                        ?>
                     </div>
 
                     <div class="summaryResults">
@@ -140,17 +141,20 @@
                             case 'price_business2':
                                 echo 'Catégorie : BUSINESS';
                                 break;
-                        }; ?>
+                        }; 
+                        ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo "Nombre de passagers : " . $_SESSION['nbPassengers']; ?>
+                        echo "Nombre de passagers : " . $_SESSION['nbPassengers']; 
+                        ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo "Prix du vol retour : " . $_SESSION['nbPassengers']*end($returnWayFlight) . " €"; ?>
+                        echo "Prix du vol retour : " . $_SESSION['nbPassengers']*end($returnWayFlight) . " €"; 
+                        ?>
                     </div>
                 </div>
             <?php
@@ -160,7 +164,7 @@
 
             <!-- Owner of the order -->
             <div class="summaryInformations">
-                <h2 class="h2FlightSummary">Passager principal</h2>
+                <h2 class="h2FlightSummary">👤 Passager principal</h2>
 
                     <div class="summaryResults">
                         <?php

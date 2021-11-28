@@ -1,7 +1,7 @@
 <header>
     <nav class="menu-container">
         <div class="logo-container">
-            <a class="logo" href="/index.php" > <img src="/media/DA_Logo2-01.svg " alt="logo"></a>
+            <a class="" href="/index.php" ></a>
         </div>
         <ul class="menu">
             <li> <a href="../manageBooking/history.php">Gérer mes reservations</a></li>
