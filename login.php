@@ -5,7 +5,7 @@ session_start();
 if (''==($_POST['email'])) {
     header("Location: ../loginpage.php");
 } else {
-    $email=$_POST['email'];
+    $email=$_POST['email']; 
     $password=$_POST['password'];
     $_SESSION['user']=$_POST;
 
