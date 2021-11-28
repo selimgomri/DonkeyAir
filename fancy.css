@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body, html {
@@ -14,6 +15,7 @@ body, html {
 body {
     font-family:"Nunito", sans-serif;
 }
+
 
 .menu-container {
     background-color: #2e2e2e;
@@ -76,9 +78,9 @@ a:hover {
     background-size: cover;
     font-weight: bolder;
     padding: 5rem;
-    background: linear-gradient(-45deg, #4fb1f1, #f0fbff);
+    background: linear-gradient(-45deg, #3c8ec4, #f0fbff);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 8s ease infinite;
 }
 
 @keyframes gradient {
@@ -603,6 +605,10 @@ input {
     font-size: 15px;
 }
 
+.stickyFooter {
+    bottom: 0;
+    width: 100%;
+}
 
 .flexResults div a {
     color:#142a44;
