@@ -867,6 +867,7 @@ input {
     .display-6 {
         font-size: 30px;
         margin: 15px 30px 30px 30px;
+        text-align: center;
     }
 
     .display-7 {
@@ -932,6 +933,10 @@ input {
     }
 
     .validatebtn, .validatebtn:hover {
-        margin: 0;
+        margin: 20px 0 20px 20px;
+    }
+
+    .selectPassengers select {
+        margin-left: 50px;
     }
 }
