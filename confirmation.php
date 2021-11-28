@@ -79,9 +79,8 @@
     <main class="backgroundSummary">
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
-                <h1 class="display-5">
-                    Un email de confirmation vous a été envoyé
-                </h1>
+                <h1 class="displayConfirmationH1"> Merci pour votre réservation et bon voyage !</h1>
+                <h2 class="displayConfirmationH2"> ✅ Un e-mail de confirmation viens de vous être envoyé </h2>
             </div>
         </div>
     </main>
