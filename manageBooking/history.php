@@ -2,7 +2,7 @@
 @require_once "../connectDB.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -83,6 +83,9 @@
                                 }
                             }
                             ?>
+                            <a class="cancelButton" href="updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                                <i class="fas fa-edit"></i>
+                            </a>
                             <a class="cancelButton" href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
