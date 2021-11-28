@@ -18,7 +18,7 @@
 <body>
 
     <?php
-    @require_once '../header.php';
+    @require_once '../headerLogin.php';
     if (empty($_SESSION['firstname'])) {
         @require_once '../login.php';
         exit();
@@ -40,7 +40,7 @@
         FROM user_flight 
         JOIN user ON user_id=user.id
         JOIN flight AS oneway_flight ON flight_id=oneway_flight.id
-        JOIN flight AS return_flight ON returnflight_id=return_flight.id
+        LEFT JOIN flight AS return_flight ON returnflight_id=return_flight.id
         WHERE email=:email ";
     }
     ?>
@@ -48,7 +48,7 @@
     <main class="backgroundHistory">
         <h1 class="display-7">Historique de vos réservations</h1>
 
-        <!-- ON GOING BOOKED FLIGHTS---------------------------------- -->
+        <!-- ON GOING BOOKED FLIGHTS----------------------------------------------------------------------->
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="flexResults">
                     <?php
-                    $queryOngoingBooking=$query . "AND oneway_flight.departure_time>:today";
+                    $queryOngoingBooking=$query . "AND oneway_flight.departure_time>:today ORDER BY oneway_flight.departure_time ASC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryOngoingBooking);
                     $statement->bindValue(':email', $_SESSION['email'], \PDO::PARAM_STR);
@@ -73,13 +73,15 @@
                                 echo $booking[$i];
                                 echo ' ';
                             }
-                            echo '<br> VOL Retour <br>';
-                            for ($i=7; $i<12; $i++) {
-                                echo $booking[$i];
-                                echo ' ';
+                            if (!empty($booking[7])) {
+                                echo '<br> VOL Retour <br>';
+                                for ($i=7; $i<12; $i++) {
+                                    echo $booking[$i];
+                                    echo ' ';
+                                }
                             }
                             ?>
-                            <a class ="cancelButton" href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                            <a class="cancelButton" href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
@@ -90,7 +92,7 @@
             </div>
         </div>
 
-        <!-- PAST BOOKED FLIGHTS---------------------------------- -->
+        <!-- PAST BOOKED FLIGHTS------------------------------------------------------------------------->
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
@@ -98,7 +100,7 @@
                 </div>
                 <div class="flexResults">
                     <?php
-                    $queryPastBooking=$query . "AND oneway_flight.departure_time<=:today";
+                    $queryPastBooking=$query . "AND oneway_flight.departure_time<=:today ORDER BY oneway_flight.departure_time DESC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryPastBooking);
                     $statement->bindValue(':email', $_SESSION['email'], \PDO::PARAM_STR);
@@ -113,10 +115,12 @@
                             echo $booking[$i];
                             echo ' ';
                         }
-                        echo '<br> VOL Retour <br>';
-                        for ($i=7; $i<12; $i++) {
-                            echo $booking[$i];
-                            echo ' ';
+                        if (!empty($booking[7])) {
+                            echo '<br> VOL RETOUR <br>';
+                            for ($i=7; $i<12; $i++) {
+                                echo $booking[$i];
+                                echo ' ';
+                            }
                         }
                     }
                     ?>

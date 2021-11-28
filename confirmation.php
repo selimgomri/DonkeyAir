@@ -30,7 +30,9 @@
     } else {
         //storing $_SESSION arrays about the flights for better use of it
         $oneWayFlight=$_SESSION['oneWayFlight'];
-        $returnWayFlight=$_SESSION['returnFlight'];
+        if (!empty($_SESSION['returnFlight'])) {
+            $returnWayFlight=$_SESSION['returnFlight'];
+        }
         $passengersInformation=$_SESSION['passengersInformation'];
         // end of storage
 
@@ -41,12 +43,21 @@
         $queryFlight="SELECT id, flight_number from flight WHERE flight_number=:key";
         $flight = preparationPDO($queryFlight, $oneWayFlight['flightNumber'], $pdo);
         $flightId=$flight[0]['id'];
+        
+        if (!empty($returnWayFlight)) {
+            $queryReturnFlight="SELECT id, flight_number from flight WHERE flight_number=:key";
+            $returnFlight = preparationPDO($queryReturnFlight, $returnWayFlight['flightNumber2'], $pdo);
+            $returnFlightId=$returnFlight[0]['id'];
+        } else {
+            $returnFlightId='NULL';
+        }
 
-        $queryReturnFlight="SELECT id, flight_number from flight WHERE flight_number=:key";
-        $returnFlight = preparationPDO($queryReturnFlight, $returnWayFlight['flightNumber2'], $pdo);
-        $returnFlightId=$returnFlight[0]['id'];
-
-        $pricePaid=(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'];
+        
+        if (!empty($returnWayFlight)) {
+            $pricePaid=(end($oneWayFlight)+end($returnWayFlight))*$_SESSION['nbPassengers'];
+        } else {
+            $pricePaid=end($oneWayFlight)*$_SESSION['nbPassengers'];
+        }
 
         //Adding the booking to the database
         $query="INSERT INTO user_flight (user_id, flight_id, returnflight_id, price_paid) VALUES ($userId, $flightId, $returnFlightId, $pricePaid)";

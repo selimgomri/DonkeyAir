@@ -19,7 +19,11 @@
         <div class="reservationContainerLogin">
             <h1 class="display-6">Informations
                 <?php
-                $_SESSION['returnFlight']=$_POST;
+                if (empty($_SESSION['oneWayFlight'])) {
+                    $_SESSION['oneWayFlight']=$_POST;
+                } else {
+                    $_SESSION['returnFlight']=$_GET;
+                }
                 if (1==$_SESSION['nbPassengers']) {
                     echo 'passager';
                 } else {
@@ -29,58 +33,67 @@
             </h1>
             <form class="" method="post" action="summary.php">
                 <?php
-                for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { ?>
-                <div class="passengerInformations">
-
-                    <h2 class="h2Passengers">Passager <?php echo $i ?></h2>
-                    <label for="firstname"></label>
-                    <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required <?php
-                        if (1==$i) {
-                            echo 'value=' . $_SESSION['firstname'];
-                    }
-                    ?>>
-
-                    <label for="lastname"></label>
-                    <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required <?php
-                        if (1==$i) {
-                            echo 'value=' . $_SESSION['lastname'];
-                    }
-                    ?>>
-
-                    <label for="birthdate"></label>
-                    <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required <?php
-                        if (1==$i) {
-                            echo 'value=' . $_SESSION['birthdate'];
-                    }
-                    ?>>
-
-                    <div class="formatFacultatif">
-                        <div class="columnFormatFacultatif">
-                            <label for="email"></label>
-                            <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" <?php
-                                if (1==$i) {
-                                echo " required value= " . $_SESSION['email'];
+                for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { 
+                ?>
+                    <div class="passengerInformations">
+                    
+                        <h2 class="h2Passengers">Passager <?php echo $i ?></h2>
+                        <label for="firstname"></label>
+                        <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required 
+                            <?php
+                            if (1==$i) {
+                                echo 'value="' . $_SESSION['firstname'] . '"';
                             }
-                            ?>>
-
-                        </div>
-
-                        <div class="columnFormatFacultatif">
-                            <label for="phone"></label>
-                            <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" <?php
-                    if (1==$i) {
-                        echo " required value= " . $_SESSION['phone'];
-                    }
-                    ?>>
+                            ?>
+                        >
+    
+                        <label for="lastname"></label>
+                        <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required 
+                            <?php
+                            if (1==$i) {
+                                echo 'value="' . $_SESSION['lastname'] . '"';
+                            }
+                            ?>
+                        >
+    
+                        <label for="birthdate"></label>
+                        <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required 
+                            <?php
+                            if (1==$i) {
+                                echo 'value="' . $_SESSION['birthdate'] . '"';
+                            }
+                            ?>
+                        >
+    
+                        <div class="formatFacultatif">
+                            <div class="columnFormatFacultatif">
+                                <label for="email"></label>
+                                <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" 
+                                    <?php
+                                    if (1==$i) {
+                                        echo ' required value="' . $_SESSION['email'] . '"';
+                                    }
+                                    ?>
+                                >
+                            </div>
+                            
+                            <div class="columnFormatFacultatif">
+                                <label for="phone"></label>
+                                <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" 
+                                    <?php
+                                    if (1==$i) {
+                                        echo ' required value="' . $_SESSION['phone'] . '"';
+                                    }
+                                    ?>
+                                >
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <?php
                 }
                 ?>
                 <input class="validatebtn" type="submit" value="Confirmer les passagers">
-
             </form>
         </div>
     </main>

@@ -3,7 +3,7 @@ session_start();
 @require_once "connectDB.php";
 
 if (''==($_POST['email'])) {
-    header("Location: loginpage.php");
+    header("Location: ../loginpage.php");
 } else {
 
     $email=$_POST['email'];
@@ -21,8 +21,8 @@ if (''==($_POST['email'])) {
     $user = $statement->fetchAll();
     if (!empty($user)) {
         $_SESSION=$user[0];
-        header("Location: index.php");
+        header("Location: ../index.php");
     } else {
-        header("Location: loginpage.php");
+        header("Location: ../loginpage.php");
     }
 }

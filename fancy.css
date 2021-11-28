@@ -586,3 +586,6 @@ input {
 .flexResults div a {
     color:#142a44;
 }
+.errorMessage {
+    color:crimson ;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
                 <input class="validatebtn" type="submit" value="Accéder à mon espace">
                 <?php
                 if (!empty($_SESSION)) { ?>
-                <p class="alert alert-danger" role="error"> <?php echo "Email ou Mot de passe incorrect"; ?> </p>
+                <p class="errorMessage" role="error"> <?php echo "Email ou Mot de passe incorrect"; ?> </p>
                 <?php session_destroy();
                 }
                 ?>
