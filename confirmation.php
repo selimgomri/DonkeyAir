@@ -13,6 +13,7 @@
     <?php
     @require_once 'connectDB.php';
     @require_once 'header.php';
+    array_splice($_SESSION,1, count($_SESSION));
     //preparation PDO
     function preparationPDO(string $query, string $elementOfArray, PDO $pdo)
     {
@@ -24,7 +25,7 @@
     }
     //end of preparation
 
-    if (empty($_SESSION['firstname'])) {
+    if (empty($_SESSION['user']['firstname'])) {
         @require_once 'login.php';
         exit();
     } else {
