@@ -47,13 +47,14 @@
     ?>
 
     <main class="backgroundHistory">
-        <h1 class="display-7">Historique de vos réservations</h1>
+        <h1 class="displayConfirmationH1">Vous souhaitez modifier votre réservation ?</h1>
+        <h1 class="displayConfirmationH2">Ou consulter vos anciens voyages ?</h1>
 
         <!-- ON GOING BOOKED FLIGHTS----------------------------------------------------------------------->
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
-                    <h2 class="display-6">Réservations en cours</h2>
+                    <h2 class="display-7bis">✈️ Vos prochains vols</h2>
                 </div>
                 <div class="flexResults">
                     <?php
@@ -67,9 +68,10 @@
                     //end of preparation
                     $ongoingBooking=$statement->fetchAll();
                     foreach ($ongoingBooking as $booking) { ?>
-                        <div>
+                    <div class="summaryInformations">
+                        <div class="summaryResults">
                             <?php
-                            echo '<br> <br> Réservation numéro: ' . $booking['booking_number'];
+                            echo 'Réservation numéro : ' . $booking['booking_number'];
                             echo '<br> VOL ALLER <br>';
                             for ($i=2; $i<7; $i++) {
                                 echo $booking[$i];
@@ -90,6 +92,7 @@
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
+                    </div>
                     <?php
                     }
                     ?>
@@ -101,7 +104,7 @@
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
-                    <h2 class="display-6">Réservations passées</h2>
+                    <h2 class="display-7bis">✈️ Vos réservations passées</h2>
                 </div>
                 <div class="flexResults">
                     <?php
@@ -115,7 +118,7 @@
                     //end of preparation
                     $queryPastBooking=$statement->fetchAll();
                     foreach ($queryPastBooking as $booking) { 
-                        echo '<br> <br> Réservation numéro: ' . $booking['booking_number'];
+                        echo '<br> <br> Réservation numéro : ' . $booking['booking_number'];
                         echo '<br> VOL ALLER <br>';
                         for ($i=2; $i<7; $i++) {
                             echo $booking[$i];
