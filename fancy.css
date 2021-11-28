@@ -71,7 +71,7 @@ a:hover {
     padding: 10rem;
 }
 
-.backgroundBooking, .backgroundPassengers {
+.backgroundBooking, .backgroundPassengers, .backgroundHistory {
     background-repeat: no-repeat;
     background-size: cover;
     font-weight: bolder;
@@ -170,6 +170,13 @@ input {
     font-weight: bolder;
     text-align: center;
     font-size: 50px;
+    color: #2962a3;
+}
+
+.display-7bis {
+    font-weight: bolder;
+    text-align: left;
+    font-size: 35px;
     color: #2962a3;
 }
 
@@ -810,7 +817,7 @@ input {
         padding: 2rem 1rem 2rem 1rem;
     }
 
-    .backgroundPassengers, .backgroundBooking, .backgroundSummary {
+    .backgroundPassengers, .backgroundBooking, .backgroundSummary, .backgroundHistory {
         padding: 2rem;
     }
 
@@ -833,6 +840,10 @@ input {
     .display-7 {
         font-size: 35px;
         margin-top: 30px;
+    }
+
+    .display-7bis {
+        font-size: 25px;
     }
 
     .summaryInformations {
@@ -873,6 +884,10 @@ input {
     .display-7 {
         font-size: 30px;
         margin: 25px 0 25px 0;
+    }
+
+    .display-7bis {
+        font-size: 20px;
     }
 
     .displayConfirmationH1 {
