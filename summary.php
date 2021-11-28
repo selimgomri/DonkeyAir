@@ -2,7 +2,7 @@
 @require_once "connectDB.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -78,7 +78,7 @@
                         case 'price_business':
                             echo 'Catégorie : BUSINESS';
                             break;
-                        };
+                    };
                     ?>
                 </div>
 
@@ -97,64 +97,63 @@
                 <!-- End of OneWay Flight--------------------------------------------------- -->
 
                 <!-- Return Flight--------------------------- -->
-            <div class="summaryInformations">
-                <h2 class="h2FlightSummary">✈️ Votre vol retour</h2>
+            <?php
+            if (!empty($returnWayFlight)) {
+                ?>
+                <div class="summaryInformations">
+                    <h2 class="h2FlightSummary">✈️ Votre vol retour</h2>
 
-                <div class="summaryResults">
-                    <?php
-                    echo "Numéro de vol : " . $returnWayFlight['flightNumber2'];
-                    ?>
-                </div>
+                    <div class="summaryResults">
+                        <?php
+                        echo "Numéro de vol : " . $returnWayFlight['flightNumber2']; ?>
+                    </div>
 
-                <div class="summaryResults">
-                    <?php
-                    echo "📍 Au départ de : " . $returnWayFlight['departure_airport_id2'] . " et à destination de : " . $returnWayFlight['arrival_airport_id2'];
-                    ?>
-                </div>
+                    <div class="summaryResults">
+                        <?php
+                        echo "📍 Au départ de : " . $returnWayFlight['departure_airport_id2'] . " et à destination de : " . $returnWayFlight['arrival_airport_id2']; ?>
+                    </div>
 
-                <div class="summaryResults">
-                    <?php
-                    echo "🛫 Heure du décollage : " . $returnWayFlight['departure_time2'];
-                    ?>
-                </div>
+                    <div class="summaryResults">
+                        <?php
+                        echo "🛫 Heure du décollage : " . $returnWayFlight['departure_time2']; ?>
+                    </div>
 
-                <div class="summaryResults">
-                    <?php
-                    echo "🛫 Heure de l'atterissage : " . $returnWayFlight['arrival_time2'];
-                    ?>
-                </div>
+                    <div class="summaryResults">
+                        <?php
+                        echo "🛫 Heure de l'atterissage : " . $returnWayFlight['arrival_time2']; ?>
+                    </div>
 
-                <div class="summaryResults">
-                    <?php
-                    switch (array_key_last($returnWayFlight)) {
-                        case 'economy1_2':
-                            echo 'Catégorie : SAVER';
-                            break;
-                        case 'economy2_2':
-                            echo 'Catégorie : FLEX';
-                            break;
-                        case 'economy3_2':
-                            echo 'Catégorie : PREMIUM';
-                            break;
-                        case 'price_business2':
-                            echo 'Catégorie : BUSINESS';
-                            break;
-                        };
-                    ?>
-                </div>
+                    <div class="summaryResults">
+                        <?php
+                        switch (array_key_last($returnWayFlight)) {
+                            case 'economy1_2':
+                                echo 'Catégorie : SAVER';
+                                break;
+                            case 'economy2_2':
+                                echo 'Catégorie : FLEX';
+                                break;
+                            case 'economy3_2':
+                                echo 'Catégorie : PREMIUM';
+                                break;
+                            case 'price_business2':
+                                echo 'Catégorie : BUSINESS';
+                                break;
+                        }; ?>
+                    </div>
 
-                <div class="summaryResults">
-                    <?php
-                    echo "Nombre de passagers : " . $_SESSION['nbPassengers'];
-                    ?>
-                </div>
+                    <div class="summaryResults">
+                        <?php
+                        echo "Nombre de passagers : " . $_SESSION['nbPassengers']; ?>
+                    </div>
 
-                <div class="summaryResults">
-                    <?php
-                    echo "Prix du vol retour : " . $_SESSION['nbPassengers']*end($returnWayFlight) . " €";
-                    ?>
+                    <div class="summaryResults">
+                        <?php
+                        echo "Prix du vol retour : " . $_SESSION['nbPassengers']*end($returnWayFlight) . " €"; ?>
+                    </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
             <!-- End of Return Flight--------------------------------------------------- -->
 
             <!-- Owner of the order -->
