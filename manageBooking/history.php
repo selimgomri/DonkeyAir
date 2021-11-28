@@ -24,7 +24,7 @@
         @require_once '../login.php';
         exit();
     } else {
-        $today=date("d/m/Y H:i");
+        $today=date("Y-m-d H:i");
 
         $query="SELECT booking_number, email, 
         oneway_flight.flight_number AS flight_number1,
@@ -57,7 +57,7 @@
                 </div>
                 <div class="flexResults">
                     <?php
-                    $queryOngoingBooking=$query . "AND DATE_FORMAT(oneway_flight.departure_time, '%d/%m/%Y %H:%i')>:today
+                    $queryOngoingBooking=$query . "AND oneway_flight.departure_time>:today
                          ORDER BY departure_time1 ASC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryOngoingBooking);
@@ -105,7 +105,7 @@
                 </div>
                 <div class="flexResults">
                     <?php
-                    $queryPastBooking=$query . "AND DATE_FORMAT(return_flight.departure_time, '%d/%m/%Y %H:%i')<=:today     
+                    $queryPastBooking=$query . "AND return_flight.departure_time<=:today     
                         ORDER BY departure_time2 DESC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryPastBooking);

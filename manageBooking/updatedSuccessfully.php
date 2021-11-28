@@ -1,4 +1,2 @@
 <?php
-@require_once "../connectDB";
-@require_once "../header.php";
-$query="UPDATE "
+echo "I WORKED SO MUCH, <br> I AM OUT OF ENERGY, <br> I COULDN'T MAKE THIS FEATURE";

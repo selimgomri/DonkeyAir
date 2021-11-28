@@ -41,7 +41,8 @@
     $booking=$statement->fetchAll();
     $booking=$booking[0];
     ?>
-    <form method="post" method="updatedSuccessfully.php">
+    
+    <form method="post" action="updatedSuccessfully.php">
         <?php
         foreach($booking as $key => $value) {
             if (('departure_time1'==$key
@@ -66,10 +67,8 @@
         }
         ?>
         <input type="submit" value="Submit">
-
     </form>
-
-
+    
     <?php
     require_once "../footer.html";
     ?>
