@@ -44,23 +44,22 @@
                     $query="SELECT flight.id, flight_number,
                     departure_airport_id,
                     arrival_airport_id,
-                    departure_time, arrival_time,
+                    DATE_FORMAT(departure_time, '%d/%m/%Y %H:%i') AS departure_time,
+                    DATE_FORMAT(arrival_time, '%d/%m/%Y %H:%i') AS arrival_time,
                     economy1, economy2, economy3, price_business
                     FROM flight 
-                    /* JOIN airport AS departure_airport ON departure_airport_id=departure_airport.id 
-                    JOIN airport AS arrival_airport ON arrival_airport_id=arrival_airport.id */
                     JOIN price ON price_id=price.id 
                         JOIN price_economy ON price_economy_id=price_economy.id
                     WHERE (departure_airport_id = :departureAirport
                     AND arrival_airport_id = :arrivalAirport 
-                    AND departure_time >= :departureTime)
+                    AND DATE_FORMAT(departure_time, '%d/%m/%Y') = DATE_FORMAT(:departureTime, '%d/%m/%Y')) 
                     ORDER BY economy1 ASC";
 
                     //preparation PDO
                     $statement = $pdo->prepare($query);
                     $statement->bindValue(':departureAirport', $departureAirport, \PDO::PARAM_STR);
                     $statement->bindValue(':arrivalAirport', $arrivalAirport, \PDO::PARAM_STR);
-                    $statement->bindValue(':departureTime', $departureTime, \PDO::PARAM_STR);
+                   $statement->bindValue(':departureTime', $departureTime, \PDO::PARAM_STR);
                     $statement->execute();
                     //end of preparation
 

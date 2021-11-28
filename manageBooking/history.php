@@ -24,17 +24,17 @@
         @require_once '../login.php';
         exit();
     } else {
-        $today=date("Y-m-d H:i:s");
+        $today=date("d/m/Y H:i");
 
         $query="SELECT booking_number, email, 
         oneway_flight.flight_number AS flight_number1,
-        oneway_flight.departure_time AS departure_time1,
-        oneway_flight.arrival_time AS arrival_time1,
+        DATE_FORMAT(oneway_flight.departure_time, '%d/%m/%Y %H:%i') AS departure_time1,
+        DATE_FORMAT(oneway_flight.arrival_time, '%d/%m/%Y %H:%i') AS arrival_time1,
         oneway_flight.departure_airport_id AS departure_airport_id1,
         oneway_flight.arrival_airport_id AS arrival_airport_id1,
         return_flight.flight_number AS flight_number2,
-        return_flight.departure_time AS departure_time2,
-        return_flight.arrival_time AS arrival_time2,
+        DATE_FORMAT(return_flight.departure_time, '%d/%m/%Y %H:%i') AS departure_time2,
+        DATE_FORMAT(return_flight.arrival_time, '%d/%m/%Y %H:%i') AS arrival_time2,
         return_flight.departure_airport_id AS departure_airport_id2,
         return_flight.arrival_airport_id AS arrival_airport_id2,
         price_paid
@@ -57,7 +57,8 @@
                 </div>
                 <div class="flexResults">
                     <?php
-                    $queryOngoingBooking=$query . "AND oneway_flight.departure_time>:today ORDER BY oneway_flight.departure_time ASC";
+                    $queryOngoingBooking=$query . "AND DATE_FORMAT(oneway_flight.departure_time, '%d/%m/%Y %H:%i')>:today
+                         ORDER BY departure_time1 ASC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryOngoingBooking);
                     $statement->bindValue(':email', $_SESSION['user']['email'], \PDO::PARAM_STR);
@@ -101,7 +102,8 @@
                 </div>
                 <div class="flexResults">
                     <?php
-                    $queryPastBooking=$query . "AND oneway_flight.departure_time<=:today ORDER BY oneway_flight.departure_time DESC";
+                    $queryPastBooking=$query . "AND DATE_FORMAT(return_flight.departure_time, '%d/%m/%Y %H:%i')<=:today     
+                        ORDER BY departure_time2 DESC";
                     //preparation PDO
                     $statement = $pdo->prepare($queryPastBooking);
                     $statement->bindValue(':email', $_SESSION['user']['email'], \PDO::PARAM_STR);
