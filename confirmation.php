@@ -13,7 +13,7 @@
     <?php
     @require_once 'connectDB.php';
     @require_once 'header.php';
-    array_splice($_SESSION,1, count($_SESSION));
+    
     //preparation PDO
     function preparationPDO(string $query, string $elementOfArray, PDO $pdo)
     {
@@ -38,7 +38,7 @@
         // end of storage
 
         $queryUser="SELECT id, email from user WHERE email=:key";
-        $user = preparationPDO($queryUser, $_SESSION['email'], $pdo);
+        $user = preparationPDO($queryUser, $_SESSION['user']['email'], $pdo);
         $userId=$user[0]['id'];
 
         $queryFlight="SELECT id, flight_number from flight WHERE flight_number=:key";
@@ -65,7 +65,7 @@
         $statement = $pdo->exec($query);
     }
     // send mail
-    /* $to      = $_SESSION['email'];
+    /* $to      = $_SESSION['user']['email'];
     $subject = 'Réservation confirmée';
     $message = 'Votre réservation a bien été confirmée';
     $headers = 'From: noreply@donkeyair.com'       . "\r\n" .
@@ -85,7 +85,10 @@
             </div>
         </div>
     </main>
-    <?php @require_once 'footer.html' ?>
+    <?php 
+    @require_once 'footer.html';
+    array_splice($_SESSION,1, count($_SESSION)); 
+    ?>
 </body>
 
 </html>

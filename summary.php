@@ -168,31 +168,31 @@
 
                     <div class="summaryResults">
                         <?php
-                        echo "Prénom : " . $_SESSION['firstname'];
+                        echo "Prénom : " . $passengersInformation['firstname1'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo "Nom : " . $_SESSION['lastname'];
+                        echo "Nom : " . $passengersInformation['lastname1'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo "Date de naissance : " . $_SESSION['birthdate'];
+                        echo "Date de naissance : " . $passengersInformation['birthdate1'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo "📧 Adresse e-mail : " . $_SESSION['email'];
+                        echo "📧 Adresse e-mail : " . $passengersInformation['email1'];
                         ?>
                     </div>
 
                     <div class="summaryResults">
                         <?php
-                        echo "📞 Numéro de téléphone : " . $_SESSION['phone'];
+                        echo "📞 Numéro de téléphone : " . $passengersInformation['phone1'];
                         ?>
                     </div>
             </div>
