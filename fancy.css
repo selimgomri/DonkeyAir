@@ -78,7 +78,7 @@ a:hover {
     background-size: cover;
     font-weight: bolder;
     padding: 5rem;
-    background: linear-gradient(-45deg, #3c8ec4, #f0fbff);
+    background: linear-gradient(-45deg, #3c8ec4, #ffffff);
 	background-size: 400% 400%;
 	animation: gradient 8s ease infinite;
 }
@@ -275,6 +275,50 @@ input {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.modifySubmitBtn {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    width: 200px;
+    background: linear-gradient(-45deg, #b8d8fd, #2962a3, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient2 15s ease infinite;
+}
+
+@keyframes gradient2 {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.modifySubmitBtn:hover {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    width: 200px;
+    background: linear-gradient(-45deg, #b8d8fd,#23d5ab);
+	background-size: 400% 400%;
+	animation: gradient2 15s ease infinite;
+}
+
+@keyframes gradient2 {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 }
 
 .radioButton {
@@ -582,7 +626,7 @@ input {
     color: black;
     font-weight: bolder;
 }
-
+d
 #packageButtonChoice4 {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
     background-color: #142a44;
@@ -610,7 +654,7 @@ input {
     justify-content: center;
     color: ivory;
     background-color: #2e2e2e;
-    height: 300px;
+    height: 400px;
     margin-bottom: 0px;
 }
 
