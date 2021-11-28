@@ -42,7 +42,7 @@
                         <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required 
                             <?php
                             if (1==$i) {
-                                echo 'value="' . $_SESSION['firstname'] . '"';
+                                echo 'value="' . $_SESSION['user']['firstname'] . '"';
                             }
                             ?>
                         >
@@ -51,7 +51,7 @@
                         <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required 
                             <?php
                             if (1==$i) {
-                                echo 'value="' . $_SESSION['lastname'] . '"';
+                                echo 'value="' . $_SESSION['user']['lastname'] . '"';
                             }
                             ?>
                         >
@@ -60,7 +60,7 @@
                         <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required 
                             <?php
                             if (1==$i) {
-                                echo 'value="' . $_SESSION['birthdate'] . '"';
+                                echo 'value="' . $_SESSION['user']['birthdate'] . '"';
                             }
                             ?>
                         >
@@ -70,7 +70,7 @@
                                 <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" 
                                     <?php
                                     if (1==$i) {
-                                        echo ' required value="' . $_SESSION['email'] . '"';
+                                        echo ' required value="' . $_SESSION['user']['email'] . '"';
                                     }
                                     ?>
                                 >
@@ -81,7 +81,7 @@
                                 <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" 
                                     <?php
                                     if (1==$i) {
-                                        echo ' required value="' . $_SESSION['phone'] . '"';
+                                        echo ' required value="' . $_SESSION['user']['phone'] . '"';
                                     }
                                     ?>
                                 >
