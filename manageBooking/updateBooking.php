@@ -41,7 +41,7 @@
     $booking=$statement->fetchAll();
     $booking=$booking[0];
     ?>
-    <form method="post">
+    <form method="post" method="updatedSuccessfully.php">
         <?php
         foreach($booking as $key => $value) {
             if (('departure_time1'==$key
@@ -53,7 +53,7 @@
                 $formattedDate=date('Y-m-d',$formattedDate);
                 ?>
                 <label class=""></label>
-                <input type="date" value="<?php echo $formattedDate ?>">
+                <input type="date" name="<?php echo $key ?>" value="<?php echo $formattedDate ?>">
             <?php 
             } else if ($value!=$booking['departure_time1'] 
             && $value!=$booking['departure_time2']
@@ -65,6 +65,7 @@
             }
         }
         ?>
+        <input type="submit" value="Submit">
 
     </form>
 
