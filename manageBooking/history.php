@@ -79,16 +79,18 @@
                                 echo ' ';
                             }
                             if (!empty($booking[7])) {
-                                echo '<br> VOL Retour <br>';
+                                echo '<br> VOL RETOUR <br>';
                                 for ($i=7; $i<12; $i++) {
                                     echo $booking[$i];
                                     echo ' ';
                                 }
                             }
                             ?>
-                            <a class="cancelButton" href="../manageBooking/updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                            <span><p>Modifier</p></span>
+                            <span><a class="cancelButton" href="../manageBooking/updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-edit"></i>
-                            </a>
+                            </a></span>
+                            <p>Annuler</p>
                             <a class="cancelButton" href="../manageBooking/cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
@@ -119,9 +121,14 @@
                     $statement->execute();
                     //end of preparation
                     $queryPastBooking=$statement->fetchAll();
-                    foreach ($queryPastBooking as $booking) { 
-                        echo '<br> <br> Réservation numéro : ' . $booking['booking_number'];
-                        echo '<br> VOL ALLER <br>';
+                    foreach ($queryPastBooking as $booking) { ?>
+                    
+                    <div class="summaryResults">
+                    <?php echo '<br> <br> Réservation numéro : ' . $booking['booking_number']; ?>
+                    </div>
+
+                    <div class="summaryResults">
+                    <?php echo '<br> VOL ALLER <br>';
                         for ($i=2; $i<7; $i++) {
                             echo $booking[$i];
                             echo ' ';
@@ -135,6 +142,7 @@
                         }
                     }
                     ?>
+                    </div>
                 </div>
             </div>
         </div>

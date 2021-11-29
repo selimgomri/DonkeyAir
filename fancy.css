@@ -631,7 +631,9 @@ input {
     margin: 1rem;
 }
 
-
+.cancelButton {
+    margin: 20px;
+}
 
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
 
