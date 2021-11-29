@@ -1,7 +1,7 @@
 <header>
     <nav class="menu-container">
         <div class="logo-container">
-            <a class="logo" href="/index.php"> <img src="/media/DA_Logo2-01.svg " alt="logo"></a>
+            <a class="logo" href="../index.php"> <img src="/media/DA_Logo2-01.svg " alt="logo"></a>
         </div>
         <ul class="menu">
             <li> <a href="../index.php">Réservez votre vol</a></li>
@@ -11,10 +11,10 @@
             session_start();
             if (!empty($_SESSION['user']['firstname'])) { ?>
             <li> <?php echo "Welcome " . $_SESSION['user']['firstname'] . " "; ?> </li>
-            <a href="../logout.php"><i class="fas fa-sign-out-alt"></i></a>
+            <a href="../login/logout.php"><i class="fas fa-sign-out-alt"></i></a>
             <?php
             } else { ?>
-            <li class="connection"> <a class="login" href="../loginpage.php">✈️ Votre espace</a></li>
+            <li class="connection"> <a class="login" href="../login/loginpage.php">✈️ Votre espace</a></li>
             <?php
             }
             ?>

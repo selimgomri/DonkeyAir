@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
-    <link rel="stylesheet" href="fancy.css">
+    <link rel="stylesheet" href="../fancy.css">
     <title>Informations passagers</title>
 </head>
 
 <body>
     
-    <?php @require_once "header.php"; ?>
+    <?php @require_once "../inc/header.php"; ?>
         
     <main class="backgroundPassengers">
         <div class="reservationContainerLogin">
@@ -32,7 +32,7 @@
                 }
                 ?>
             </h1>
-            <form class="" method="post" action="summary.php">
+            <form class="" method="post" action="../booking/summary.php">
                 <?php
                 for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { 
                 ?>
@@ -87,7 +87,7 @@
         </div>
     </main>
 
-    <?php @require_once "footer.html" ?>
+    <?php @require_once "../inc/footer.html" ?>
 
 </body>
 

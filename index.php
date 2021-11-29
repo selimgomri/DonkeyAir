@@ -18,12 +18,12 @@ $airports = $statement->fetchAll();
 </head>
 
 <body>
-    <?php @require_once 'header.php'; 
+    <?php @require_once 'inc/header.php'; 
     array_splice($_SESSION,1, count($_SESSION)); ?>
     
     <main class="backgroundIndex">
         <div class="flexbox">
-            <form class="reservation-container" method="GET" action="booking.php">
+            <form class="reservation-container" method="GET" action="booking/booking.php">
                 <h1 class="display-6">Réservez votre vol</h1>
                 <label for="choix-depart"></label>
                 <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ" name="departureAirport" required>
@@ -85,7 +85,7 @@ $airports = $statement->fetchAll();
         </div>
     </main>
 
-    <?php @require_once 'footer.html' ?>
+    <?php @require_once 'inc/footer.html' ?>
 
 </body>
 
