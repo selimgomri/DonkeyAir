@@ -78,7 +78,7 @@ a:hover {
     background-size: cover;
     font-weight: bolder;
     padding: 5rem;
-    background: linear-gradient(-45deg, #3c8ec4, #f0fbff);
+    background: linear-gradient(-45deg, #3c8ec4, #ffffff);
 	background-size: 400% 400%;
 	animation: gradient 8s ease infinite;
 }
@@ -256,7 +256,6 @@ input {
 	}
 }
 
-
 .validatebtn:hover {
     color: rgb(255, 255, 255);
     font-weight: bolder;
@@ -373,7 +372,6 @@ input {
     padding: 0 10px 0 10px;
 }
 
-
 .togglePackageButtonBusiness {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
     background-color: #426185;
@@ -405,6 +403,7 @@ input {
     -webkit-animation: fadein 1s; /* Safari et Chrome */
     -o-animation: fadein 1s; /* Opera */
 }
+
 @keyframes fadein {
     from {
         opacity:0;
@@ -601,16 +600,14 @@ input {
     font-weight: bolder;
 }
 
-
-
-/* ------- FOOTER */
+/* ------- FOOTER -------  */
 
 .footer {
     display: flex;
     justify-content: center;
     color: ivory;
     background-color: #2e2e2e;
-    height: 300px;
+    height: 400px;
     margin-bottom: 0px;
 }
 

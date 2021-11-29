@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    
     <?php @require_once "header.php"; ?>
         
     <main class="backgroundPassengers">
@@ -36,7 +37,6 @@
                 for ($i=1; $i<=$_SESSION['nbPassengers']; $i++) { 
                 ?>
                     <div class="passengerInformations">
-                    
                         <h2 class="h2Passengers">Passager <?php echo $i ?></h2>
                         <label for="firstname"></label>
                         <input type="text" autocomplete="on" name="firstname<?php echo $i ?>" placeholder="Prénom" required 
@@ -44,8 +44,7 @@
                             if (1==$i) {
                                 echo 'value="' . $_SESSION['user']['firstname'] . '"';
                             }
-                            ?>
-                        >
+                            ?>>
     
                         <label for="lastname"></label>
                         <input type="text" autocomplete="on" name="lastname<?php echo $i ?>" placeholder="Nom" required 
@@ -53,8 +52,7 @@
                             if (1==$i) {
                                 echo 'value="' . $_SESSION['user']['lastname'] . '"';
                             }
-                            ?>
-                        >
+                            ?>>
     
                         <label for="birthdate"></label>
                         <input type="date" autocomplete="on" name="birthdate<?php echo $i ?>" placeholder="birthdate" required 
@@ -62,39 +60,35 @@
                             if (1==$i) {
                                 echo 'value="' . $_SESSION['user']['birthdate'] . '"';
                             }
-                            ?>
-                        >
+                            ?>>
     
                         
-                                <label for="email"></label>
-                                <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" 
-                                    <?php
-                                    if (1==$i) {
-                                        echo ' required value="' . $_SESSION['user']['email'] . '"';
-                                    }
-                                    ?>
-                                >
-                            
-                            
-                            
-                                <label for="phone"></label>
-                                <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" 
-                                    <?php
-                                    if (1==$i) {
-                                        echo ' required value="' . $_SESSION['user']['phone'] . '"';
-                                    }
-                                    ?>
-                                >
+                        <label for="email"></label>
+                        <input type="email" autocomplete="on" name="email<?php echo $i ?>" placeholder="E-mail (facultatif)" 
+                            <?php
+                            if (1==$i) {
+                                echo ' required value="' . $_SESSION['user']['email'] . '"';
+                            }
+                            ?>>
+                    
+                    
+                    
+                        <label for="phone"></label>
+                        <input type="tel" autocomplete="on" name="phone<?php echo $i ?>" placeholder="Téléphone (facultatif)" 
+                            <?php
+                            if (1==$i) {
+                                echo ' required value="' . $_SESSION['user']['phone'] . '"';
+                            }
+                            ?>>
                     </div>
-                <?php
-                }
-                ?>
+                <?php } ?>
                 <input class="validatebtn" type="submit" value="Confirmer les passagers">
             </form>
         </div>
     </main>
 
     <?php @require_once "footer.html" ?>
+
 </body>
 
 </html>

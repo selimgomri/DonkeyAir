@@ -51,6 +51,7 @@
         <h1 class="displayConfirmationH2">Ou consulter vos anciens voyages ?</h1>
 
         <!-- ON GOING BOOKED FLIGHTS----------------------------------------------------------------------->
+
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
@@ -101,6 +102,7 @@
         </div>
 
         <!-- PAST BOOKED FLIGHTS------------------------------------------------------------------------->
+
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <div class="flexResults">
@@ -140,6 +142,7 @@
     </main>
 
     <?php @require_once '../footer.html' ?>
+    
 </body>
 
 </html>

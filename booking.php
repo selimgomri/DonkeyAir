@@ -66,10 +66,12 @@
                     //end of preparation
 
                     $flights = $statement->fetchAll();
-                ?>
+                    ?>
+
                     <div>
                         <h2 class="display-8">VOLS ALLER</h2>
                     </div>
+
                     <?php
                     if (empty($flights)) {
                         echo "Aucun vol disponible <br>";
@@ -77,16 +79,14 @@
 
                     foreach ($flights as $values) { 
                     ?>
-                        <form method="post" 
-                        action="
+                        <form method="post" action="
                             <?php
                             if (empty($_GET['returnDate'])) {
                                 echo 'passenger.php';
                             } else {
                                 echo '#returnFlights';
                             }
-                            ?>
-                        ">
+                            ?>">
                             <div class="flexResults">
                                 <div class="resultBox">
                                     <input type="hidden" name="flightNumber" value="<?php echo $values['flight_number']; ?>">
@@ -175,13 +175,14 @@
                     <?php
                     }
                 }
-                    ?>
+                ?>
             </div>
         </div>
         <?php
         $_SESSION['oneWayFlight']=$_POST;
         
 //-------------------Display return flights ------------------------------------------
+
         if (''!=$_GET['returnDate']) { ?>
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
@@ -249,8 +250,7 @@
                                 <li>💺 Siège attribué</li><br>
                                 <li>✔️ 5000 Miles</li><br>
                                 <li id="saverColor">🔰 Assurance SAVER</li><br>
-                                <button id="packageButtonChoice1" type="submit" name='economy1_2'
-                                    value="<?php echo $values['economy1']; ?>">
+                                <button id="packageButtonChoice1" type="submit" name='economy1_2' value="<?php echo $values['economy1']; ?>">
                                     <?php echo $values['economy1'] . " € "; ?>
                                 </button>
                             </div>
@@ -264,8 +264,7 @@
                                 <li>💺 Choix du siège</li><br>
                                 <li>✔️ 20000 Miles</li><br>
                                 <li id="flexColor">🔰 Assurance FLEX</li><br>
-                                <button id="packageButtonChoice2" type="submit" name='economy2_2'
-                                    value="<?php echo $values['economy2']; ?>">
+                                <button id="packageButtonChoice2" type="submit" name='economy2_2' value="<?php echo $values['economy2']; ?>">
                                     <?php echo $values['economy2'] . " € "; ?>
                                 </button>
                             </div>
@@ -279,8 +278,7 @@
                                 <li>💺 Siège PREMIUM</li><br>
                                 <li>✔️ 50000 Miles</li><br>
                                 <li id="premiumColor">🔰 Assurance PREMIUM</li><br>
-                                <button id="packageButtonChoice3" type="submit" name='economy3_2'
-                                    value="<?php echo $values['economy3']; ?>">
+                                <button id="packageButtonChoice3" type="submit" name='economy3_2' value="<?php echo $values['economy3']; ?>">
                                     <?php echo $values['economy3'] . " € "; ?>
                                 </button>
                             </div>
@@ -294,8 +292,7 @@
                                 <li>💺 Siège BUSINESS</li><br>
                                 <li>✔️ 80000 Miles</li><br>
                                 <li id="businessColor">🔰 Assurance BUSINESS</li><br>
-                                <button id="packageButtonChoice4"  type="submit" name='price_business2'
-                                    value="<?php echo $values['price_business']; ?>">
+                                <button id="packageButtonChoice4"  type="submit" name='price_business2' value="<?php echo $values['price_business']; ?>">
                                     <?php echo $values['price_business'] . " € "; ?>
                                 </button>
                             </div>
@@ -305,13 +302,14 @@
                 </form>
                 <?php
                 }
-        }
+                }
                 ?>
             </div>
         </div>
     </main>
 
     <?php @require_once 'footer.html' ?>
+
 </body>
 
 </html>

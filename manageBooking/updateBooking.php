@@ -8,8 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Vous connecter pour accéder à votre historique de réservation ou bien reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
+    <meta name="description" content="Vous connecter pour accéder à votre historique de réservation ou bien reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
     <link rel="stylesheet" href="../fancy.css">
     <title>Modification de votre réservation</title>
 </head>
@@ -42,7 +41,10 @@
     $booking=$booking[0];
     ?>
     
-    <form method="post" action="updatedSuccessfully.php">
+    <main class="backgroundLogin">
+        <form class="reservation-container" method="post" action="updatedSuccessfully.php">
+
+        <h1 class="display-6">Modifier votre réservation</h1>
         <?php
         foreach($booking as $key => $value) {
             if (('departure_time1'==$key
@@ -66,12 +68,11 @@
             }
         }
         ?>
-        <input type="submit" value="Submit">
-    </form>
-    
-    <?php
-    require_once "../footer.html";
-    ?>
-</body>
+        <input class="validatebtn" type="submit" value="Confirmer la modification">
+        </form>
+     </main>
 
+    <?php require_once "../footer.html"; ?>
+
+</body>
 </html>

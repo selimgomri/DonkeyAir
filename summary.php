@@ -39,8 +39,10 @@
             ?>
 
             <!-- OneWay Flight--------------------------- -->
+
             <div class="summaryInformations">
                 <h2 class="h2FlightSummary">✈️ Votre vol aller</h2>
+
                 <div class="summaryResults">
                     <?php
                     echo "Numéro de vol : " . $oneWayFlight['flightNumber'];
@@ -96,9 +98,11 @@
                     ?>
                 </div>
             </div>
+
                 <!-- End of OneWay Flight--------------------------------------------------- -->
 
                 <!-- Return Flight--------------------------- -->
+
             <?php
             if (!empty($returnWayFlight)) {
                 ?>
@@ -156,47 +160,52 @@
                         echo "Prix du vol retour : " . $_SESSION['nbPassengers']*end($returnWayFlight) . " €"; 
                         ?>
                     </div>
+
                 </div>
             <?php
             }
             ?>
+
             <!-- End of Return Flight--------------------------------------------------- -->
 
             <!-- Owner of the order -->
+
             <div class="summaryInformations">
                 <h2 class="h2FlightSummary">👤 Passager principal</h2>
 
-                    <div class="summaryResults">
-                        <?php
-                        echo "Prénom : " . $passengersInformation['firstname1'];
-                        ?>
-                    </div>
+                <div class="summaryResults">
+                    <?php
+                    echo "Prénom : " . $passengersInformation['firstname1'];
+                    ?>
+                </div>
 
-                    <div class="summaryResults">
-                        <?php
-                        echo "Nom : " . $passengersInformation['lastname1'];
-                        ?>
-                    </div>
+                <div class="summaryResults">
+                    <?php
+                    echo "Nom : " . $passengersInformation['lastname1'];
+                    ?>
+                </div>
 
-                    <div class="summaryResults">
-                        <?php
-                        echo "Date de naissance : " . $passengersInformation['birthdate1'];
-                        ?>
-                    </div>
+                <div class="summaryResults">
+                    <?php
+                    echo "Date de naissance : " . $passengersInformation['birthdate1'];
+                    ?>
+                </div>
 
-                    <div class="summaryResults">
-                        <?php
-                        echo "📧 Adresse e-mail : " . $passengersInformation['email1'];
-                        ?>
-                    </div>
+                <div class="summaryResults">
+                    <?php
+                    echo "📧 Adresse e-mail : " . $passengersInformation['email1'];
+                    ?>
+                </div>
 
-                    <div class="summaryResults">
-                        <?php
-                        echo "📞 Numéro de téléphone : " . $passengersInformation['phone1'];
-                        ?>
-                    </div>
+                <div class="summaryResults">
+                    <?php
+                    echo "📞 Numéro de téléphone : " . $passengersInformation['phone1'];
+                    ?>
+                </div>
             </div>
+
             <!-- End of Passenger owner--------- -->
+
             <div class="summaryInformations">            
                 <h2 class="h2FlightSummary">
                     Prix total de la réservation :
@@ -214,6 +223,7 @@
     </main>
 
     <?php @require_once 'footer.html' ?>
+    
 </body>
 
 </html>

@@ -18,62 +18,46 @@ $airports = $statement->fetchAll();
 </head>
 
 <body>
-    <?php 
-    @require_once 'header.php';
-    array_splice($_SESSION,1, count($_SESSION));
-    ?>
+    <?php @require_once 'header.php'; 
+    array_splice($_SESSION,1, count($_SESSION)); ?>
+    
     <main class="backgroundIndex">
         <div class="flexbox">
-
             <form class="reservation-container" method="GET" action="booking.php">
-
                 <h1 class="display-6">Réservez votre vol</h1>
-
                 <label for="choix-depart"></label>
-                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ"
-                    name="departureAirport" required>
+                <input list="airport" type="text" id="choix-depart" autocomplete="off" placeholder="Départ" name="departureAirport" required>
                 <datalist id="airport">
-
                     <?php foreach ($airports as $airport) { ?>
                     <option value="<?php
-                        
                         foreach ($airport as $key => $departureAirport) {
                             if (!is_int($key)) {
                                 echo $departureAirport . " ";
                             }
                         }
-                        ?>">
+                    ?>">
                     </option>
                     <?php } ?>
-
                 </datalist>
-
                 <label for="choix-retour"></label>
-                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination"
-                    name="arrivalAirport" required>
+                <input list="airport2" type="text" id="choix-retour" autocomplete="off" placeholder="Destination" name="arrivalAirport" required>
                 <datalist id="airport2">
                     <?php foreach ($airports as $airport) { ?>
                     <option value="<?php
-                        
                         foreach ($airport as $key => $arrivalAirport) {
                             if (!is_int($key)) {
                                 echo $arrivalAirport . " ";
                             }
                         }
-                        ?>">
+                    ?>">
                     </option>
                     <?php } ?>
                 </datalist></br>
-
-
                 <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay" checked> 
-                 <strong> Aller-Retour </strong>
+                <strong> Aller-Retour </strong>
 
-
-                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton"
-                    id="oneWay"> <strong> Aller Simple </strong> </br>
-
-
+                <input class="radioButton" type="radio" onclick="javascript:oneWayReturn();" name="radiobutton" id="oneWay"> <strong> Aller Simple </strong> </br>
+                
                 <label class="datePicker"><strong>Aller</strong></label>
                 <input type="date" id="departure-date" min='today' name="departureTime" value="" required>
 
@@ -81,6 +65,7 @@ $airports = $statement->fetchAll();
                     <label class="datePicker"><strong>Retour</strong></label>
                     <input type="date" id="return-date" min='' name="returnDate">
                 </span>
+
                 <span class="selectPassengers">
                     <select name="nbPassengers" id="nbPassengers">
                         <option value="1">1 passager</option>
@@ -94,14 +79,13 @@ $airports = $statement->fetchAll();
                     </select>
                 </span>
 
-
                 <input class="validatebtn" type="submit" value="Rechercher parmi les vols">
+
             </form>
         </div>
     </main>
 
     <?php @require_once 'footer.html' ?>
-
 
 </body>
 
