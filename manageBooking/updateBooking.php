@@ -63,8 +63,10 @@
             && $value!=$booking['arrival_time1']
             && $value!=$booking['arrival_time2']
             && is_int($key)) {
-                echo $value;
-                echo ' ';
+            ?>  
+                <span class=""> <?php echo $value; echo ' '; ?> </span> 
+            <?php
+               
             }
         }
         ?>
