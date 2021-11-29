@@ -68,33 +68,54 @@
                     $statement->execute();
                     //end of preparation
                     $ongoingBooking=$statement->fetchAll();
-                    foreach ($ongoingBooking as $booking) { ?>
+                    foreach ($ongoingBooking as $booking) ?> <?php { ?>
                     <div class="summaryInformations">
+                        <div class="h2FlightSummary">
+                            <?php
+                            echo 'Réservation numéro : ' . $booking['booking_number']; ?>
+                        </div>
+
                         <div class="summaryResults">
                             <?php
-                            echo 'Réservation numéro : ' . $booking['booking_number'];
-                            echo '<br> VOL ALLER <br>';
+                            echo '<br> 🛫 VOL ALLER <br>'; ?>
+                        </div>
+
+                        <div class="summaryResults">
+                            <?php
                             for ($i=2; $i<7; $i++) {
                                 echo $booking[$i];
                                 echo ' ';
                             }
-                            if (!empty($booking[7])) {
-                                echo '<br> VOL RETOUR <br>';
+                            ?>
+                        </div>
+                        <div class="summaryResults">
+                            <?php
+                            if (!empty($booking[7])) { 
+                                echo '<br> 🛫 VOL RETOUR <br>'; ?>
+                        </div>
+
+                        <div class="summaryResults">
+                            <?php
                                 for ($i=7; $i<12; $i++) {
                                     echo $booking[$i];
                                     echo ' ';
                                 }
                             }
                             ?>
-                            <span><p>Modifier</p></span>
-                            <span><a class="cancelButton" href="../manageBooking/updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                        </div>
+                        <span class="cancelButton-container">
+                            <p class="cancelButton-container">Modifier</p>
+                            <a class="cancelButton" href="../manageBooking/updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-edit"></i>
-                            </a></span>
-                            <p>Annuler</p>
+                            </a>
+                            
+                        </span>
+                        <span class="cancelButton-container">
+                            <p class="cancelButton-container">Annuler</p>
                             <a class="cancelButton" href="../manageBooking/cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
-                        </div>
+                        </span>
                     </div>
                     <?php
                     }
@@ -129,9 +150,11 @@
 
                     <div class="summaryResults">
                     <?php echo '<br> VOL ALLER <br>';
-                        for ($i=2; $i<7; $i++) {
-                            echo $booking[$i];
-                            echo ' ';
+                        for ($i=2; $i<7; $i++) { ?>
+                           <div class="summaryResults">
+                           <?php echo $booking[$i];
+                            echo ' '; ?>
+                           </div> <?php
                         }
                         if (!empty($booking[7])) {
                             echo '<br> VOL RETOUR <br>';
