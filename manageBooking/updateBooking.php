@@ -46,7 +46,10 @@
         
         <main class="backgroundLogin">
 
-            <form method="post" action="updatedSuccessfully.php">
+            <form class="reservation-container" method="post" action="updatedSuccessfully.php">
+
+            <h1 class="display-6">Modifier votre réservation</h1>
+
                 <?php
                 foreach($booking as $key => $value) {
                     if (('departure_time1'==$key
@@ -76,9 +79,8 @@
 
         </main>
 
-                    <?php
-            require_once "../footer.html";
-            ?>
+        <?php require_once "../footer.html"; ?>
+
 </body>
 
 </html>
