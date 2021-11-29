@@ -64,6 +64,7 @@
         $query="INSERT INTO user_flight (user_id, flight_id, returnflight_id, price_paid) VALUES ($userId, $flightId, $returnFlightId, $pricePaid)";
         $statement = $pdo->exec($query);
     }
+    
     // send mail
     /* $to      = $_SESSION['user']['email'];
     $subject = 'Réservation confirmée';
@@ -73,9 +74,10 @@
                 'X-Mailer: PHP/' . phpversion();
 
     $mail=mail($to, $subject, $message, $headers);
-    var_dump($mail);
- */
+    var_dump($mail); */
+    
     ?>
+    
     <main class="backgroundSummary">
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
@@ -84,10 +86,12 @@
             </div>
         </div>
     </main>
+
     <?php 
     @require_once 'footer.html';
     array_splice($_SESSION,1, count($_SESSION)); 
     ?>
+
 </body>
 
 </html>
