@@ -1,5 +1,5 @@
 <?php
-@require_once "connectDB.php";
+@require_once "../connectDB.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
-    <link rel="stylesheet" href="fancy.css">
+    <link rel="stylesheet" href="../fancy.css">
     <title>Récapitulatif de votre vol</title>
 </head>
 
 <body>
     <?php
-    @require_once 'header.php';
+    @require_once '../inc/header.php';
     if (empty($_SESSION['user']['firstname'])) {
-        @require_once 'login.php';
+        @require_once '../login/login.php';
         exit();
     } else {
         $_SESSION['passengersInformation']=$_POST;
@@ -217,12 +217,12 @@
                     }
                     ?>
                 </h2>
-                <a href="confirmation.php"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
+                <a href="../booking/confirmation.php"><input class="validatebtn" type="button" value="Confirmer votre réservation"></a>
             </div>
         </div>
     </main>
 
-    <?php @require_once 'footer.html' ?>
+    <?php @require_once '../inc/footer.html' ?>
     
 </body>
 

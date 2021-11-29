@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fancy.css">
+    <link rel="stylesheet" href="../fancy.css">
     <title>Confirmation de votre réservation</title>
 </head>
 
 <body>
     <?php
-    @require_once 'connectDB.php';
-    @require_once 'header.php';
+    @require_once '../connectDB.php';
+    @require_once '../inc/header.php';
     
     //preparation PDO
     function preparationPDO(string $query, string $elementOfArray, PDO $pdo)
@@ -26,7 +26,7 @@
     //end of preparation
 
     if (empty($_SESSION['user']['firstname'])) {
-        @require_once 'login.php';
+        @require_once '../login/login.php';
         exit();
     } else {
         //storing $_SESSION arrays about the flights for better use of it
@@ -88,7 +88,7 @@
     </main>
 
     <?php 
-    @require_once 'footer.html';
+    @require_once '../inc/footer.html';
     array_splice($_SESSION,1, count($_SESSION)); 
     ?>
 

@@ -15,7 +15,7 @@
 
 <body>
     <?php
-    @require_once "../headerLogin.php";
+    @require_once "../inc/headerLogin.php";
     $bookingToEditId=$_GET['id'];
     $query="SELECT booking_number,
     oneway_flight.flight_number AS flight_number1,
@@ -42,7 +42,7 @@
     ?>
     
     <main class="backgroundLogin">
-        <form class="reservation-container" method="post" action="updatedSuccessfully.php">
+        <form class="reservation-container" method="post" action="../manageBooking/updatedSuccessfully.php">
 
         <h1 class="display-6">Modifier votre réservation</h1>
         <?php
@@ -72,7 +72,7 @@
         </form>
      </main>
 
-    <?php require_once "../footer.html"; ?>
+    <?php require_once "../inc/footer.html"; ?>
 
 </body>
 </html>

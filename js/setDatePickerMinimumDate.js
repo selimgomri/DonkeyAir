@@ -16,7 +16,4 @@ today = yyyy + "-" + mm + "-" + dd;
 console.log(today);
 document.getElementById("departure-date").setAttribute("min", today);
 
-let onewayDate = document.getElementById("departure-date").value;
 
-document.getElementById("return-date").setAttribute("min", onewayDate);
-console.log(onewayDate.value);
