@@ -10,3 +10,5 @@ define('PASS', '');
 $pdo = new \PDO(DSN, USER, PASS);
 5. If you connect with another user to the database, replace 'root' by 'yourusername', 
 also if you have a password replace '' with 'yourpassword'
+6. Finally, enter this command to launch a local php server: php -S localhost:8000
+7. Now just browse localhost:8000 on your favorite browser and enjoy!
