@@ -189,7 +189,7 @@
                 <?php
                 $arrivalAirport=substr($_GET['departureAirport'], 0, 3);
                 $departureAirport=substr($_GET['arrivalAirport'], 0, 3);
-                $departureTime=$_GET['departureTime'];
+                $departureTime=$_GET['returnDate'];
 
                 //preparation PDO
                 $statement = $pdo->prepare($query);
