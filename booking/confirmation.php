@@ -82,7 +82,7 @@
         <div class="displayBoxShadow">
             <div class="bookingResultBoxes">
                 <h1 class="displayConfirmationH1"> Merci pour votre réservation et bon voyage !</h1>
-                <h2 class="displayConfirmationH2"> ✅ Un e-mail de confirmation viens de vous être envoyé </h2>
+                <h2 class="displayConfirmationH2"> ✅ Un e-mail de confirmation vient de vous être envoyé </h2>
             </div>
         </div>
     </main>

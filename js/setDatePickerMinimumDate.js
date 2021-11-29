@@ -15,5 +15,7 @@ if (mm < 10) {
 today = yyyy + "-" + mm + "-" + dd;
 console.log(today);
 document.getElementById("departure-date").setAttribute("min", today);
+document.getElementById("return-date").setAttribute("min", today);
+
 
 

@@ -631,6 +631,14 @@ input {
     margin: 1rem;
 }
 
+.cancelButton-container {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    color: #2962a3;
+}
+
+
+
 /* ------ RESPONSIVE MEDIA QUERIES -------- */
 
 @media (max-width: 1300px) {

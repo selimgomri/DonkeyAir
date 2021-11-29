@@ -54,8 +54,8 @@
             && $value != null) {
                 $formattedDate=strtotime($value);
                 $formattedDate=date('Y-m-d',$formattedDate);
-                ?>
-                <label class=""></label>
+                ?> 
+                <label class="summaryResults">Dates</label>
                 <input type="date" name="<?php echo $key ?>" value="<?php echo $formattedDate ?>">
             <?php 
             } else if ($value!=$booking['departure_time1'] 
@@ -63,8 +63,10 @@
             && $value!=$booking['arrival_time1']
             && $value!=$booking['arrival_time2']
             && is_int($key)) {
-                echo $value;
-                echo ' ';
+            ?>  
+                <span class="summaryResults"> <?php echo $value; echo ' '; ?> </span> 
+            <?php
+               
             }
         }
         ?>

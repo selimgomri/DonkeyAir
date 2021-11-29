@@ -1,6 +1,6 @@
 <?php
 @require_once 'connectDB.php';
-$query="SELECT id, airport_city FROM airport ORDER BY airport_city ASC";
+$query="SELECT id, airport_city FROM airport ORDER BY id ASC";
 $statement = $pdo->query($query);
 $airports = $statement->fetchAll();
 ?>
