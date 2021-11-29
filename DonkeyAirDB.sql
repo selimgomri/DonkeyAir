@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `DonkeyAirDB` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `DonkeyAirDB`;
 -- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
--- Host: localhost    Database: donkeyAirDB
+-- Host: localhost    Database: DonkeyAirDB
 -- ------------------------------------------------------
 -- Server version	8.0.27-0ubuntu0.20.04.1
 
@@ -172,7 +174,7 @@ CREATE TABLE `user` (
   `firstname` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `lastname` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `birthdate` date DEFAULT NULL,
-  `phone` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -233,4 +235,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-29 15:44:56
+-- Dump completed on 2021-11-29 18:13:09
