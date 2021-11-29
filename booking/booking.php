@@ -1,5 +1,5 @@
 <?php
-@require_once "connectDB.php";
+@require_once "../connectDB.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pour reserver votre vol au meilleur prix et vers les plus grandes destinations, Donkey Airlines vous propose le meilleur confort et la meilleure expérience à bord. ">
-    <link rel="stylesheet" href="fancy.css">
+    <link rel="stylesheet" href="../fancy.css">
     <title>Reservez votre vol aller-retour au meilleur prix avec Donkey Airlines</title>
 
 </head>
@@ -17,10 +17,10 @@
 <body>
 
     <?php
-    @require_once 'header.php';
+    @require_once '../inc/header.php';
     array_splice($_SESSION,1, count($_SESSION));
     if (empty($_SESSION['user']['firstname'])) {
-        @require_once 'login.php';
+        @require_once '../login/login.php';
         exit();
     }
     ?>
@@ -35,7 +35,7 @@
                 && (''== $_GET['arrivalAirport'])
                 && (''== $_GET['departureTime']))
                 || (($_GET['departureTime'])<=$today)) {
-                    header("Location: index.php");
+                    header("Location: ../index.php");
                 } else {
                     $_SESSION['nbPassengers']=$_GET['nbPassengers'];
 
@@ -82,7 +82,7 @@
                         <form method="post" action="
                             <?php
                             if (empty($_GET['returnDate'])) {
-                                echo 'passenger.php';
+                                echo '../booking/passenger.php';
                             } else {
                                 echo '#returnFlights';
                             }
@@ -214,7 +214,7 @@
 
                 foreach ($flights as $values) { 
                 ?>
-                <form method="get" action="passenger.php">
+                <form method="get" action="../booking/passenger.php">
                     <div class="flexResults">
                         <div class="resultBox">
                             <input type="hidden" name="flightNumber2" value="<?php echo $values['flight_number']; ?>">
@@ -308,7 +308,7 @@
         </div>
     </main>
 
-    <?php @require_once 'footer.html' ?>
+    <?php @require_once '../inc/footer.html' ?>
 
 </body>
 

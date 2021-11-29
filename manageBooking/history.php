@@ -18,10 +18,10 @@
 <body>
 
     <?php
-    @require_once '../headerLogin.php';
+    @require_once '../inc/headerLogin.php';
     array_splice($_SESSION,1, count($_SESSION));
     if (empty($_SESSION['user']['firstname'])) {
-        @require_once '../login.php';
+        @require_once '../login/login.php';
         exit();
     } else {
         $today=date("Y-m-d H:i");
@@ -86,10 +86,10 @@
                                 }
                             }
                             ?>
-                            <a class="cancelButton" href="updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                            <a class="cancelButton" href="../manageBooking/updateBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="cancelButton" href="cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
+                            <a class="cancelButton" href="../manageBooking/cancelBooking.php?id=<?php echo $booking['booking_number'] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
@@ -141,7 +141,7 @@
 
     </main>
 
-    <?php @require_once '../footer.html' ?>
+    <?php @require_once '../inc/footer.html' ?>
     
 </body>
 

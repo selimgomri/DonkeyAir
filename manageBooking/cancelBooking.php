@@ -4,6 +4,6 @@ session_start();
 $id=$_GET['id'];
 $query="DELETE FROM user_flight WHERE booking_number=$id";
 $statement = $pdo->exec($query);
-header('Location: history.php');
+header('Location: ../manageBooking/history.php');
 
 

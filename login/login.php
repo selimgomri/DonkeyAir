@@ -1,9 +1,9 @@
 <?php
 session_start();
-@require_once "connectDB.php";
+@require_once "../connectDB.php";
 
 if (''==($_POST['email'])) {
-    header("Location: ../loginpage.php");
+    header("Location: ../login/loginpage.php");
 } else {
     $email=$_POST['email']; 
     $password=$_POST['password'];
@@ -22,6 +22,6 @@ if (''==($_POST['email'])) {
         $_SESSION['user']=$user[0];
         header("Location: ../index.php");
     } else {
-        header("Location: ../loginpage.php");
+        header("Location: ../login/loginpage.php");
     }
 }
