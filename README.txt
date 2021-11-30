@@ -4,7 +4,7 @@
 3. In the folder DONKEYAIR create a file and name it "connectDB.php"
 4. Open this file and write in it:
 <?php
-define('DSN', 'mysql:host=localhost;dbname=donkeyAirDB');
+define('DSN', 'mysql:host=localhost;dbname=DonkeyAirDB');
 define('USER', 'root');
 define('PASS', '');
 $pdo = new \PDO(DSN, USER, PASS);
