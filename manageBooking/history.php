@@ -166,6 +166,7 @@
                                 }
                                 ?>
                             </div>
+
                             <div class="summaryResults">
                                 <?php
                                 if (!empty($booking[7])) {
@@ -181,6 +182,7 @@
                                 }
                             }
                             ?>
+                            </div>
                         </div>
                     <?php
                     }
@@ -188,7 +190,6 @@
                 </div>
             </div>
         </div>
-
     </main>
 
     <?php @require_once '../inc/footer.html' ?>
